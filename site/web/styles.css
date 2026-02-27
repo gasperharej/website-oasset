@@ -396,17 +396,8 @@ a{ color:inherit; text-decoration:none; }
   .heroGrid{ grid-template-columns: 1fr; }
   .heroVisualWrap{ justify-content:center; }
 
-
-  .hero .brandText{
-    font-size: 60px !important;
-    line-height: 5 !important;   /* da ne dvigne navbarja */
-  }
-
-  .hero .brandLogo{
-    width: 56px !important;
-    height: 46px !important;
-  }
-
+  .brandLogo{ width:29px; }
+  .brandText{ font-size:20px; }
 
 
   .h1{ font-size:22px; line-height:1.2; }
