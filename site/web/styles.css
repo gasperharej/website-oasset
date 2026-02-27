@@ -1,0 +1,448 @@
+/* Hide template top header/nav (Home/About pills) if present */
+header { display:none !important; }
+
+html, body { height: 100%; }
+body { margin: 0; overflow: hidden; font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial; background:#fff; }
+
+:root{
+  --blue1:#0064FE;
+  --blue2:#6176FF;
+  --title:#160637;
+  --muted: rgba(0,0,0,.65);
+
+  --container: 1180px;
+  --r: 24px;
+
+  --shadowCard: -1px 3px 10px rgba(0,0,0,.22);
+  --shadowHero: 0px 1px 4px 2px rgba(0,0,0,.11);
+
+  --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px; --s10:40px; --s12:48px;
+}
+
+a{ color:inherit; text-decoration:none; }
+*{ box-sizing:border-box; }
+.container{ max-width: var(--container); margin:0 auto; padding:0 var(--s4); }
+
+/* Scroll snap “locks” */
+.landing{
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+}
+.landing > section,
+.landing > footer{
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* ===== HERO ===== */
+.hero{
+  color:#fff;
+  background: linear-gradient(81.62deg, var(--blue1) 19%, var(--blue2) 92.35%);
+  padding: 26px 0 0;
+  position: relative;
+  overflow:hidden;
+  min-height: 100vh;
+
+  /* clip-path REMOVED (cut is now in .heroBottom) */
+
+  display:flex;
+  flex-direction:column;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-220px -220px auto -220px;
+  height: 620px;
+  background:
+    radial-gradient(circle at 18% 55%, rgba(0,46,172,.25), transparent 55%),
+    radial-gradient(circle at 34% 55%, rgba(40,164,240,.25), transparent 55%),
+    radial-gradient(circle at 46% 72%, rgba(41,195,36,.25), transparent 55%),
+    radial-gradient(circle at 38% 80%, rgba(0,46,172,.25), transparent 55%);
+  filter: blur(50px);
+  pointer-events:none;
+  z-index: 0;
+}
+
+/* content above the blur */
+.heroInner{ 
+  position:relative; 
+  z-index:1; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.navRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--s6);
+}
+
+/* Brand */
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.brandLogo{ width:56px; height:auto; display:block; }
+.brandText{ font-weight:500; font-size:50px; line-height:1; }
+
+/* (kept for compatibility if you still render brandIcon anywhere) */
+.brandIcon{
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.22);
+  display:flex; align-items:center; justify-content:center;
+}
+
+.navRight{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  font-size: 13px;
+  opacity:.95;
+}
+
+/* language button */
+.langBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font: inherit;
+}
+.langIcon{
+  width:16px; height:16px;
+  background:#fff;           /* swap for an SVG later if you want */
+  border-radius:4px;
+  opacity:.95;
+}
+
+.pillBtn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background:#fff;
+  color:#0053D4;
+  font-weight:600;
+  font-size: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+}
+
+.heroGrid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--s10);
+  align-items:center;
+  padding-top: 46px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.h1{
+  margin:0 0 var(--s4);
+  font-weight:700;
+  font-size: 64px;
+  line-height: 1.12;
+}
+
+.sub{
+  margin:0 0 var(--s6);
+  font-family: Inter, Roboto, system-ui;
+  font-weight:500;
+  font-size: 22px;
+  line-height: 1.35;
+  opacity:.95;
+  max-width: 52ch;
+}
+
+.badges{ display:flex; gap: 10px; flex-wrap:wrap; }
+.storeBadge{ height: 34px; width:auto; }
+
+/* hero visual + overlays */
+.heroVisualWrap{ display:flex; justify-content:flex-end; }
+.heroVisual{ position:relative; width: min(560px, 100%); }
+
+.heroShot{
+  width:100%;
+  height:auto;
+  border-radius: 9px;
+  box-shadow: var(--shadowHero);
+  display:block;
+}
+
+/* hero overlays (scoped so they won't affect section cards) */
+.hero .phoneCard{
+  position:absolute;
+  width: 191px;
+  border-radius: 14px;
+  background:#fff;
+  border: 4px solid #000;
+  box-shadow: -1px 3px 10px rgba(0,0,0,.388235);
+  overflow:hidden;
+}
+.hero .phoneCard img{ width:100%; height:auto; display:block; }
+
+.hero .phoneA{ left: 18%; top: 18%; transform: rotate(-1deg); }
+.hero .phoneB{ left: 46%; top: 26%; transform: rotate( 1deg); }
+
+/* WHITE BOTTOM (takes space) + mirrored diagonal cut */
+.heroBottom{
+  height: 80px;
+  margin-top: auto;
+  background:#fff;
+
+  /* left a bit higher -> down to right corner */
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  padding: 56px 0;
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+}
+.sectionAlt{ background:#F3F6FF; }
+
+.sectionGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s10);
+  align-items:center;
+}
+
+.title{
+  margin:0 0 var(--s6);
+  font-weight:600;
+  font-size: 48px;
+  color: var(--title);
+}
+
+.bullets{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap: 22px;
+}
+.bullets li{ display:flex; gap: 12px; align-items:flex-start; }
+.dot{
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  background: #2E63FF;
+  flex: 0 0 auto;
+}
+.bullets p{
+  margin:0;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--muted);
+}
+
+/* Overlapping screenshot cards (FEATURE SECTIONS ONLY) */
+.cards{ position:relative; min-height: 480px; }
+.cards .phoneCard{
+  position:absolute;
+  width: 266px;
+  border-radius: var(--r);
+  background:#fff;
+  border: 4px solid #fff;
+  box-shadow: var(--shadowCard);
+  overflow:hidden;
+}
+.cards .phoneCard img{ width:100%; height:auto; display:block; }
+.cards .phoneA{ left: 0; top: 70px; transform: rotate(-1deg); }
+.cards .phoneB{ left: 190px; top: 0; transform: rotate(1deg); }
+
+/* Placeholder stack (two white cards) */
+.placeholder{
+  width: 266px;
+  height: 333px;
+  border-radius: var(--r);
+  background:#fff;
+  border: 2px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadowCard);
+}
+.placeStack{ position:relative; min-height: 380px; display:flex; justify-content:flex-end; }
+.placeA{ position:absolute; right: 190px; top: 70px; }
+.placeB{ position:absolute; right: 0; top: 0; }
+
+/* ===== CTA ===== */
+.cta{
+  background: linear-gradient(180deg, rgba(212,229,255,.53) 0%, rgba(105,150,252,.53) 69.45%, rgba(97,118,255,.53) 100%);
+  padding: 56px 0;
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+}
+.ctaGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s10);
+  align-items:center;
+}
+.ctaBtn{
+  display:inline-flex;
+  align-items:center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--blue1);
+  color:#fff;
+  font-weight:600;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+}
+.ctaStack{ position:relative; height: 260px; width: 320px; }
+.ctaCard{
+  position:absolute;
+  width: 260px;
+  height: 200px;
+  border-radius: var(--r);
+  background:#fff;
+  box-shadow: var(--shadowCard);
+}
+.ctaCard.c1{ left: 0; top: 44px; }
+.ctaCard.c2{ left: 18px; top: 26px; }
+.ctaCard.c3{ left: 36px; top: 8px; }
+
+/* ===== FOOTER ===== */
+.footer{
+  color:#fff;
+  background: linear-gradient(86.61deg, var(--blue1) 16.2%, var(--blue2) 95.29%);
+  padding: 44px 0 56px;
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+}
+.footerRow{
+  display:flex;
+  justify-content:space-between;
+  gap: var(--s10);
+  flex-wrap:wrap;
+  align-items:flex-start;
+  width:100%;
+}
+.footerLeft{ font-size: 18px; opacity:.95; }
+.footerRight{ text-align:right; font-size: 18px; opacity:.95; }
+.badgeColumn{ display:flex; flex-direction:column; gap: 12px; margin-top: 18px; }
+.cert{ width: 336px; border-radius: 14px; background:#fff; padding: 10px; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 1100px){
+  /* let the section fill the viewport so we can push visuals to the bottom */
+  .section { align-items: stretch; }
+  .section .container { height: 100%; }
+
+  /* stack text then visual */
+  .sectionGrid{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .colText{ order: 1; }
+  .colVisual{
+    order: 2;
+    margin-top: auto;           /* pushes cards to bottom */
+    width: 100%;
+    display: flex;
+    justify-content: center;    /* centers the cards area */
+  }
+
+  /* center the overlapping phone cards */
+  .cards{
+    width: 320px;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 260px;
+  }
+  .cards .phoneCard{ width: 156px; }
+  .cards .phoneA{ left: 50%; top: 40px; transform: translateX(-60%) rotate(-1deg); }
+  .cards .phoneB{ left: 50%; top: 10px; transform: translateX(-5%)  rotate( 1deg); }
+
+  /* center the placeholder cards the same way */
+  .placeStack{
+    width: 320px;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 220px;
+    justify-content: center;
+  }
+  .placeholder{ width: 156px; height: 196px; }
+  .placeA{ left: 50%; right: auto; top: 40px; transform: translateX(-60%); }
+  .placeB{ left: 50%; right: auto; top: 10px; transform: translateX(-5%); }
+}
+
+@media (max-width: 900px){
+  /* HERO */
+  .hero{
+    background: linear-gradient(28.05deg, var(--blue1) 40.38%, var(--blue2) 93.08%);
+  }
+  .heroGrid{ grid-template-columns: 1fr; }
+  .heroVisualWrap{ justify-content:center; }
+
+  .brandLogo{ width:29px; }
+  .brandText{ font-size:20px; }
+
+  .navRight{ font-size: 12px; }
+
+  .h1{ font-size:22px; line-height:1.2; }
+  .sub{ font-size:15px; line-height:24px; }
+
+  .heroVisual{ width: min(305px, 100%); }
+  .heroShot{ border-radius:7px; }
+
+  .hero .phoneCard{ width: 149px; }
+  .hero .phoneA{ left: 6%;  top: 18%; }
+  .hero .phoneB{ left: 40%; top: 26%; }
+
+  /* smaller bottom on mobile (optional) */
+  .heroBottom{ height: 60px; }
+
+  /* SECTIONS */
+  .sectionGrid{
+    display:flex;
+    flex-direction:column;
+    gap: 20px;
+  }
+  .colText{ order: 1; }
+  .colVisual{ order: 2; }
+
+  .title{ font-size: 22px; }
+  .bullets p{ font-size: 15px; line-height: 1.2; }
+  .dot{ width: 8px; height: 8px; margin-top: 7px; }
+
+  /* keep these for clarity; 1100px block already centers them */
+  .cards{
+    min-height: 260px;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .ctaGrid{ display:flex; flex-direction:column; }
+  .ctaText{ order: 1; }
+  .ctaVisual{ order: 2; }
+  .ctaStack{ width: 260px; height: 180px; }
+  .ctaCard{ width: 200px; height: 140px; }
+
+  .footerRight{ text-align:left; }
+  .cert{ width: 260px; }
+}
