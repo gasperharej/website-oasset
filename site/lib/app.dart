@@ -11,14 +11,7 @@ class App extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    final cssLink = Component.element(
-      tag: 'link',
-      attributes: const {'rel': 'stylesheet', 'href': 'styles.css'},      
-      children: const [],
-    );
-
     return div(classes: 'main', [
-      cssLink,
       const Header(),
       Router(routes: [
         Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
