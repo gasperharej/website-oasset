@@ -27,10 +27,8 @@ void main() {
   runApp(Document(
     title: 'site',
     styles: [
-      // Special import rule to include to another css file.
       css.import('https://fonts.googleapis.com/css?family=Roboto'),
-      // Each style rule takes a valid css selector and a set of styles.
-      // Styles are defined using type-safe css bindings and can be freely chained and nested.
+      css.import('/styles.css'), // <-- DODAJ TO
       css('html, body').styles(
         width: 100.percent,
         minHeight: 100.vh,

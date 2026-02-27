@@ -5,8 +5,6 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
-import 'package:site/components/header.dart' as _header;
-import 'package:site/pages/about.dart' as _about;
 
 /// Default [ServerOptions] for use with your Jaspr project.
 ///
@@ -24,8 +22,5 @@ import 'package:site/pages/about.dart' as _about;
 ///   runApp(...);
 /// }
 /// ```
-ServerOptions get defaultServerOptions => ServerOptions(
-  clientId: 'main.client.dart.js',
-  clients: {_about.About: ClientTarget<_about.About>('about')},
-  styles: () => [..._header.Header.styles, ..._about.About.styles],
-);
+ServerOptions get defaultServerOptions =>
+    ServerOptions(clientId: 'main.client.dart.js');
