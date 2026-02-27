@@ -60,7 +60,13 @@ class Home extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div_(classes: 'landing', children: [
+    return div_(
+      classes: 'landing',
+      attrs: {
+        'onclick':
+            "document.querySelectorAll('.langDrop.open').forEach(function(dd){dd.classList.remove('open');});"
+      },
+      children: [
       const HeroSection(),
 
       const FeatureSection(
@@ -162,11 +168,52 @@ class HeroSection extends StatelessComponent {
             el('span', classes: 'brandText', children: [t('OAsset')]),
           ]),
           div_(classes: 'navRight', children: [
-            el('button', classes: 'langBtn', attrs: {'type': 'button'}, children: [
-              el('span', classes: 'langIcon'),
-              t('Slo'),
+            // top-right: language
+            div_(classes: 'navLangRow', children: [
+              div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
+                el('button', classes: 'langTrigger', attrs: {
+                  'type': 'button',
+                  'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"                }, children: [
+                  el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
+                  el('span', classes: 'langValue', children: [t('En')]),
+                ]),
+                el('div', classes: 'langMenu', children: [
+                  // English (default active)
+                  el('a', classes: 'langItem active', attrs: {
+                    'href': '#',
+                    'onclick': "event.preventDefault(); event.stopPropagation();"
+                        "const dd=this.closest('.langDrop');"
+                        "dd.querySelector('.langValue').textContent='En';"
+                        "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
+                        "this.classList.add('active');"
+                        "dd.classList.remove('open');"
+                  }, children: [
+                    el('span', classes: 'langItemLabel', children: [t('English')]),
+                    el('span', classes: 'langCheck', children: [t('✓')]),
+                  ]),
+
+                  // Slovenščina
+                  el('a', classes: 'langItem', attrs: {
+                    'href': '#',
+                    'onclick': "event.preventDefault(); event.stopPropagation();"
+                        "const dd=this.closest('.langDrop');"
+                        "dd.querySelector('.langValue').textContent='Si';"
+                        "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
+                        "this.classList.add('active');"
+                        "dd.classList.remove('open');"
+                  }, children: [
+                    el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
+                    el('span', classes: 'langCheck', children: [t('✓')]),
+                  ]),
+                ]),
+              ]),
             ]),
-            a_(href: '#get-started', classes: 'pillBtn', children: [t('Get Started')]),
+          
+            // bottom-right: email + sign in pill
+            div_(classes: 'navActionRow', children: [
+              a_(href: 'mailto:info@oasset.app', classes: 'navEmail', children: [t('info@oasset.app')]),
+              a_(href: '/signin', classes: 'signInBtn', children: [t('Sign in')]),
+            ]),
           ]),
         ]),
 

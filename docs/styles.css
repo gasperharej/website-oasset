@@ -28,14 +28,9 @@ a{ color:inherit; text-decoration:none; }
   height: 100vh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y mandatory;
-  overscroll-behavior-y: contain;
+  scroll-snap-type: none;
+  overscroll-behavior-y: auto;
   scroll-behavior: smooth;
-}
-.landing > section,
-.landing > footer{
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 /* ===== HERO ===== */
@@ -401,7 +396,6 @@ a{ color:inherit; text-decoration:none; }
   .brandLogo{ width:29px; }
   .brandText{ font-size:20px; }
 
-  .navRight{ font-size: 12px; }
 
   .h1{ font-size:22px; line-height:1.2; }
   .sub{ font-size:15px; line-height:24px; }
@@ -445,4 +439,387 @@ a{ color:inherit; text-decoration:none; }
 
   .footerRight{ text-align:left; }
   .cert{ width: 260px; }
+}
+
+/* ===== NAVBAR FIGMA OVERRIDE (PASTE AT VERY END) ===== */
+
+/* Keep sections container as-is, only hero gets figma-like gutters */
+.hero .container{
+  max-width: 1920px;
+  padding-left: 190px;
+  padding-right: 195px;
+}
+
+/* Navbar row height like Figma */
+.hero .navRow{
+  min-height: 100px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* Brand sizes like Figma */
+.hero .brandLogo{
+  width:56px !important;
+  height:46px !important;
+  object-fit:contain;
+}
+.hero .brandText{
+  font-weight:500 !important;
+  font-size:50px !important;
+  line-height:85px !important;
+  color:#fff;
+}
+
+/* Right block: 2 lines inside 100px */
+.hero .navRight{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-end !important;
+
+  height: auto !important;          /* ključ: NE zakleni na 100px */
+  justify-content:flex-start !important;
+  gap: 6px !important;              /* ključ: majhen razmik kot Figma */
+
+  padding: 0 !important;
+  opacity: 1 !important;
+}
+
+/* Top line (language) */
+.hero .navLangRow{ display:flex; justify-content:flex-end; }
+.hero .langDrop{ position:relative; }
+
+/* Remove ugly browser button look */
+.hero .langTrigger{
+  appearance:none;
+  -webkit-appearance:none;
+
+  border:0 !important;
+  background:transparent !important;
+  padding:0 !important;
+  margin:0 !important;
+  box-shadow:none !important;
+
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  cursor:pointer !important;
+
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 31px !important;
+  color:#fff !important;
+}
+
+/* Globe icon placeholder */
+.hero .globeIcon{
+  width:16.21px;
+  height:16.21px;
+  display:inline-block;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.95);
+  position: relative;
+  box-sizing: border-box;
+}
+.hero .globeIcon::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:2px;
+  bottom:2px;
+  width:1px;
+  background: rgba(255,255,255,.95);
+  transform: translateX(-50%);
+  opacity:.8;
+}
+
+/* Dropdown menu must be hidden by default (fixes “SloEn” always visible) */
+.hero .langMenu{
+  position:absolute;
+  right:0;
+  top: calc(100% + 6px);
+  min-width: 90px;
+
+  display:none !important;
+  z-index: 999;
+
+  background: rgba(18, 26, 60, .45);
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0px 10px 22px rgba(0,0,0,.22);
+}
+.hero .langDrop.open .langMenu{ display:block !important; }
+
+.hero .langItem{
+  display:block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color:#fff;
+  text-decoration:none;
+
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+.hero .langItem:hover{ background: rgba(255,255,255,.14); }
+
+/* Bottom line: email + Sign in */
+.hero .navActionRow{
+  display:flex !important;
+  align-items:center !important;
+  gap:18px !important;
+}
+
+.hero .navEmail{
+  color:#fff !important;
+  opacity:.95 !important;
+  white-space: nowrap !important;
+
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 31px !important;
+}
+
+/* Figma pill: 168x43 r=22, text 23/31 */
+.hero .signInBtn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  width: 168px !important;
+  height: 43px !important;
+  border-radius: 22px !important;
+
+  background:#fff !important;
+  border: 1px solid #fff !important;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.160784) !important;
+
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
+  font-weight: 500 !important;
+  font-size: 23px !important;
+  line-height: 31px !important;
+  color:#0053D4 !important;
+
+  white-space: nowrap !important;
+}
+
+/* Mobile: only logo + language */
+@media (max-width: 900px){
+  .hero .container{
+    max-width: var(--container);
+    padding-left: var(--s4);
+    padding-right: var(--s4);
+  }
+
+  .hero .brandLogo{ width:29px !important; height:24px !important; }
+  .hero .brandText{ font-size:20px !important; line-height:44px !important; }
+
+  .hero .navRight{ height: 90px !important; }
+  .hero .navActionRow{ display:none !important; }
+}
+
+/* FORCE Sign in pill (paste at the very end) */
+.hero .navActionRow{ display:flex !important; align-items:center !important; gap:18px !important; }
+
+.hero .signInBtn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  width:168px !important;
+  height:43px !important;
+  border-radius:22px !important;
+
+  background:#fff !important;
+  border:1px solid #fff !important;
+  box-shadow:0px 3px 6px rgba(0,0,0,0.160784) !important;
+
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
+  font-weight:500 !important;
+  font-size:23px !important;
+  line-height:31px !important;
+
+  color:#0053D4 !important;
+  white-space:nowrap !important;
+}
+
+/* bottom align whole navbar content like one row */
+.hero .navRow{
+  align-items: flex-end !important;     /* ključ */
+  padding-bottom: 6px !important;      /* po potrebi 0..12 za fine-tune */
+}
+
+/* bottom align logo + OAsset together */
+.hero .brand{
+  align-items: flex-end !important;     /* ključ */
+}
+
+/* make right block sit on the same bottom line */
+.hero .navRight{
+  justify-content: flex-end !important; /* spodaj poravnano */
+  gap: 6px !important;                 /* jezik malo nad email/gumb */
+}
+
+/* Center OAsset text relative to logo */
+.hero .brand{
+  align-items: center !important;   /* ključ */
+  gap: 10px !important;
+}
+
+.hero .brandLogo{
+  width:56px !important;
+  height:46px !important;
+  display:block !important;
+  object-fit:contain !important;
+}
+
+.hero .brandText{
+  line-height: 1 !important;        /* da se ne “raztegne” po 85px in premakne baseline */
+  display:block !important;
+}
+
+.hero .langMenu{
+  min-width: 170px;              /* da gre “Slovenščina” noter */
+}
+
+.hero .langItem{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+}
+
+.hero .langCheck{
+  opacity: 0;                    /* skrito dokler ni active */
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.hero .langItem.active .langCheck{
+  opacity: 1;
+}
+
+/* ===== NAVBAR: one-line row like the screenshot (paste LAST) ===== */
+
+/* whole top row vertically centered */
+.hero .navRow{
+  align-items: center !important;
+  padding-bottom: 0 !important;
+}
+
+/* keep brand nicely centered too */
+.hero .brand{
+  align-items: center !important;
+}
+
+/* IMPORTANT: make right side a single horizontal row */
+.hero .navRight{
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 28px !important;          /* spacing between email/signin/lang */
+  flex-wrap: nowrap !important;
+  height: auto !important;
+}
+
+/* Reorder: your markup is (langRow) then (actionRow),
+   but we want: email+signin THEN language */
+.hero .navActionRow{ order: 1; }
+.hero .navLangRow{ order: 2; }
+
+/* Email + button stay in one line */
+.hero .navActionRow{
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  white-space: nowrap !important;
+}
+
+/* Language stays on the far right */
+.hero .navLangRow{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  white-space: nowrap !important;
+}
+
+/* Mobile stays as you intended: only logo + language */
+@media (max-width: 900px){
+  .hero .navActionRow{ display: none !important; }
+  .hero .navRight{ gap: 0 !important; }
+}
+
+/* ===== NAVBAR: one-line + a bit outside container margins (paste LAST) ===== */
+
+@media (min-width: 901px){
+  /* “bleed” nav row outside the container padding */
+  .hero .navRow{
+    --navBleed: clamp(18px, 2.6vw, 50px); /* koliko gre “ven” */
+    width: calc(100% + (var(--navBleed) * 2)) !important;
+    margin-left: calc(var(--navBleed) * -1) !important;
+    margin-right: calc(var(--navBleed) * -1) !important;
+
+    align-items: center !important;
+  }
+
+  /* keep right side in one horizontal line */
+  .hero .navRight{
+    display:flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 28px !important;
+    flex-wrap: nowrap !important;
+    height: auto !important;
+  }
+
+  /* order: email+button then language */
+  .hero .navActionRow{ order: 1; }
+  .hero .navLangRow{ order: 2; }
+}
+
+@media (max-width: 900px){
+  .hero .navActionRow{ display:none !important; }
+}
+
+/* Prevent layout shift when changing language (fixed width like Figma) */
+@media (min-width: 901px){
+  .hero .navLangRow{
+    width: 74px !important;              /* reserve space */
+    display: flex !important;
+    justify-content: flex-end !important;
+    flex: 0 0 74px !important;
+  }
+
+  .hero .langDrop{ flex: 0 0 auto !important; }
+
+  .hero .langTrigger{
+    width: 74px !important;              /* keep trigger width constant */
+    justify-content: flex-end !important; /* keep text aligned to the right */
+  }
+
+  /* optional: guarantees the 2-letter code never changes width */
+  .hero .langValue{
+    display: inline-block !important;
+    width: 2ch !important;
+    text-align: right !important;
+  }
+
+  /* keep email/button from shrinking (extra safety) */
+  .hero .navEmail,
+  .hero .signInBtn{ flex: 0 0 auto !important; }
+}
+
+/* Same spacing: email ↔ sign in ↔ globe */
+@media (min-width: 901px){
+  .hero{ --navGap: 38px; }           /* tukaj samo spremeni številko */
+
+  .hero .navRight{ gap: var(--navGap) !important; }
+  .hero .navActionRow{ gap: var(--navGap) !important; }
 }
