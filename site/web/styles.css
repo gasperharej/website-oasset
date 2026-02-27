@@ -164,7 +164,10 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .badges{ display:flex; gap: 10px; flex-wrap:wrap; }
-.storeBadge{ height: 34px; width:auto; }
+.hero .storeBadge{
+  height: clamp(34px, 3.2vw, 52px);  /* max povečaj po želji */
+  width: auto;
+}
 
 /* hero visual + overlays */
 .heroVisualWrap{ display:flex; justify-content:flex-end; }
@@ -393,8 +396,17 @@ a{ color:inherit; text-decoration:none; }
   .heroGrid{ grid-template-columns: 1fr; }
   .heroVisualWrap{ justify-content:center; }
 
-  .brandLogo{ width:29px; }
-  .brandText{ font-size:20px; }
+
+  .hero .brandText{
+    font-size: 60px !important;
+    line-height: 5 !important;   /* da ne dvigne navbarja */
+  }
+
+  .hero .brandLogo{
+    width: 56px !important;
+    height: 46px !important;
+  }
+
 
 
   .h1{ font-size:22px; line-height:1.2; }
@@ -513,26 +525,17 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* Globe icon placeholder */
+/* Replace the placeholder circle with a real icon */
 .hero .globeIcon{
   width:16.21px;
   height:16.21px;
   display:inline-block;
-  border-radius: 999px;
-  border: 2px solid rgba(255,255,255,.95);
-  position: relative;
-  box-sizing: border-box;
+  border:0 !important;
+  border-radius:0 !important;
+  background: url("images/globe.svg") no-repeat center / contain;
 }
-.hero .globeIcon::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:2px;
-  bottom:2px;
-  width:1px;
-  background: rgba(255,255,255,.95);
-  transform: translateX(-50%);
-  opacity:.8;
-}
+.hero .globeIcon::before{ content:none !important; } /* odstrani tisto črto */
+
 
 /* Dropdown menu must be hidden by default (fixes “SloEn” always visible) */
 .hero .langMenu{

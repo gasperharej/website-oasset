@@ -197,7 +197,7 @@ class HeroSection extends StatelessComponent {
                     'href': '#',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='Si';"
+                        "dd.querySelector('.langValue').textContent='Slo';"
                         "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
                         "this.classList.add('active');"
                         "dd.classList.remove('open');"
