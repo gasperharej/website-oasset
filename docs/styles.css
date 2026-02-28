@@ -648,3 +648,87 @@ a{ color:inherit; text-decoration:none; }
   .hero .navEmail,
   .hero .signInBtn{ flex: 0 0 auto !important; }
 }
+/* =========================
+   HOVER LIFT (PRODUCTION)
+   - store badges lift without blue edge
+   ========================= */
+
+/* 1) Elements that lift */
+.hero .signInBtn,
+.hero .ctaBtn,
+.hero .pillBtn,
+.hero .langTrigger,
+.hero .navEmail,
+.hero .brandBtn{
+  display: inline-flex; /* consistent transform behavior */
+  align-items: center;
+  transition: transform .18s ease;
+  will-change: transform;
+}
+
+/* navEmail is text-only, so inline-block is enough */
+.hero .navEmail{ display: inline-block; }
+
+/* lift on hover */
+.hero .signInBtn:hover,
+.hero .ctaBtn:hover,
+.hero .pillBtn:hover,
+.hero .langTrigger:hover,
+.hero .navEmail:hover,
+.hero .brandBtn:hover{
+  transform: translateY(-2px);
+}
+
+/* 2) Store badges: lift the IMAGE, not the wrapper (prevents blue edge) */
+.hero .badges a{
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;   /* important */
+  line-height: 0;
+  text-decoration: none;
+}
+
+.hero .storeBadge{
+  display: block;
+  transition: transform .18s ease;
+  will-change: transform;
+}
+
+.hero .badges a:hover .storeBadge{
+  transform: translateY(-2px);
+}
+
+/* 3) Brand button: clickable but looks exactly like before (no added edge) */
+.hero .brandBtn{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 4) Optional: focus ring (keyboard accessibility) */
+.hero .signInBtn:focus-visible,
+.hero .ctaBtn:focus-visible,
+.hero .pillBtn:focus-visible,
+.hero .langTrigger:focus-visible,
+.hero .navEmail:focus-visible,
+.hero .brandBtn:focus-visible,
+.hero .badges a:focus-visible{
+  outline: 2px solid rgba(255,255,255,.85);
+  outline-offset: 3px;
+}
+
+.ctaBtn{
+  transition: transform .18s ease;
+  will-change: transform;
+}
+.ctaBtn:hover{
+  transform: translateY(-2px);
+}

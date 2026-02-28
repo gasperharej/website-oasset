@@ -163,10 +163,14 @@ class HeroSection extends StatelessComponent {
       div_(classes: 'container heroInner', children: [
         // Top nav row
         div_(classes: 'navRow', children: [
-          div_(classes: 'brand', children: [
-            img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
-            el('span', classes: 'brandText', children: [t('OAsset')]),
-          ]),
+          a_(
+            href: '/',
+            classes: 'brand brandBtn',
+            children: [
+              img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
+              el('span', classes: 'brandText', children: [t('OAsset')]),
+            ],
+          ),
           div_(classes: 'navRight', children: [
             // top-right: language
             div_(classes: 'navLangRow', children: [
