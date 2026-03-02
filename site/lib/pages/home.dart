@@ -187,7 +187,7 @@ class HeroSection extends StatelessComponent {
                     'href': '#',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='EN';"
+                        "dd.querySelector('.langValue').textContent='En';"
                         "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
                         "this.classList.add('active');"
                         "dd.classList.remove('open');"
@@ -201,7 +201,7 @@ class HeroSection extends StatelessComponent {
                     'href': '#',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='SL';"
+                        "dd.querySelector('.langValue').textContent='Sl';"
                         "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
                         "this.classList.add('active');"
                         "dd.classList.remove('open');"
