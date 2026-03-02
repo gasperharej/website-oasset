@@ -215,7 +215,31 @@ class HeroSection extends StatelessComponent {
           
             // bottom-right: email + sign in pill
             div_(classes: 'navActionRow', children: [
-              a_(href: 'mailto:info@oasset.app', classes: 'navEmail', children: [t('info@oasset.app')]),
+              el('a', classes: 'navEmail', attrs: {
+                'href': '#',
+                'onclick':
+                    "event.preventDefault();"
+                    "const showToast=function(){"
+                    "let toast=document.getElementById('copy-toast');"
+                    "if(!toast){"
+                    "toast=document.createElement('div');"
+                    "toast.id='copy-toast';"
+                    "toast.className='copyToast';"
+                    "toast.innerHTML='<span class=\"copyToastIcon\">✓</span><span>Email Copied to Clipboard!</span>';"
+                    "toast.onclick=function(){"
+                    "toast.classList.remove('show');"
+                    "clearTimeout(window.__copyToastTimer);"
+                    "};"
+                    "document.body.appendChild(toast);"
+                    "}"
+                    "toast.classList.add('show');"
+                    "clearTimeout(window.__copyToastTimer);"
+                    "window.__copyToastTimer=setTimeout(function(){toast.classList.remove('show');},2500);"
+                    "};"
+                    "if(navigator.clipboard&&navigator.clipboard.writeText){"
+                    "navigator.clipboard.writeText('info@oasset.app').then(showToast).catch(showToast);"
+                    "}else{showToast();}"
+              }, children: [t('info@oasset.app')]),
               a_(href: '/signin', classes: 'signInBtn', children: [t('Sign in')]),
             ]),
           ]),
