@@ -67,6 +67,7 @@ class Home extends StatelessComponent {
             "document.querySelectorAll('.langDrop.open').forEach(function(dd){dd.classList.remove('open');});"
       },
       children: [
+      const StickyTopBar(),
       const HeroSection(),
 
       const FeatureSection(
@@ -153,6 +154,94 @@ class Home extends StatelessComponent {
 }
 
 /* ========= Components ========= */
+/// Hidden by default; becomes visible once you scroll past the hero.
+/// (JS toggles `.isShown` on `#stickyBar`)
+class StickyTopBar extends StatelessComponent {
+  const StickyTopBar({super.key});
+
+  @override
+  Component build(BuildContext context) {
+    return div_(id: 'stickyBar', classes: 'stickyBar', children: [
+      div_(classes: 'container', children: [
+        div_(classes: 'stickyRow', children: [
+          el('a', classes: 'brand brandBtn', attrs: {
+            'href': '/',
+            'onclick':
+                "event.preventDefault();"
+                "window.history.scrollRestoration='manual';"
+                "window.scrollTo({top:0,behavior:'instant'});"
+                "if(window.location.pathname!=='/'){window.location.href='/';return;}"
+                "window.location.reload();",
+          }, children: [
+            img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
+            el('span', classes: 'brandText', children: [t('OAsset')]),
+          ]),
+          div_(classes: 'stickyRight', children: [
+            div_(classes: 'stickyActionRow', children: [
+              el('a', classes: 'stickyEmail', attrs: {
+                'href': '#',
+                'onclick':
+                    "event.preventDefault();"
+                    "const showToast=function(){"
+                    "let toast=document.getElementById('copy-toast');"
+                    "if(!toast){"
+                    "toast=document.createElement('div');"
+                    "toast.id='copy-toast';"
+                    "toast.className='copyToast';"
+                    "toast.innerHTML='<span class=\"copyToastIcon\">✓</span><span>Email Copied to Clipboard!</span>';"
+                    "toast.onclick=function(){"
+                    "toast.classList.remove('show');"
+                    "clearTimeout(window.__copyToastTimer);"
+                    "};"
+                    "document.body.appendChild(toast);"
+                    "}"
+                    "toast.classList.add('show');"
+                    "clearTimeout(window.__copyToastTimer);"
+                    "window.__copyToastTimer=setTimeout(function(){toast.classList.remove('show');},2500);"
+                    "};"
+                    "if(navigator.clipboard&&navigator.clipboard.writeText){"
+                    "navigator.clipboard.writeText('info@oasset.app').then(showToast).catch(showToast);"
+                    "}else{showToast();}"
+              }, children: [t('info@oasset.app')]),
+              a_(href: '/signin', classes: 'stickyCta', children: [t('Sign in')]),
+            ]),
+            div_(classes: 'stickyLangRow', children: [
+              div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
+                el('a', classes: 'langTrigger', attrs: {
+                  'href': '#',
+                  'onclick': "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
+                }, children: [
+                  el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
+                  el('span', classes: 'langValue', children: [t('En')]),
+                ]),
+                el('div', classes: 'langMenu', children: [
+                  el('a', classes: 'langItem active', attrs: {
+                    'href': '#',
+                    'data-lang': 'En',
+                    'onclick': "event.preventDefault(); event.stopPropagation();"
+                        "window.__setLang&&window.__setLang('En');"
+                  }, children: [
+                    el('span', classes: 'langItemLabel', children: [t('English')]),
+                    el('span', classes: 'langCheck', children: [t('✓')]),
+                  ]),
+                  el('a', classes: 'langItem', attrs: {
+                    'href': '#',
+                    'data-lang': 'Sl',
+                    'onclick': "event.preventDefault(); event.stopPropagation();"
+                        "window.__setLang&&window.__setLang('Sl');"
+                  }, children: [
+                    el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
+                    el('span', classes: 'langCheck', children: [t('✓')]),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]);
+  }
+}
 
 class HeroSection extends StatelessComponent {
   const HeroSection({super.key});
@@ -163,34 +252,36 @@ class HeroSection extends StatelessComponent {
       div_(classes: 'container heroInner', children: [
         // Top nav row
         div_(classes: 'navRow', children: [
-          a_(
-            href: '/',
-            classes: 'brand brandBtn',
-            children: [
-              img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
-              el('span', classes: 'brandText', children: [t('OAsset')]),
-            ],
-          ),
+          el('a', classes: 'brand brandBtn', attrs: {
+            'href': '/',
+            'onclick':
+                "event.preventDefault();"
+                "window.history.scrollRestoration='manual';"
+                "window.scrollTo({top:0,behavior:'instant'});"
+                "if(window.location.pathname!=='/'){window.location.href='/';return;}"
+                "window.location.reload();",
+          }, children: [
+            img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
+            el('span', classes: 'brandText', children: [t('OAsset')]),
+          ]),
           div_(classes: 'navRight', children: [
             // top-right: language
             div_(classes: 'navLangRow', children: [
               div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
-                el('button', classes: 'langTrigger', attrs: {
-                  'type': 'button',
-                  'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"                }, children: [
+                el('a', classes: 'langTrigger', attrs: {
+                  'href': '#',
+                  'onclick': "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
+                }, children: [
                   el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
-                  el('span', classes: 'langValue', children: [t('EN')]),
+                  el('span', classes: 'langValue', children: [t('En')]),
                 ]),
                 el('div', classes: 'langMenu', children: [
                   // English (default active)
                   el('a', classes: 'langItem active', attrs: {
                     'href': '#',
+                    'data-lang': 'En',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
-                        "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='En';"
-                        "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
-                        "this.classList.add('active');"
-                        "dd.classList.remove('open');"
+                        "window.__setLang&&window.__setLang('En');"
                   }, children: [
                     el('span', classes: 'langItemLabel', children: [t('English')]),
                     el('span', classes: 'langCheck', children: [t('✓')]),
@@ -199,12 +290,9 @@ class HeroSection extends StatelessComponent {
                   // Slovenščina
                   el('a', classes: 'langItem', attrs: {
                     'href': '#',
+                    'data-lang': 'Sl',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
-                        "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='Sl';"
-                        "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
-                        "this.classList.add('active');"
-                        "dd.classList.remove('open');"
+                        "window.__setLang&&window.__setLang('Sl');"
                   }, children: [
                     el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
                     el('span', classes: 'langCheck', children: [t('✓')]),

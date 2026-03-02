@@ -15,20 +15,13 @@ import 'app.dart';
 import 'main.server.options.dart';
 
 void main() {
-  // Initializes the server environment with the generated default options.
-  Jaspr.initializeApp(
-    options: defaultServerOptions,
-  );
+  Jaspr.initializeApp(options: defaultServerOptions);
 
-  // Starts the app.
-  //
-  // [Document] renders the root document structure (<html>, <head> and <body>)
-  // with the provided parameters and components.
   runApp(Document(
-    title: 'site',
+    title: 'OAsset',
     styles: [
       css.import('https://fonts.googleapis.com/css?family=Roboto'),
-      css.import('/styles.css'), // <-- DODAJ TO
+      css.import('styles.css'), // no leading "/"
       css('html, body').styles(
         width: 100.percent,
         minHeight: 100.vh,
@@ -39,6 +32,12 @@ void main() {
       css('h1').styles(
         margin: .unset,
         fontSize: 4.rem,
+      ),
+    ],
+    head: [
+      Component.element(
+        tag: 'script',
+        attributes: {'src': 'sticky-topbar.js', 'defer': ''},
       ),
     ],
     body: App(),
