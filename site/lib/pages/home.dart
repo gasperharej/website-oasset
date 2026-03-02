@@ -20,6 +20,9 @@ Component el(
 
 Component t(String s) => Component.text(s);
 
+Component i18n(String key, String fallback) =>
+    el('span', attrs: {'data-i18n': key}, children: [t(fallback)]);
+
 Component div_({String? id, String? classes, String? style, Map<String, String>? attrs, List<Component> children = const []}) =>
     el('div', id: id, classes: classes, style: style, attrs: attrs, children: children);
 
@@ -181,30 +184,10 @@ class StickyTopBar extends StatelessComponent {
             div_(classes: 'stickyActionRow', children: [
               el('a', classes: 'stickyEmail', attrs: {
                 'href': '#',
-                'onclick':
-                    "event.preventDefault();"
-                    "const showToast=function(){"
-                    "let toast=document.getElementById('copy-toast');"
-                    "if(!toast){"
-                    "toast=document.createElement('div');"
-                    "toast.id='copy-toast';"
-                    "toast.className='copyToast';"
-                    "toast.innerHTML='<span class=\"copyToastIcon\">✓</span><span>Email Copied to Clipboard!</span>';"
-                    "toast.onclick=function(){"
-                    "toast.classList.remove('show');"
-                    "clearTimeout(window.__copyToastTimer);"
-                    "};"
-                    "document.body.appendChild(toast);"
-                    "}"
-                    "toast.classList.add('show');"
-                    "clearTimeout(window.__copyToastTimer);"
-                    "window.__copyToastTimer=setTimeout(function(){toast.classList.remove('show');},2500);"
-                    "};"
-                    "if(navigator.clipboard&&navigator.clipboard.writeText){"
-                    "navigator.clipboard.writeText('info@oasset.app').then(showToast).catch(showToast);"
-                    "}else{showToast();}"
+                'data-copy': 'info@oasset.app',
+                'data-toast-key': 'toast.email_copied',
               }, children: [t('info@oasset.app')]),
-              a_(href: '/signin', classes: 'stickyCta', children: [t('Sign in')]),
+              a_(href: '/signin', classes: 'stickyCta', children: [i18n('nav.sign_in', 'Sign in')]),
             ]),
             div_(classes: 'stickyLangRow', children: [
               div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
@@ -305,28 +288,8 @@ class HeroSection extends StatelessComponent {
             div_(classes: 'navActionRow', children: [
               el('a', classes: 'navEmail', attrs: {
                 'href': '#',
-                'onclick':
-                    "event.preventDefault();"
-                    "const showToast=function(){"
-                    "let toast=document.getElementById('copy-toast');"
-                    "if(!toast){"
-                    "toast=document.createElement('div');"
-                    "toast.id='copy-toast';"
-                    "toast.className='copyToast';"
-                    "toast.innerHTML='<span class=\"copyToastIcon\">✓</span><span>Email Copied to Clipboard!</span>';"
-                    "toast.onclick=function(){"
-                    "toast.classList.remove('show');"
-                    "clearTimeout(window.__copyToastTimer);"
-                    "};"
-                    "document.body.appendChild(toast);"
-                    "}"
-                    "toast.classList.add('show');"
-                    "clearTimeout(window.__copyToastTimer);"
-                    "window.__copyToastTimer=setTimeout(function(){toast.classList.remove('show');},2500);"
-                    "};"
-                    "if(navigator.clipboard&&navigator.clipboard.writeText){"
-                    "navigator.clipboard.writeText('info@oasset.app').then(showToast).catch(showToast);"
-                    "}else{showToast();}"
+                'data-copy': 'info@oasset.app',
+                'data-toast-key': 'toast.email_copied',
               }, children: [t('info@oasset.app')]),
               a_(href: '/signin', classes: 'signInBtn', children: [t('Sign in')]),
             ]),

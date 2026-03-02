@@ -39,6 +39,10 @@ void main() {
         tag: 'script',
         attributes: {'src': 'sticky-topbar.js', 'defer': ''},
       ),
+      Component.element(
+        tag: 'script',
+        attributes: {'src': 'copy_toast.js', 'defer': ''},
+      ),
     ],
     body: App(),
   ));
