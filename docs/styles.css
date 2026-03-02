@@ -794,6 +794,7 @@ a{ color:inherit; text-decoration:none; }
 
   .hero .brandLogo{ width: clamp(40px, 7vw, 64px) !important; height:auto !important; }
   .hero .brandText{ font-size: clamp(30px, 5.2vw, 48px) !important; line-height:1 !important; }
+  .hero .langValue{ font-size: 16px !important; }
 
   .h1{ font-size: clamp(30px, 6.4vw, 56px); line-height: 1.10; margin-bottom: 12px; }
   .sub{ font-size: clamp(16px, 3.8vw, 22px); line-height: 1.45; margin-bottom: 16px; max-width: 44ch; }
@@ -1058,9 +1059,21 @@ a{ color:inherit; text-decoration:none; }
   }
   
   @media (max-width: 1024px){
-    .stickyBar{ height: 72px; }
-    .stickyBar{ margin-bottom: -72px; }
+    .stickyBar{ height: clamp(72px, 9vw, 92px); }
+    .stickyBar{ margin-bottom: calc(clamp(72px, 9vw, 92px) * -1); }
+    .stickyBar .container{
+      max-width: var(--container) !important;
+      padding-left: clamp(20px, 5vw, 36px) !important;
+      padding-right: clamp(26px, 6vw, 48px) !important;
+    }
+    .stickyRow{
+      min-height: clamp(72px, 9vw, 92px) !important;
+      height: auto !important;
+    }
+    .stickyLangRow,
+    .stickyEmail{ display: none !important; }
+    .stickyActionRow{ gap: 0 !important; }
     .stickyCta{ width: auto; padding: 0 14px; height: 38px; font-size: 16px; }
-    .stickyBar .brandLogo{ width: 29px; }
-    .stickyBar .brandText{ font-size: 20px; }
+    .stickyBar .brandLogo{ width: clamp(40px, 7vw, 64px); height: auto; }
+    .stickyBar .brandText{ font-size: clamp(30px, 5.2vw, 48px); line-height: 1; }
   }

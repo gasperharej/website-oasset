@@ -341,8 +341,8 @@ class HeroSection extends StatelessComponent {
               t('Utilize our app to make maintenance easier, more efficient and lower its costs')
             ]),
             div_(classes: 'badges', children: [
-              a_(href: '#', children: [img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')]),
-              a_(href: '#', children: [img_(src: ImgPath.badgeApp, alt: 'App Store', classes: 'storeBadge')]),
+              a_(href: 'https://play.google.com/store/', children: [img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')]),
+              a_(href: 'https://www.apple.com/app-store/', children: [img_(src: ImgPath.badgeApp, alt: 'App Store', classes: 'storeBadge')]),
             ]),
           ]),
 

@@ -6168,9 +6168,9 @@ g=A.l(q,A.a([j,A.l(q,A.a([i,A.l(q,A.a([h,A.m(r,A.G(["href","/signin"],l,l),g,"si
 h=A.m("h1",q,A.a([new A.r("Systematic maintenance app",q)],k),"h1",q,q)
 i=A.m("p",q,A.a([new A.r("Utilize our app to make maintenance easier, more efficient and lower its costs",q)],k),"sub",q,q)
 j=A.a([A.ai("Google Play",m,"images/play_badge.svg",q)],k)
-j=A.m(r,A.G(["href","#"],l,l),j,q,q,q)
+j=A.m(r,A.G(["href","https://play.google.com/store/"],l,l),j,q,q,q)
 s=A.a([A.ai("App Store",m,"images/app_badge.svg",q)],k)
-return A.m("section",q,A.a([A.l(q,A.a([g,A.l(q,A.a([A.l(q,A.a([h,i,A.l(q,A.a([j,A.m(r,A.G(["href","#"],l,l),s,q,q,q)],k),"badges",q,q)],k),"heroText",q,q),A.l(q,A.a([A.l(q,A.a([A.ai("Hero screenshot","heroShot","images/hero_shot.png",q),A.l(q,A.a([A.ai("App screen 1",q,"images/hero_phone_1.png",q)],k),"phoneCard phoneA",q,q),A.l(q,A.a([A.ai("App screen 2",q,"images/hero_phone_2.png",q)],k),"phoneCard phoneB",q,q)],k),"heroVisual",q,q)],k),"heroVisualWrap",q,q)],k),"heroGrid",q,q)],k),"container heroInner",q,q),A.l(q,B.f,"heroBottom",q,q)],k),"hero",q,q)}}
+return A.m("section",q,A.a([A.l(q,A.a([g,A.l(q,A.a([A.l(q,A.a([h,i,A.l(q,A.a([j,A.m(r,A.G(["href","https://www.apple.com/app-store/"],l,l),s,q,q,q)],k),"badges",q,q)],k),"heroText",q,q),A.l(q,A.a([A.l(q,A.a([A.ai("Hero screenshot","heroShot","images/hero_shot.png",q),A.l(q,A.a([A.ai("App screen 1",q,"images/hero_phone_1.png",q)],k),"phoneCard phoneA",q,q),A.l(q,A.a([A.ai("App screen 2",q,"images/hero_phone_2.png",q)],k),"phoneCard phoneB",q,q)],k),"heroVisual",q,q)],k),"heroVisualWrap",q,q)],k),"heroGrid",q,q)],k),"container heroInner",q,q),A.l(q,B.f,"heroBottom",q,q)],k),"hero",q,q)}}
 A.aD.prototype={
 C(a){var s,r,q,p,o,n,m,l=this,k=null,j=t.i,i=A.m("h2",k,A.a([new A.r(l.d,k)],j),"title",k,k),h=A.a([],j)
 for(s=l.r,r=s.length,q=0;q<r;++q){p=s[q]
