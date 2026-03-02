@@ -85,7 +85,7 @@ a{ color:inherit; text-decoration:none; }
   align-items:center;
   gap: 10px;
 }
-.brandLogo{ width:56px; height:auto; display:block; }
+.brandLogo{ width:auto; height:50px; display:block; }
 .brandText{ font-weight:500; font-size:50px; line-height:1; }
 
 /* (kept for compatibility if you still render brandIcon anywhere) */
@@ -460,8 +460,8 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .hero .brandLogo{
-  width: 56px !important;
-  height: 46px !important;
+  width: auto !important;
+  height: 50px !important;
   display: block !important;
   object-fit: contain !important;
 }
@@ -619,7 +619,7 @@ a{ color:inherit; text-decoration:none; }
     padding-right: var(--s4);
   }
 
-  .hero .brandLogo{ width: 29px !important; height: 24px !important; }
+  .hero .brandLogo{ width: auto !important; height: clamp(24px, 5vw, 46px) !important; }
   .hero .brandText{ font-size: 20px !important; line-height: 44px !important; }
   .hero .navRight{ height: 90px !important; }
   .hero .navActionRow{ display: none !important; }
@@ -792,7 +792,7 @@ a{ color:inherit; text-decoration:none; }
   .hero .navRow{ min-height: clamp(72px, 9vw, 92px) !important; }
   .hero .navRight{ height: auto !important; }
 
-  .hero .brandLogo{ width: clamp(40px, 7vw, 64px) !important; height:auto !important; }
+  .hero .brandLogo{ width: auto !important; height: clamp(24px, 5vw, 46px) !important; }
   .hero .brandText{ font-size: clamp(30px, 5.2vw, 48px) !important; line-height:1 !important; }
   .hero .langValue{ font-size: 16px !important; }
 
@@ -1074,6 +1074,6 @@ a{ color:inherit; text-decoration:none; }
     .stickyEmail{ display: none !important; }
     .stickyActionRow{ gap: 0 !important; }
     .stickyCta{ width: auto; padding: 0 14px; height: 38px; font-size: 16px; }
-    .stickyBar .brandLogo{ width: clamp(40px, 7vw, 64px); height: auto; }
+    .stickyBar .brandLogo{ width: auto; height: clamp(24px, 5vw, 46px); }
     .stickyBar .brandText{ font-size: clamp(30px, 5.2vw, 48px); line-height: 1; }
   }

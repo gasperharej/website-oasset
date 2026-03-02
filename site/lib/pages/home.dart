@@ -41,6 +41,8 @@ Component img_({required String src, required String alt, String? classes, Strin
 
 class ImgPath {
   static const logo = 'images/only_logo.svg';
+  static const logoWhite = 'images/logo_white.svg';
+  static const logoBlack = 'images/logo_black.svg';
   static const hero = 'images/hero_shot.png';
   static const badgePlay = 'images/play_badge.svg';
   static const badgeApp = 'images/app_badge.svg';
@@ -173,8 +175,7 @@ class StickyTopBar extends StatelessComponent {
                 "if(window.location.pathname!=='/'){window.location.href='/';return;}"
                 "window.location.reload();",
           }, children: [
-            img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
-            el('span', classes: 'brandText', children: [t('OAsset')]),
+            img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
           div_(classes: 'stickyRight', children: [
             div_(classes: 'stickyActionRow', children: [
@@ -261,8 +262,7 @@ class HeroSection extends StatelessComponent {
                 "if(window.location.pathname!=='/'){window.location.href='/';return;}"
                 "window.location.reload();",
           }, children: [
-            img_(src: ImgPath.logo, alt: 'OAsset', classes: 'brandLogo'),
-            el('span', classes: 'brandText', children: [t('OAsset')]),
+            img_(src: ImgPath.logoWhite, alt: 'OAsset', classes: 'brandLogo'),
           ]),
           div_(classes: 'navRight', children: [
             // top-right: language
