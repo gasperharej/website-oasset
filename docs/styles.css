@@ -382,7 +382,7 @@ a{ color:inherit; text-decoration:none; }
   .placeB{ left: 50%; right: auto; top: 10px; transform: translateX(-5%); }
 }
 
-@media (max-width: 900px){
+@media (max-width: 1024px){
   /* HERO */
   .hero{
     background: linear-gradient(28.05deg, var(--blue1) 40.38%, var(--blue2) 93.08%);
@@ -441,8 +441,9 @@ a{ color:inherit; text-decoration:none; }
 /* ===== HERO NAVBAR (consolidated) ===== */
 .hero .container{
   max-width: 1920px;
-  padding-left: 190px;
-  padding-right: 195px;
+  /* keep wide-desktop look, but don’t crush layout on smaller desktops */
+  padding-left: clamp(var(--s4), 10vw, 190px);
+  padding-right: clamp(var(--s4), 10vw, 195px);
 }
 
 .hero .navRow{
@@ -600,7 +601,7 @@ a{ color:inherit; text-decoration:none; }
 }
 .hero .langItem.active .langCheck{ opacity: 1; }
 
-@media (max-width: 900px){
+@media (max-width: 1024px){
   .hero .container{
     max-width: var(--container);
     padding-left: var(--s4);
@@ -614,7 +615,7 @@ a{ color:inherit; text-decoration:none; }
   .hero .navRight{ gap: 0 !important; }
 }
 
-@media (min-width: 901px){
+@media (min-width: 1025px){
   .hero{ --navGap: 38px; }
 
   .hero .navRow{
@@ -779,4 +780,132 @@ a{ color:inherit; text-decoration:none; }
     width: calc(100vw - 20px);
     font-size: 16px;
   }
+}
+
+/* ===== HERO MOBILE (consolidated, behavior-preserving) ===== */
+@media (max-width: 1024px){
+  .hero{ min-height: 100svh !important; padding-top: 14px; }
+  .heroInner{ flex: 1 1 auto; display:flex; flex-direction:column; }
+
+  .hero .container{
+    max-width: var(--container);
+    padding-left: clamp(20px, 5vw, 36px) !important;
+    padding-right: clamp(26px, 6vw, 48px) !important;
+  }
+
+  .hero .navRow{ min-height: 78px !important; }
+  .hero .navRight{ height: auto !important; }
+  .hero .brandLogo{ width: clamp(36px, 9vw, 56px) !important; height: auto !important; }
+  .hero .brandText{ font-size: clamp(28px, 7vw, 44px) !important; line-height: 1 !important; }
+
+  .h1{ font-size: clamp(28px, 7.2vw, 44px); line-height: 1.12; margin-bottom: 14px; }
+  .sub{ font-size: clamp(15px, 4.2vw, 20px); line-height: 1.45; margin-bottom: 18px; max-width: 42ch; }
+  .badges{ gap: 14px; }
+  .hero .storeBadge{ height: clamp(46px, 12.5vw, 64px); }
+
+  .heroGrid{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: clamp(18px, 4svh, 54px);
+    padding-bottom: clamp(10px, 2svh, 26px);
+    gap: 18px;
+  }
+  .heroText{ width:100%; }
+
+  .heroVisualWrap{ width:100%; justify-content:center; }
+  .heroVisual{ width: min(540px, 100%); padding-bottom: clamp(120px, 32vw, 185px); }
+  .hero .phoneCard{ width: clamp(140px, 40vw, 210px); border-width: 3px; }
+  .hero .phoneA{ left: 8%; top: 16%; }
+  .hero .phoneB{ left: 44%; top: 24%; }
+
+  .heroBottom{ height: 36px !important; display:block; }
+}
+
+/* very short screens: tighten spacing */
+@media (max-width: 1024px) and (max-height: 720px){
+  .heroGrid{ padding-top: 18px; padding-bottom: 14px; gap: 14px; }
+  .heroVisual{ width: min(500px, 100%); padding-bottom: clamp(110px, 30vw, 170px); }
+  .hero .phoneCard{ width: clamp(130px, 38vw, 195px); }
+  .hero .storeBadge{ height: clamp(42px, 12vw, 58px); }
+  .heroBottom{ height: 36px !important; }
+}
+
+/*good*/
+
+/* ===== HERO MOBILE (consolidated) ===== */
+@media (max-width: 1024px){
+  .hero{ min-height: 100svh !important; padding-top: 10px; }
+  .heroInner{ flex: 1 1 auto; display:flex; flex-direction:column; }
+
+  /* keep logo/lang spacing semantics */
+  .hero .container{
+    max-width: var(--container);
+    padding-left: clamp(20px, 5vw, 36px) !important;
+    padding-right: clamp(26px, 6vw, 48px) !important;
+  }
+
+  .hero .navRow{ min-height: clamp(72px, 9vw, 92px) !important; }
+  .hero .navRight{ height: auto !important; }
+
+  .hero .brandLogo{ width: clamp(40px, 7vw, 64px) !important; height:auto !important; }
+  .hero .brandText{ font-size: clamp(30px, 5.2vw, 48px) !important; line-height:1 !important; }
+
+  .h1{ font-size: clamp(30px, 6.4vw, 56px); line-height: 1.10; margin-bottom: 12px; }
+  .sub{ font-size: clamp(16px, 3.8vw, 22px); line-height: 1.45; margin-bottom: 16px; max-width: 44ch; }
+
+  .badges{ gap: 14px; }
+  .hero .storeBadge{ height: clamp(48px, 7vw, 72px); }
+
+  /* key change: keep top+bottom breathing room and prevent “text top / image bottom” clamping */
+  .heroGrid{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;                 /* prevents growing gap */
+    flex: 1 1 auto;
+    margin: 0 !important;
+
+    padding-top: clamp(18px, 3.5svh, 46px);
+    padding-bottom: clamp(18px, 3.2svh, 42px);
+    gap: clamp(14px, 2.4svh, 22px);
+  }
+
+  .heroText{ width:100%; }
+
+  .heroVisualWrap{ width:100%; justify-content:center; }
+
+  /* bigger on wider screens, but controlled + less “empty” inside the visual */
+  .heroVisual{
+    width: min(clamp(520px, 86vw, 800px), 100%);
+    padding-bottom: clamp(120px, 22vw, 190px);   /* reduces dead bottom space */
+  }
+
+  .hero .phoneCard{ width: clamp(155px, 34vw, 290px); border-width: 3px; }
+
+  /* pull the phones up a bit so the visual doesn’t sit too low */
+  .hero .phoneA{ left: 8%; top: 9%; }
+  .hero .phoneB{ left: 44%; top: 15%; }
+
+  .heroBottom{ height: 36px !important; display:block; }
+}
+
+/* very short screens: tighten, keep everything visible */
+@media (max-width: 1024px) and (max-height: 720px){
+  .heroGrid{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 14px;
+  }
+  .heroVisual{
+    width: min(clamp(480px, 88vw, 760px), 100%);
+    padding-bottom: clamp(110px, 24vw, 175px);
+  }
+  .hero .phoneCard{ width: clamp(145px, 36vw, 260px); }
+  .hero .storeBadge{ height: clamp(44px, 6.5vw, 64px); }
+  .heroBottom{ height: 36px !important; }
 }

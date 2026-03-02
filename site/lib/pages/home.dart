@@ -40,10 +40,10 @@ Component img_({required String src, required String alt, String? classes, Strin
 /* ========= Image paths (put these in web/images/) ========= */
 
 class ImgPath {
-  static const logo = 'images/logo.png';
+  static const logo = 'images/only_logo.svg';
   static const hero = 'images/hero_shot.png';
-  static const badgePlay = 'images/play_badge.png';
-  static const badgeApp = 'images/app_badge.png';
+  static const badgePlay = 'images/play_badge.svg';
+  static const badgeApp = 'images/app_badge.svg';
   static const heroPhone1 = 'images/hero_phone_1.png';
   static const heroPhone2 = 'images/hero_phone_2.png';
   static const work1 = 'images/work_1.png';
@@ -179,7 +179,7 @@ class HeroSection extends StatelessComponent {
                   'type': 'button',
                   'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"                }, children: [
                   el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
-                  el('span', classes: 'langValue', children: [t('En')]),
+                  el('span', classes: 'langValue', children: [t('EN')]),
                 ]),
                 el('div', classes: 'langMenu', children: [
                   // English (default active)
@@ -187,7 +187,7 @@ class HeroSection extends StatelessComponent {
                     'href': '#',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='En';"
+                        "dd.querySelector('.langValue').textContent='EN';"
                         "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
                         "this.classList.add('active');"
                         "dd.classList.remove('open');"
@@ -201,7 +201,7 @@ class HeroSection extends StatelessComponent {
                     'href': '#',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "const dd=this.closest('.langDrop');"
-                        "dd.querySelector('.langValue').textContent='Slo';"
+                        "dd.querySelector('.langValue').textContent='SL';"
                         "dd.querySelectorAll('.langItem').forEach(x=>x.classList.remove('active'));"
                         "this.classList.add('active');"
                         "dd.classList.remove('open');"
