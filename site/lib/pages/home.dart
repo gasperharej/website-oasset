@@ -528,11 +528,13 @@ class PricingSection extends StatelessComponent {
                 ]),
               ]),
 
-              a_(
-                href: '#contact', // change if you have a real contact route
-                classes: 'pricingBtn pricingBtnOutline',
-                children: [tx(ctx.lang, 'pricing.contact', 'Contact us')],
-              ),
+              el('a', classes: 'pricingBtn pricingBtnOutline', attrs: {
+                'href': '#',
+                'data-copy': 'info@oasset.app',
+                'data-toast-key': 'toast.email_copied',
+              }, children: [
+                tx(ctx.lang, 'pricing.contact', 'Contact us')
+              ]),
 
               div_(classes: 'pricingIncludes', children: [
                 tx(ctx.lang, 'pricing.includes', "What’s included:"),
@@ -562,11 +564,13 @@ class PricingSection extends StatelessComponent {
                 ]),
               ]),
 
-              a_(
-                href: '#contact', // change if you have a real contact route
-                classes: 'pricingBtn pricingBtnSolid',
-                children: [tx(ctx.lang, 'pricing.contact', 'Contact us')],
-              ),
+              el('a', classes: 'pricingBtn pricingBtnSolid', attrs: {
+                'href': '#',
+                'data-copy': 'info@oasset.app',
+                'data-toast-key': 'toast.email_copied',
+              }, children: [
+                tx(ctx.lang, 'pricing.contact', 'Contact us')
+              ]),
 
               div_(classes: 'pricingIncludes', children: [
                 tx(ctx.lang, 'pricing.enterprise.includes', 'Everything in Premium and:'),

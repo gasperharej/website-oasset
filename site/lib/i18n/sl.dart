@@ -63,6 +63,26 @@ const Map<String, String> kSl = {
     "Spoznajte našo aplikacijo v učnem centru. Pokriva vse – od prvih korakov do upravljanja delovnih nalog in naprednih funkcij.",
   "cta.button": "V učni center",
 
+  "pricing.heading": "Cenik",
+  "pricing.contact": "Kontaktirajte nas",
+  "pricing.includes": "Kaj je vključeno:",
+
+  "pricing.premium.title": "Premium",
+  "pricing.premium.unit": "na uporabnika*/mesec",
+  "pricing.premium.f1": "Neomejeno delovnih nalog",
+  "pricing.premium.f2": "Neomejeno sredstev",
+  "pricing.premium.f3": "Neomejeno prilagojenih postopkov",
+  "pricing.premium.foot": "*uporabnik pomeni individualni račun za posamezno osebo",
+
+  "pricing.enterprise.title": "Enterprise",
+  "pricing.enterprise.letstalk": "Pogovorimo se",
+  "pricing.enterprise.unit": "Prilagojena cena",
+  "pricing.enterprise.includes": "Vse iz paketa Premium in:",
+  "pricing.enterprise.f1": "Pregledovalnik fotografij 360",
+  "pricing.enterprise.f2": "BIM 3D pregledovalnik",
+  "pricing.enterprise.f3": "Prilagojena implementacija GIS",
+  "pricing.enterprise.f4": "Prilagojene integracije",
+
   "footer.copyright": "© 2026 OAsset. Vse pravice pridržane.",
   "footer.by": "izdelal Optimiraj d.o.o.",
 
