@@ -1,4 +1,8 @@
 import 'package:jaspr/jaspr.dart';
+import '../i18n/page_ctx.dart';
+import '../i18n/i18n.dart'; // tx(...)
+import '../i18n/lang.dart';
+import '../routes.dart';
 
 /* ========= Jaspr element helpers ========= */
 
@@ -40,6 +44,15 @@ Component a_({required String href, String? classes, List<Component> children = 
 Component img_({required String src, required String alt, String? classes, String? style}) =>
     el('img', classes: classes, style: style, attrs: {'src': src, 'alt': alt});
 
+/* ========= Link helper (base-tag friendly) ========= */
+
+String hrefFromRoutePath(String routePath) {
+  // "/" should navigate to the current <base href="..."> root
+  if (routePath == '/') return './';
+  // "/sl" -> "sl", "/sl/pricing" -> "sl/pricing"
+  return routePath.startsWith('/') ? routePath.substring(1) : routePath;
+}
+
 /* ========= Image paths (put these in web/images/) ========= */
 
 class ImgPath {
@@ -58,10 +71,10 @@ class ImgPath {
 }
 
 /* ========= Page ========= */
-/* Keep class name Home if your template routes '/' to Home(). */
 
 class Home extends StatelessComponent {
-  const Home({super.key});
+  final PageCtx ctx;
+  const Home({super.key, required this.ctx});
 
   @override
   Component build(BuildContext context) {
@@ -72,105 +85,113 @@ class Home extends StatelessComponent {
             "document.querySelectorAll('.langDrop.open').forEach(function(dd){dd.classList.remove('open');});"
       },
       children: [
-      const StickyTopBar(),
-      const HeroSection(),
+        StickyTopBar(ctx: ctx),
+        HeroSection(ctx: ctx),
 
-      const FeatureSection(
-        id: 'work-orders',
-        title: 'Work orders',
-        altBackground: false,
-        visualLeft: true,
-        bullets: [
-          'Create, assign, and track work orders in real-time, all from your mobile device.',
-          'Utilize both preventive and reactive work orders to minimize long-term costs and enhance asset longevity.',
-          'Prioritize tasks with urgency levels and due dates, and keep everyone in the loop with real-time status updates.',
-          'Incorporate predefined procedures into your work orders to ensure standardized and compliant task execution.',
-          'Work orders are completed after inspection and approval from a responsible person, ensuring quality and compliance.',
-        ],
-        cardA: ImgPath.work1,
-        cardB: ImgPath.work2,
-      ),
+        FeatureSection(
+          ctx: ctx,
+          id: 'work-orders',
+          title: 'Work orders',
+          altBackground: false,
+          visualLeft: true,
+          bullets: const [
+            'Create, assign, and track work orders in real-time, all from your mobile device.',
+            'Utilize both preventive and reactive work orders to minimize long-term costs and enhance asset longevity.',
+            'Prioritize tasks with urgency levels and due dates, and keep everyone in the loop with real-time status updates.',
+            'Incorporate predefined procedures into your work orders to ensure standardized and compliant task execution.',
+            'Work orders are completed after inspection and approval from a responsible person, ensuring quality and compliance.',
+          ],
+          cardA: ImgPath.work1,
+          cardB: ImgPath.work2,
+        ),
 
-      const FeatureSection(
-        id: 'asset-management',
-        title: 'Asset management',
-        altBackground: true,
-        visualLeft: false,
-        bullets: [
-          'Manage all your assets in one place, from machinery to office equipment.',
-          'Easily access the comprehensive service history for each asset.',
-          'Utilize QR/bar scans for quick and accurate asset identification and task assignment.',
-          'Keep track of all your assets, their locations and details with our organized and searchable database.',
-          'Assign assets to specific users or teams for efficient workflow management.',
-        ],
-        cardA: null,
-        cardB: null,
-      ),
+        FeatureSection(
+          ctx: ctx,
+          id: 'asset-management',
+          title: 'Asset management',
+          altBackground: true,
+          visualLeft: false,
+          bullets: const [
+            'Manage all your assets in one place, from machinery to office equipment.',
+            'Easily access the comprehensive service history for each asset.',
+            'Utilize QR/bar scans for quick and accurate asset identification and task assignment.',
+            'Keep track of all your assets, their locations and details with our organized and searchable database.',
+            'Assign assets to specific users or teams for efficient workflow management.',
+          ],
+          cardA: null,
+          cardB: null,
+        ),
 
-      const FeatureSection(
-        id: 'communication',
-        title: 'Communication',
-        altBackground: true,
-        visualLeft: true,
-        bullets: [
-          'Keep everybody connected in one place with our built-in-messaging system.',
-          'Maintain seamless communication within work orders through our dedicated chat based comment section.',
-          'Share important updates, files, and photos through our secure and user-friendly interface.',
-          'Receive push notifications for immediate attention to critical issues.',
-        ],
-        cardA: null,
-        cardB: null,
-      ),
+        FeatureSection(
+          ctx: ctx,
+          id: 'communication',
+          title: 'Communication',
+          altBackground: true,
+          visualLeft: true,
+          bullets: const [
+            'Keep everybody connected in one place with our built-in-messaging system.',
+            'Maintain seamless communication within work orders through our dedicated chat based comment section.',
+            'Share important updates, files, and photos through our secure and user-friendly interface.',
+            'Receive push notifications for immediate attention to critical issues.',
+          ],
+          cardA: null,
+          cardB: null,
+        ),
 
-      const FeatureSection(
-        id: 'user-management',
-        title: 'User management',
-        altBackground: true,
-        visualLeft: false,
-        bullets: [
-          '4 user roles Admin, Full user, Operator, Partner operator with customization available to suit different role requirements.',
-          'Assign assets and work orders based on user roles for efficient workflow.',
-          'Monitor user activity metrics, such as time spent on work orders and number of work orders currently assigned.',
-          'Track performance metrics for each user to ensure quality work.',
-          'Seamlessly integrate external contractors into your work order processes.',
-        ],
-        cardA: null,
-        cardB: null,
-      ),
+        FeatureSection(
+          ctx: ctx,
+          id: 'user-management',
+          title: 'User management',
+          altBackground: true,
+          visualLeft: false,
+          bullets: const [
+            '4 user roles Admin, Full user, Operator, Partner operator with customization available to suit different role requirements.',
+            'Assign assets and work orders based on user roles for efficient workflow.',
+            'Monitor user activity metrics, such as time spent on work orders and number of work orders currently assigned.',
+            'Track performance metrics for each user to ensure quality work.',
+            'Seamlessly integrate external contractors into your work order processes.',
+          ],
+          cardA: null,
+          cardB: null,
+        ),
 
-      const FeatureSection(
-        id: 'bim',
-        title: 'BIM integration',
-        altBackground: true,
-        visualLeft: true,
-        bullets: [
-          'Take the final step in your Building Information Modeling (BIM) journey with our app.',
-          'Seamlessly integrate your BIM data into our system for a holistic approach to facility management.',
-          'From asset tracking to work order management, make your BIM implementation complete.',
-        ],
-        cardA: null,
-        cardB: null,
-      ),
+        FeatureSection(
+          ctx: ctx,
+          id: 'bim',
+          title: 'BIM integration',
+          altBackground: true,
+          visualLeft: true,
+          bullets: const [
+            'Take the final step in your Building Information Modeling (BIM) journey with our app.',
+            'Seamlessly integrate your BIM data into our system for a holistic approach to facility management.',
+            'From asset tracking to work order management, make your BIM implementation complete.',
+          ],
+          cardA: null,
+          cardB: null,
+        ),
 
-      const LearningCta(),
-      const FooterSection(),
-    ]);
+        LearningCta(ctx: ctx),
+        FooterSection(ctx: ctx),
+      ],
+    );
   }
 }
 
 /* ========= Components ========= */
-/// Hidden by default; becomes visible once you scroll past the hero.
-/// (JS toggles `.isShown` on `#stickyBar`)
+
 class StickyTopBar extends StatelessComponent {
-  const StickyTopBar({super.key});
+  final PageCtx ctx;
+  const StickyTopBar({super.key, required this.ctx});
 
   @override
   Component build(BuildContext context) {
+    final isSl = ctx.lang == Lang.sl;
+
     return div_(id: 'stickyBar', classes: 'stickyBar', children: [
       div_(classes: 'container', children: [
         div_(classes: 'stickyRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
-            'href': '/',
+            'href': hrefFromRoutePath(isSl ? ctx.slPath : ctx.enPath),
           }, children: [
             img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -181,7 +202,11 @@ class StickyTopBar extends StatelessComponent {
                 'data-copy': 'info@oasset.app',
                 'data-toast-key': 'toast.email_copied',
               }, children: [t('info@oasset.app')]),
-              a_(href: '/signin', classes: 'stickyCta', children: [i18n('nav.sign_in', 'Sign in')]),
+              a_(
+                href: hrefFromRoutePath(Routes.signIn),
+                classes: 'stickyCta',
+                children: [tx(ctx.lang, 'nav.sign_in', 'Sign in')],
+              ),
             ]),
             div_(classes: 'stickyLangRow', children: [
               div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
@@ -190,27 +215,31 @@ class StickyTopBar extends StatelessComponent {
                   'onclick': "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
                 }, children: [
                   el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
-                  el('span', classes: 'langValue', children: [t('En')]),
+                  el('span', classes: 'langValue', children: [t(ctx.lang.label)]),
                 ]),
                 el('div', classes: 'langMenu', children: [
-                  el('a', classes: 'langItem active', attrs: {
-                    'href': '/',
-                    'data-lang': 'En',
-                    'onclick': "event.preventDefault(); event.stopPropagation();"
-                        "window.__setLang&&window.__setLang('En');"
-                  }, children: [
-                    el('span', classes: 'langItemLabel', children: [t('English')]),
-                    el('span', classes: 'langCheck', children: [t('✓')]),
-                  ]),
-                  el('a', classes: 'langItem', attrs: {
-                    'href': '/sl',
-                    'data-lang': 'Sl',
-                    'onclick': "event.preventDefault(); event.stopPropagation();"
-                        "window.__setLang&&window.__setLang('Sl');"
-                  }, children: [
-                    el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
-                    el('span', classes: 'langCheck', children: [t('✓')]),
-                  ]),
+                  el('a',
+                      classes: isSl ? 'langItem' : 'langItem active',
+                      attrs: {
+                        'href': hrefFromRoutePath(ctx.enPath),
+                        'data-lang': 'En',
+                        'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"
+                      },
+                      children: [
+                        el('span', classes: 'langItemLabel', children: [t('English')]),
+                        el('span', classes: 'langCheck', children: [t('✓')]),
+                      ]),
+                  el('a',
+                      classes: isSl ? 'langItem active' : 'langItem',
+                      attrs: {
+                        'href': hrefFromRoutePath(ctx.slPath),
+                        'data-lang': 'Sl',
+                        'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"
+                      },
+                      children: [
+                        el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
+                        el('span', classes: 'langCheck', children: [t('✓')]),
+                      ]),
                 ]),
               ]),
             ]),
@@ -222,16 +251,19 @@ class StickyTopBar extends StatelessComponent {
 }
 
 class HeroSection extends StatelessComponent {
-  const HeroSection({super.key});
+  final PageCtx ctx;
+  const HeroSection({super.key, required this.ctx});
 
   @override
   Component build(BuildContext context) {
+    final isSl = ctx.lang == Lang.sl;
+
     return section_(classes: 'hero', children: [
       div_(classes: 'container heroInner', children: [
         // Top nav row
         div_(classes: 'navRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
-            'href': '/',
+            'href': hrefFromRoutePath(isSl ? ctx.slPath : ctx.enPath),
           }, children: [
             img_(src: ImgPath.logoWhite, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -244,34 +276,35 @@ class HeroSection extends StatelessComponent {
                   'onclick': "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
                 }, children: [
                   el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
-                  el('span', classes: 'langValue', children: [t('En')]),
+                  el('span', classes: 'langValue', children: [t(ctx.lang.label)]),
                 ]),
                 el('div', classes: 'langMenu', children: [
-                  // English (default active)
-                  el('a', classes: 'langItem active', attrs: {
-                    'href': '/',
-                    'data-lang': 'En',
-                    'onclick': "event.preventDefault(); event.stopPropagation();"
-                        "window.__setLang&&window.__setLang('En');"
-                  }, children: [
-                    el('span', classes: 'langItemLabel', children: [t('English')]),
-                    el('span', classes: 'langCheck', children: [t('✓')]),
-                  ]),
-
-                  // Slovenščina
-                  el('a', classes: 'langItem', attrs: {
-                    'href': '/sl',
-                    'data-lang': 'Sl',
-                    'onclick': "event.preventDefault(); event.stopPropagation();"
-                        "window.__setLang&&window.__setLang('Sl');"
-                  }, children: [
-                    el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
-                    el('span', classes: 'langCheck', children: [t('✓')]),
-                  ]),
+                  el('a',
+                      classes: isSl ? 'langItem' : 'langItem active',
+                      attrs: {
+                        'href': hrefFromRoutePath(ctx.enPath),
+                        'data-lang': 'En',
+                        'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"
+                      },
+                      children: [
+                        el('span', classes: 'langItemLabel', children: [t('English')]),
+                        el('span', classes: 'langCheck', children: [t('✓')]),
+                      ]),
+                  el('a',
+                      classes: isSl ? 'langItem active' : 'langItem',
+                      attrs: {
+                        'href': hrefFromRoutePath(ctx.slPath),
+                        'data-lang': 'Sl',
+                        'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"
+                      },
+                      children: [
+                        el('span', classes: 'langItemLabel', children: [t('Slovenščina')]),
+                        el('span', classes: 'langCheck', children: [t('✓')]),
+                      ]),
                 ]),
               ]),
             ]),
-          
+
             // bottom-right: email + sign in pill
             div_(classes: 'navActionRow', children: [
               el('a', classes: 'navEmail', attrs: {
@@ -279,7 +312,11 @@ class HeroSection extends StatelessComponent {
                 'data-copy': 'info@oasset.app',
                 'data-toast-key': 'toast.email_copied',
               }, children: [t('info@oasset.app')]),
-              a_(href: '/signin', classes: 'signInBtn', children: [i18n('nav.sign_in', 'Sign in')]),
+              a_(
+                href: hrefFromRoutePath(Routes.signIn),
+                classes: 'signInBtn',
+                children: [tx(ctx.lang, 'nav.sign_in', 'Sign in')],
+              ),
             ]),
           ]),
         ]),
@@ -287,13 +324,25 @@ class HeroSection extends StatelessComponent {
         // Main hero grid
         div_(classes: 'heroGrid', children: [
           div_(classes: 'heroText', children: [
-            h1_(classes: 'h1', children: [i18n('hero.title', 'Systematic maintenance app')]),
+            h1_(classes: 'h1', children: [
+              tx(ctx.lang, 'hero.title', 'Systematic maintenance app'),
+            ]),
             p_(classes: 'sub', children: [
-              i18n('hero.subtitle', 'Utilize our app to make maintenance easier, more efficient and lower its costs')
+              tx(
+                ctx.lang,
+                'hero.subtitle',
+                'Utilize our app to make maintenance easier, more efficient and lower its costs',
+              ),
             ]),
             div_(classes: 'badges', children: [
-              a_(href: 'https://play.google.com/store/', children: [img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')]),
-              a_(href: 'https://www.apple.com/app-store/', children: [img_(src: ImgPath.badgeApp, alt: 'App Store', classes: 'storeBadge')]),
+              a_(
+                href: 'https://play.google.com/store/',
+                children: [img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')],
+              ),
+              a_(
+                href: 'https://www.apple.com/app-store/',
+                children: [img_(src: ImgPath.badgeApp, alt: 'App Store', classes: 'storeBadge')],
+              ),
             ]),
           ]),
 
@@ -311,13 +360,14 @@ class HeroSection extends StatelessComponent {
           ]),
         ]),
       ]),
-
       div_(classes: 'heroBottom'),
     ]);
   }
 }
 
 class FeatureSection extends StatelessComponent {
+  final PageCtx ctx;
+
   final String id;
   final String title;
   final bool visualLeft;
@@ -328,6 +378,7 @@ class FeatureSection extends StatelessComponent {
 
   const FeatureSection({
     super.key,
+    required this.ctx,
     required this.id,
     required this.title,
     required this.visualLeft,
@@ -340,19 +391,19 @@ class FeatureSection extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     final textCol = div_(classes: 'colText', children: [
-  h2_(classes: 'title', children: [
-      i18n('feature.$id.title', title),
-    ]),
-    ul_(classes: 'bullets', children: [
-      for (var i = 0; i < bullets.length; i++)
-        li_(children: [
-          el('span', classes: 'dot'),
-          p_(children: [
-            i18n('feature.$id.bullet.${i + 1}', bullets[i]),
+      h2_(classes: 'title', children: [
+        tx(ctx.lang, 'feature.$id.title', title),
+      ]),
+      ul_(classes: 'bullets', children: [
+        for (var i = 0; i < bullets.length; i++)
+          li_(children: [
+            el('span', classes: 'dot'),
+            p_(children: [
+              tx(ctx.lang, 'feature.$id.bullet.${i + 1}', bullets[i]),
+            ]),
           ]),
-        ]),
-    ]),
-  ]);
+      ]),
+    ]);
 
     final visualCol = div_(classes: 'colVisual', children: [
       (cardA != null && cardB != null)
@@ -393,7 +444,7 @@ class PlaceholderStack extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div_(classes: 'placeStack', children:  [
+    return div_(classes: 'placeStack', children: [
       div_(classes: 'placeholder placeA'),
       div_(classes: 'placeholder placeB'),
     ]);
@@ -401,14 +452,15 @@ class PlaceholderStack extends StatelessComponent {
 }
 
 class LearningCta extends StatelessComponent {
-  const LearningCta({super.key});
+  final PageCtx ctx;
+  const LearningCta({super.key, required this.ctx});
 
   @override
   Component build(BuildContext context) {
     return section_(classes: 'cta', children: [
       div_(classes: 'container', children: [
         div_(classes: 'ctaGrid', children: [
-          div_(classes: 'ctaVisual', children:  [
+          div_(classes: 'ctaVisual', children: [
             div_(classes: 'ctaStack', children: [
               div_(classes: 'ctaCard c1'),
               div_(classes: 'ctaCard c2'),
@@ -416,13 +468,19 @@ class LearningCta extends StatelessComponent {
             ]),
           ]),
           div_(classes: 'ctaText', children: [
-            h2_(classes: 'title', children: [i18n('cta.title', 'Learn how to use our app')]),
+            h2_(classes: 'title', children: [
+              tx(ctx.lang, 'cta.title', 'Learn how to use our app'),
+            ]),
             p_(children: [
-              i18n('cta.body', 'Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.')
+              tx(
+                ctx.lang,
+                'cta.body',
+                'Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.',
+              ),
             ]),
             div_(style: 'margin-top:16px;', children: [
               a_(href: '#', classes: 'ctaBtn', children: [
-                i18n('cta.button', 'Go to learning center'),
+                tx(ctx.lang, 'cta.button', 'Go to learning center'),
                 t(' ▶'),
               ]),
             ]),
@@ -434,24 +492,35 @@ class LearningCta extends StatelessComponent {
 }
 
 class FooterSection extends StatelessComponent {
-  const FooterSection({super.key});
+  final PageCtx ctx;
+  const FooterSection({super.key, required this.ctx});
 
   @override
   Component build(BuildContext context) {
     return footer_(classes: 'footer', children: [
       div_(classes: 'container', children: [
         div_(classes: 'footerRow', children: [
-          div_(classes: 'footerLeft', children: [i18n('footer.copyright', '© 2026 OAsset. All rights reserved.')]),
+          div_(classes: 'footerLeft', children: [
+            tx(ctx.lang, 'footer.copyright', '© 2026 OAsset. All rights reserved.'),
+          ]),
           div_(classes: 'footerRight', children: [
-            i18n('footer.by', 'by Optimiraj d.o.o.'),
+            tx(ctx.lang, 'footer.by', 'by Optimiraj d.o.o.'),
             el('br'),
             t('e: info@optimiraj.com'),
             div_(classes: 'badgeColumn', children: [
               div_(classes: 'cert', children: [
-                img_(src: ImgPath.cert1, alt: 'Certificate 1', style: 'width:100%;height:auto;border-radius:10px;display:block;'),
+                img_(
+                  src: ImgPath.cert1,
+                  alt: 'Certificate 1',
+                  style: 'width:100%;height:auto;border-radius:10px;display:block;',
+                ),
               ]),
               div_(classes: 'cert', children: [
-                img_(src: ImgPath.cert2, alt: 'Certificate 2', style: 'width:100%;height:auto;border-radius:10px;display:block;'),
+                img_(
+                  src: ImgPath.cert2,
+                  alt: 'Certificate 2',
+                  style: 'width:100%;height:auto;border-radius:10px;display:block;',
+                ),
               ]),
             ]),
           ]),

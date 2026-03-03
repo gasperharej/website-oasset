@@ -37,7 +37,7 @@ void main() {
     head: [
       Component.element(
         tag: 'base',
-        attributes: {'href': '/website-oasset/'}, // change if you're hosted under a subpath
+        attributes: {'href': '/'}, // change if you're hosted under a subpath
       ),
       Component.element(
         tag: 'script',
@@ -49,7 +49,7 @@ void main() {
       ),
       Component.element(
         tag: 'script',
-        attributes: {'src': 'i18n.js', 'defer': ''},
+        attributes: {'src': 'seo_links.js', 'defer': ''},
       ),
     ],
     body: App(),
