@@ -37,7 +37,7 @@ void main() {
     head: [
       Component.element(
         tag: 'base',
-        attributes: {'href': '/'}, // change if you're hosted under a subpath
+        attributes: {'href': '/website-oasset/'}, // GitHub Pages project-site base path
       ),
       Component.element(
         tag: 'script',
