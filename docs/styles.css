@@ -17,13 +17,21 @@ body { margin: 0; overflow: hidden; font-family: Roboto, system-ui, -apple-syste
   --shadowHero: 0px 1px 4px 2px rgba(0,0,0,.11);
 
   --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px; --s10:40px; --s12:48px;
+
+  /* shared nav sizing */
+  --navH: 100px;
+  --navPadL: clamp(var(--s4), 10vw, 190px);
+  --navPadR: clamp(var(--s4), 10vw, 195px);
+  --navGap: 38px;
 }
 
 a{ color:inherit; text-decoration:none; }
 *{ box-sizing:border-box; }
 .container{ max-width: var(--container); margin:0 auto; padding:0 var(--s4); }
 
-/* Scroll snap “locks” */
+/* =========================
+   LANDING SCROLL
+   ========================= */
 .landing{
   height: 100vh;
   overflow-y: auto;
@@ -33,7 +41,9 @@ a{ color:inherit; text-decoration:none; }
   scroll-behavior: smooth;
 }
 
-/* ===== HERO ===== */
+/* =========================
+   HERO
+   ========================= */
 .hero{
   color:#fff;
   background: linear-gradient(81.62deg, var(--blue1) 19%, var(--blue2) 92.35%);
@@ -41,9 +51,6 @@ a{ color:inherit; text-decoration:none; }
   position: relative;
   overflow:hidden;
   min-height: 100vh;
-
-  /* clip-path REMOVED (cut is now in .heroBottom) */
-
   display:flex;
   flex-direction:column;
 }
@@ -63,13 +70,23 @@ a{ color:inherit; text-decoration:none; }
   z-index: 0;
 }
 
-/* content above the blur */
-.heroInner{ 
-  position:relative; 
-  z-index:1; 
+.heroInner{
+  position:relative;
+  z-index:1;
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- hero navbar --- */
+.hero .container{
+  max-width: 1920px;
+  padding-left: var(--navPadL);
+  padding-right: var(--navPadR);
 }
 
 .navRow{
@@ -80,15 +97,11 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* Brand */
-.brand{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-}
-.brandLogo{ width:auto; height:50px; display:block; }
+.brand{ display:flex; align-items:center; gap: 10px; }
+.brandLogo{ width:auto; height:50px; display:block; object-fit:contain; }
 .brandText{ font-weight:500; font-size:50px; line-height:1; }
 
-/* (kept for compatibility if you still render brandIcon anywhere) */
+/* compatibility if you still render these anywhere */
 .brandIcon{
   width: 28px; height: 28px;
   border-radius: 8px;
@@ -97,15 +110,7 @@ a{ color:inherit; text-decoration:none; }
   display:flex; align-items:center; justify-content:center;
 }
 
-.navRight{
-  display:flex;
-  align-items:center;
-  gap: 14px;
-  font-size: 13px;
-  opacity:.95;
-}
-
-/* language button */
+/* old language button compatibility */
 .langBtn{
   display:inline-flex;
   align-items:center;
@@ -120,13 +125,156 @@ a{ color:inherit; text-decoration:none; }
 }
 .langIcon{
   width:16px; height:16px;
-  background:#fff;           /* swap for an SVG later if you want */
+  background:#fff;
   border-radius:4px;
   opacity:.95;
 }
 
+.brandBtn{
+  display: inline-flex;
+  align-items:center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.navRight{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap: 14px;
+  font-size: 13px;
+  opacity:.95;
+}
+
+.hero .navRow{ min-height: var(--navH); padding-bottom: 0; }
+.hero .navRight{
+  gap: 28px;
+  flex-wrap: nowrap;
+  height: auto;
+  padding: 0;
+  opacity: 1;
+}
+
+/* right-side grouping (desktop) */
+.hero .navActionRow{
+  display:flex;
+  align-items:center;
+  gap: var(--navGap);
+  white-space: nowrap;
+  order: 1;
+}
+.hero .navLangRow{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  white-space: nowrap;
+  width: 52px;
+  flex: 0 0 52px;
+  order: 2;
+}
+
+.hero .navEmail{
+  color: #fff;
+  opacity: .95;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  display:inline-block;
+}
+
+.hero .signInBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 168px;
+  height: 43px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  color: #0053D4;
+  white-space: nowrap;
+}
+
+/* language dropdown (hero) */
+.hero .navLangRow,
+.hero .langDrop{ position: relative; }
+
+.hero .langTrigger{
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  color: #fff;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.hero .langValue{ display:inline-block; width: 2ch; text-align:left; }
+
+.hero .globeIcon{
+  width: 16.21px;
+  height: 16.21px;
+  display: inline-block;
+  background: url("images/globe.svg") no-repeat center / contain;
+}
+
+.hero .langMenu{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 170px;
+  display: none;
+  z-index: 999;
+  background: rgba(18, 26, 60, .45);
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.22);
+}
+.hero .langDrop.open .langMenu{ display:block; }
+
+.hero .langItem{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+.hero .langItem:hover{ background: rgba(255,255,255,.14); }
+
+.hero .langCheck{ opacity: 0; font-size: 14px; line-height: 18px; }
+.hero .langItem.active .langCheck{ opacity: 1; }
+
 .pillBtn{
-  display:inline-flex; align-items:center; justify-content:center;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding: 8px 14px;
   border-radius: 999px;
   background:#fff;
@@ -136,6 +284,7 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
 
+/* --- hero content --- */
 .heroGrid{
   display:grid;
   grid-template-columns: 1.1fr .9fr;
@@ -164,10 +313,7 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .badges{ display:flex; gap: 10px; flex-wrap:wrap; }
-.hero .storeBadge{
-  height: clamp(34px, 3.2vw, 52px);
-  width: auto;
-}
+.hero .storeBadge{ height: clamp(34px, 3.2vw, 52px); width:auto; display:block; }
 
 /* hero visual + overlays */
 .heroVisualWrap{ display:flex; justify-content:flex-end; }
@@ -181,7 +327,7 @@ a{ color:inherit; text-decoration:none; }
   display:block;
 }
 
-/* hero overlays (scoped so they won't affect section cards) */
+/* overlays (scoped to hero) */
 .hero .phoneCard{
   position:absolute;
   width: 191px;
@@ -196,17 +342,16 @@ a{ color:inherit; text-decoration:none; }
 .hero .phoneA{ left: 18%; top: 18%; transform: rotate(-1deg); }
 .hero .phoneB{ left: 46%; top: 26%; transform: rotate( 1deg); }
 
-/* WHITE BOTTOM (takes space) + mirrored diagonal cut */
 .heroBottom{
   height: 80px;
   margin-top: auto;
   background:#fff;
-
-  /* left a bit higher -> down to right corner */
   clip-path: polygon(0 0, 100% 100%, 0 100%);
 }
 
-/* ===== SECTIONS ===== */
+/* =========================
+   SECTIONS
+   ========================= */
 .section,
 .cta,
 .footer{
@@ -215,9 +360,7 @@ a{ color:inherit; text-decoration:none; }
   align-items:center;
 }
 
-.section{
-  padding: 56px 0;
-}
+.section{ padding: 56px 0; }
 .sectionAlt{ background:#F3F6FF; }
 
 .sectionGrid,
@@ -258,7 +401,7 @@ a{ color:inherit; text-decoration:none; }
   color: var(--muted);
 }
 
-/* Overlapping screenshot cards (FEATURE SECTIONS ONLY) */
+/* overlapping screenshot cards (feature sections) */
 .cards{ position:relative; min-height: 480px; }
 .cards .phoneCard{
   position:absolute;
@@ -273,7 +416,7 @@ a{ color:inherit; text-decoration:none; }
 .cards .phoneA{ left: 0; top: 70px; transform: rotate(-1deg); }
 .cards .phoneB{ left: 190px; top: 0; transform: rotate(1deg); }
 
-/* Placeholder stack (two white cards) */
+/* placeholder stack */
 .placeholder{
   width: 266px;
   height: 333px;
@@ -286,11 +429,14 @@ a{ color:inherit; text-decoration:none; }
 .placeA{ position:absolute; right: 190px; top: 70px; }
 .placeB{ position:absolute; right: 0; top: 0; }
 
-/* ===== CTA ===== */
+/* =========================
+   CTA
+   ========================= */
 .cta{
   background: linear-gradient(180deg, rgba(212,229,255,.53) 0%, rgba(105,150,252,.53) 69.45%, rgba(97,118,255,.53) 100%);
   padding: 56px 0;
 }
+
 .ctaBtn{
   display:inline-flex;
   align-items:center;
@@ -304,6 +450,7 @@ a{ color:inherit; text-decoration:none; }
   font-size: 14px;
   box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
+
 .ctaStack{ position:relative; height: 260px; width: 320px; }
 .ctaCard{
   position:absolute;
@@ -317,7 +464,9 @@ a{ color:inherit; text-decoration:none; }
 .ctaCard.c2{ left: 18px; top: 26px; }
 .ctaCard.c3{ left: 36px; top: 8px; }
 
-/* ===== FOOTER ===== */
+/* =========================
+   FOOTER
+   ========================= */
 .footer{
   color:#fff;
   background: linear-gradient(86.61deg, var(--blue1) 16.2%, var(--blue2) 95.29%);
@@ -336,29 +485,294 @@ a{ color:inherit; text-decoration:none; }
 .badgeColumn{ display:flex; flex-direction:column; gap: 12px; margin-top: 18px; }
 .cert{ width: 336px; border-radius: 14px; background:#fff; padding: 10px; }
 
-/* ===== MOBILE ===== */
-@media (max-width: 1100px){
-  /* let the section fill the viewport so we can push visuals to the bottom */
-  .section { align-items: stretch; }
-  .section .container { height: 100%; }
+/* =========================
+   HOVER LIFT + STORE BADGES + FOCUS
+   ========================= */
+:is(
+  .hero .signInBtn,
+  .ctaBtn,
+  .pillBtn,
+  .hero .langTrigger,
+  .hero .navEmail,
+  .hero .brandBtn,
+  .stickyBar .stickyCta,
+  .stickyBar .langTrigger,
+  .stickyBar .stickyEmail,
+  .stickyBar .brandBtn
+){
+  transition: transform .18s ease;
+  will-change: transform;
+}
+:is(
+  .hero .signInBtn,
+  .ctaBtn,
+  .pillBtn,
+  .hero .langTrigger,
+  .hero .navEmail,
+  .hero .brandBtn,
+  .stickyBar .stickyCta,
+  .stickyBar .langTrigger,
+  .stickyBar .stickyEmail,
+  .stickyBar .brandBtn
+):hover{
+  transform: translateY(-2px);
+}
 
-  /* stack text then visual */
+/* store badges: lift image only (prevents edges) */
+.hero .badges a{
+  display:inline-block;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  line-height:0;
+  text-decoration:none;
+}
+.hero .storeBadge{ transition: transform .18s ease; will-change: transform; }
+.hero .badges a:hover .storeBadge{ transform: translateY(-2px); }
+
+/* keyboard focus */
+:is(
+  .hero .signInBtn,
+  .ctaBtn,
+  .pillBtn,
+  .hero .langTrigger,
+  .hero .navEmail,
+  .hero .brandBtn,
+  .hero .badges a,
+  .stickyBar .stickyCta,
+  .stickyBar .langTrigger,
+  .stickyBar .stickyEmail,
+  .stickyBar .brandBtn
+):focus-visible{
+  outline: 2px solid rgba(255,255,255,.85);
+  outline-offset: 3px;
+}
+
+/* =========================
+   COPY TOAST
+   ========================= */
+.copyToast{
+  box-sizing: border-box;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 345px;
+  height: 64px;
+  transform: translate(-50%, -12px);
+  background: #0064FD;
+  border: 1px solid #FFFFFF;
+  border-radius: 16px;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 14px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.copyToast.show{
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.copyToastIcon{ line-height: 1; font-size: 20px; }
+
+@media (max-width: 420px){
+  .copyToast{ width: calc(100vw - 20px); font-size: 16px; }
+}
+
+/* =========================
+   STICKY TOP BAR
+   ========================= */
+.stickyBar{
+  position: sticky;
+  top: 0;
+  height: var(--navH);
+  margin-bottom: calc(var(--navH) * -1);
+  background: #fff;
+  box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.10);
+  z-index: 2500;
+
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .20s ease, opacity .20s ease;
+}
+.stickyBar.isShown{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stickyBar .container{
+  height: 100%;
+  max-width: 1920px;
+  padding-left: var(--navPadL);
+  padding-right: var(--navPadR);
+}
+
+.stickyRow{
+  min-height: var(--navH);
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom: 0;
+}
+
+.stickyRight{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap: 28px;
+  flex-wrap: nowrap;
+  height: auto;
+  padding: 0;
+  opacity: 1;
+}
+
+.stickyActionRow{
+  display:flex;
+  align-items:center;
+  gap: var(--navGap);
+  white-space: nowrap;
+}
+
+.stickyEmail{
+  color: #000;
+  opacity: .95;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  display:inline-block;
+}
+
+.stickyLangRow{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  white-space: nowrap;
+  width: 52px;
+  flex: 0 0 52px;
+}
+
+.stickyCta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 168px;
+  height: 43px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid #0053D4;
+  box-shadow: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  color: #0053D4;
+}
+
+/* sticky language dropdown (same markup as hero, different colors) */
+.stickyBar .stickyLangRow,
+.stickyBar .langDrop{ position: relative; }
+
+.stickyBar .langTrigger{
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  color: #000;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.stickyBar .langValue{ display:inline-block; width: 2ch; text-align:left; }
+
+.stickyBar .globeIcon{
+  width: 16.21px;
+  height: 16.21px;
+  display: inline-block;
+  background: #000;
+  -webkit-mask: url("images/globe.svg") no-repeat center / contain;
+  mask: url("images/globe.svg") no-repeat center / contain;
+}
+
+.stickyBar .langMenu{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 170px;
+  display: none;
+  z-index: 2600;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.16);
+}
+.stickyBar .langDrop.open .langMenu{ display:block; }
+
+.stickyBar .langItem{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+.stickyBar .langItem:hover{ background: rgba(0,0,0,.06); }
+
+.stickyBar .langCheck{ opacity: 0; color: #0053D4; }
+.stickyBar .langItem.active .langCheck{ opacity: 1; }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* section stacking: push visuals to bottom + center */
+@media (max-width: 1100px){
+  .section{ align-items: stretch; }
+  .section .container{ height: 100%; }
+
   .sectionGrid{
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    display:flex;
+    flex-direction:column;
     gap: 20px;
   }
   .colText{ order: 1; }
   .colVisual{
     order: 2;
-    margin-top: auto;           /* pushes cards to bottom */
+    margin-top: auto;
     width: 100%;
-    display: flex;
-    justify-content: center;    /* centers the cards area */
+    display:flex;
+    justify-content:center;
   }
 
-  /* center the overlapping phone cards */
   .cards{
     width: 320px;
     max-width: 100%;
@@ -369,7 +783,6 @@ a{ color:inherit; text-decoration:none; }
   .cards .phoneA{ left: 50%; top: 40px; transform: translateX(-60%) rotate(-1deg); }
   .cards .phoneB{ left: 50%; top: 10px; transform: translateX(-5%)  rotate( 1deg); }
 
-  /* center the placeholder cards the same way */
   .placeStack{
     width: 320px;
     max-width: 100%;
@@ -383,697 +796,130 @@ a{ color:inherit; text-decoration:none; }
 }
 
 @media (max-width: 1024px){
-  /* HERO */
+  /* HERO base adjustments */
   .hero{
+    min-height: 100svh;
+    padding-top: 10px;
     background: linear-gradient(28.05deg, var(--blue1) 40.38%, var(--blue2) 93.08%);
   }
-  .heroGrid{ grid-template-columns: 1fr; }
-  .heroVisualWrap{ justify-content:center; }
-
-  .brandLogo{ width:29px; }
-  .brandText{ font-size:20px; }
-
-
-  .h1{ font-size:22px; line-height:1.2; }
-  .sub{ font-size:15px; line-height:24px; }
-
-  .heroVisual{ width: min(305px, 100%); }
-  .heroShot{ border-radius:7px; }
-
-  .hero .phoneCard{ width: 149px; }
-  .hero .phoneA{ left: 6%;  top: 18%; }
-  .hero .phoneB{ left: 40%; top: 26%; }
-
-  /* smaller bottom on mobile (optional) */
-  .heroBottom{ height: 60px; }
-
-  /* SECTIONS */
-  .sectionGrid{
+  .heroInner{
+    flex: 1 1 auto;
     display:flex;
     flex-direction:column;
-    gap: 20px;
-  }
-  .colText{ order: 1; }
-  .colVisual{ order: 2; }
-
-  .title{ font-size: 22px; }
-  .bullets p{ font-size: 15px; line-height: 1.2; }
-  .dot{ width: 8px; height: 8px; margin-top: 7px; }
-
-  /* keep these for clarity; 1100px block already centers them */
-  .cards{
-    min-height: 260px;
-    width: 100%;
-    display:flex;
-    justify-content:center;
+    max-width: var(--container);
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .ctaGrid{ display:flex; flex-direction:column; }
-  .ctaText{ order: 1; }
-  .ctaVisual{ order: 2; }
-  .ctaStack{ width: 260px; height: 180px; }
-  .ctaCard{ width: 200px; height: 140px; }
-
-  .footerRight{ text-align:left; }
-  .cert{ width: 260px; }
-}
-
-/* ===== HERO NAVBAR (consolidated) ===== */
-.hero .container{
-  max-width: 1920px;
-  /* keep wide-desktop look, but don’t crush layout on smaller desktops */
-  padding-left: clamp(var(--s4), 10vw, 190px);
-  padding-right: clamp(var(--s4), 10vw, 195px);
-}
-
-.hero .navRow{
-  min-height: 100px;
-  display: flex;
-  align-items: center !important;
-  justify-content: space-between;
-  padding-bottom: 0 !important;
-}
-
-.hero .brand{
-  align-items: center !important;
-  gap: 10px !important;
-}
-
-.hero .brandLogo{
-  width: auto !important;
-  height: 50px !important;
-  display: block !important;
-  object-fit: contain !important;
-}
-
-.hero .brandText{
-  font-weight: 500 !important;
-  font-size: 50px !important;
-  line-height: 1 !important;
-  color: #fff;
-  display: block !important;
-}
-
-.hero .navRight{
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  gap: 28px !important;
-  flex-wrap: nowrap !important;
-  height: auto !important;
-  padding: 0 !important;
-  opacity: 1 !important;
-}
-
-.hero .navActionRow{
-  order: 1;
-  display: flex !important;
-  align-items: center !important;
-  gap: 18px !important;
-  white-space: nowrap !important;
-}
-
-.hero .navLangRow{
-  order: 2;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  white-space: nowrap !important;
-  width: 52px !important;
-  flex: 0 0 52px !important;
-}
-
-.hero .navEmail{
-  color: #fff !important;
-  opacity: .95 !important;
-  white-space: nowrap !important;
-  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
-  font-weight: 500 !important;
-  font-size: 18px !important;
-  line-height: 31px !important;
-}
-
-.hero .signInBtn{
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 168px !important;
-  height: 43px !important;
-  border-radius: 22px !important;
-  background: #fff !important;
-  border: 1px solid #fff !important;
-  box-shadow: none !important;
-  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
-  font-weight: 500 !important;
-  font-size: 18px !important;
-  line-height: 31px !important;
-  color: #0053D4 !important;
-  white-space: nowrap !important;
-}
-
-.hero .navLangRow,
-.hero .langDrop{ position: relative; }
-
-.hero .langTrigger{
-  appearance: none;
-  -webkit-appearance: none;
-  border: 0 !important;
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  box-shadow: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  cursor: pointer !important;
-  text-decoration: none !important;
-  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial !important;
-  font-weight: 500 !important;
-  font-size: 18px !important;
-  line-height: 31px !important;
-  color: #fff !important;
-  width: 100% !important;
-  justify-content: flex-start !important;
-}
-
-.hero .langValue{
-  display: inline-block !important;
-  width: 2ch !important;
-  text-align: left !important;
-}
-
-.hero .globeIcon{
-  width: 16.21px;
-  height: 16.21px;
-  display: inline-block;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: url("images/globe.svg") no-repeat center / contain;
-}
-.hero .globeIcon::before{ content: none !important; }
-
-.hero .langMenu{
-  position: absolute;
-  right: 0;
-  top: calc(100% + 6px);
-  min-width: 170px;
-  display: none !important;
-  z-index: 999;
-  background: rgba(18, 26, 60, .45);
-  border: 1px solid rgba(255,255,255,.25);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 6px;
-  box-shadow: 0 10px 22px rgba(0,0,0,.22);
-}
-.hero .langDrop.open .langMenu{ display: block !important; }
-
-.hero .langItem{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  color: #fff;
-  text-decoration: none;
-  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-}
-.hero .langItem:hover{ background: rgba(255,255,255,.14); }
-
-.hero .langCheck{
-  opacity: 0;
-  font-size: 14px;
-  line-height: 18px;
-}
-.hero .langItem.active .langCheck{ opacity: 1; }
-
-@media (max-width: 1024px){
   .hero .container{
     max-width: var(--container);
-    padding-left: var(--s4);
-    padding-right: var(--s4);
+    padding-left: clamp(20px, 5vw, 36px);
+    padding-right: clamp(26px, 6vw, 48px);
   }
 
-  .hero .brandLogo{ width: auto !important; height: clamp(24px, 5vw, 46px) !important; }
-  .hero .brandText{ font-size: 20px !important; line-height: 44px !important; }
-  .hero .navRight{ height: 90px !important; }
-  .hero .navActionRow{ display: none !important; }
-  .hero .navRight{ gap: 0 !important; }
-}
+  .hero .navRow{ min-height: clamp(72px, 9vw, 92px); }
+  .hero .navActionRow{ display:none; }
+  .hero .navRight{ gap: 0; height: auto; }
 
-@media (min-width: 1025px){
-  .hero{ --navGap: 38px; }
-
-  .hero .navRow{
-    --navBleed: clamp(18px, 2.6vw, 50px);
-    width: calc(100% + (var(--navBleed) * 2)) !important;
-    margin-left: calc(var(--navBleed) * -1) !important;
-    margin-right: calc(var(--navBleed) * -1) !important;
-  }
-
-  .hero .navRight{ gap: var(--navGap) !important; }
-  .hero .navActionRow{ gap: var(--navGap) !important; }
-
-  .hero .langDrop{ width: 100% !important; flex: 0 0 auto !important; }
-
-  .hero .navEmail,
-  .hero .signInBtn{ flex: 0 0 auto !important; }
-}
-/* =========================
-   HOVER LIFT (PRODUCTION)
-   - store badges lift without blue edge
-   ========================= */
-
-/* 1) Elements that lift */
-.hero .signInBtn,
-.hero .ctaBtn,
-.hero .pillBtn,
-.hero .langTrigger,
-.hero .navEmail,
-.hero .brandBtn{
-  display: inline-flex; /* consistent transform behavior */
-  align-items: center;
-  transition: transform .18s ease;
-  will-change: transform;
-}
-
-/* navEmail is text-only, so inline-block is enough */
-.hero .navEmail{ display: inline-block; }
-
-/* lift on hover */
-.hero .signInBtn:hover,
-.hero .ctaBtn:hover,
-.hero .pillBtn:hover,
-.hero .langTrigger:hover,
-.hero .navEmail:hover,
-.hero .brandBtn:hover{
-  transform: translateY(-2px);
-}
-
-/* 2) Store badges: lift the IMAGE, not the wrapper (prevents blue edge) */
-.hero .badges a{
-  display: inline-block;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;   /* important */
-  line-height: 0;
-  text-decoration: none;
-}
-
-.hero .storeBadge{
-  display: block;
-  transition: transform .18s ease;
-  will-change: transform;
-}
-
-.hero .badges a:hover .storeBadge{
-  transform: translateY(-2px);
-}
-
-/* 3) Brand button: clickable but looks exactly like before (no added edge) */
-.hero .brandBtn{
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-  border-radius: 0;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* 4) Optional: focus ring (keyboard accessibility) */
-.hero .signInBtn:focus-visible,
-.hero .ctaBtn:focus-visible,
-.hero .pillBtn:focus-visible,
-.hero .langTrigger:focus-visible,
-.hero .navEmail:focus-visible,
-.hero .brandBtn:focus-visible,
-.hero .badges a:focus-visible{
-  outline: 2px solid rgba(255,255,255,.85);
-  outline-offset: 3px;
-}
-
-.ctaBtn{
-  transition: transform .18s ease;
-  will-change: transform;
-}
-.ctaBtn:hover{
-  transform: translateY(-2px);
-}
-
-/* Email copied toast */
-.copyToast{
-  box-sizing: border-box;
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  width: 345px;
-  height: 64px;
-  transform: translate(-50%, -12px);
-  background: #0064FD;
-  mix-blend-mode: normal;
-  border: 1px solid #FFFFFF;
-  border-radius: 16px;
-  z-index: 3000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 0 14px;
-  color: #fff;
-  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.2;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-.copyToast.show{
-  opacity: 1;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
-}
-
-.copyToastIcon{
-  line-height: 1;
-  font-size: 20px;
-}
-
-@media (max-width: 420px){
-  .copyToast{
-    width: calc(100vw - 20px);
-    font-size: 16px;
-  }
-}
-
-/* ===== HERO MOBILE (consolidated) ===== */
-@media (max-width: 1024px){
-  .hero{ min-height: 100svh !important; padding-top: 10px; }
-  .heroInner{ flex: 1 1 auto; display:flex; flex-direction:column; }
-
-  /* keep logo/lang spacing semantics */
-  .hero .container{
-    max-width: var(--container);
-    padding-left: clamp(20px, 5vw, 36px) !important;
-    padding-right: clamp(26px, 6vw, 48px) !important;
-  }
-
-  .hero .navRow{ min-height: clamp(72px, 9vw, 92px) !important; }
-  .hero .navRight{ height: auto !important; }
-
-  .hero .brandLogo{ width: auto !important; height: clamp(24px, 5vw, 46px) !important; }
-  .hero .brandText{ font-size: clamp(30px, 5.2vw, 48px) !important; line-height:1 !important; }
-  .hero .langValue{ font-size: 16px !important; }
+  .hero .brandLogo{ height: clamp(24px, 5vw, 46px); }
+  .hero .brandText{ font-size: clamp(30px, 5.2vw, 48px); line-height: 1; }
+  .hero .langValue{ font-size: 16px; }
 
   .h1{ font-size: clamp(30px, 6.4vw, 56px); line-height: 1.10; margin-bottom: 12px; }
   .sub{ font-size: clamp(16px, 3.8vw, 22px); line-height: 1.45; margin-bottom: 16px; max-width: 44ch; }
 
   .badges{ gap: 14px; }
-  .hero .badges{ width: 100%; justify-content: center; }
+  .hero .badges{ width: 100%; justify-content:center; }
   .hero .storeBadge{ height: clamp(48px, 7vw, 72px); }
 
-  /* key change: keep top+bottom breathing room and prevent “text top / image bottom” clamping */
   .heroGrid{
     display:flex;
     flex-direction:column;
     align-items:flex-start;
-    justify-content:center;                 /* prevents growing gap */
+    justify-content:center;
     flex: 1 1 auto;
-    margin: 0 !important;
-
+    margin: 0;
     padding-top: clamp(18px, 3.5svh, 46px);
     padding-bottom: clamp(18px, 3.2svh, 42px);
     gap: clamp(14px, 2.4svh, 22px);
   }
 
   .heroText{ width:100%; }
-
   .heroVisualWrap{ width:100%; justify-content:center; }
 
-  /* bigger on wider screens, but controlled + less “empty” inside the visual */
   .heroVisual{
     width: min(clamp(520px, 86vw, 800px), 100%);
-    padding-bottom: clamp(120px, 22vw, 190px);   /* reduces dead bottom space */
+    padding-bottom: clamp(120px, 22vw, 190px);
   }
 
   .hero .phoneCard{ width: clamp(155px, 34vw, 290px); border-width: 3px; }
-
-  /* pull the phones up a bit so the visual doesn’t sit too low */
   .hero .phoneA{ left: 8%; top: 9%; }
   .hero .phoneB{ left: 44%; top: 15%; }
 
-  .heroBottom{ height: 36px !important; display:block; }
+  .heroBottom{ height: 36px; display:block; }
+
+  /* SECTIONS typography + layout */
+  .sectionGrid{ display:flex; flex-direction:column; gap: 20px; }
+  .title{ font-size: 22px; }
+  .bullets p{ font-size: 15px; line-height: 1.2; }
+  .dot{ width: 8px; height: 8px; margin-top: 7px; }
+
+  /* CTA */
+  .ctaGrid{ display:flex; flex-direction:column; }
+  .ctaText{ order: 1; }
+  .ctaVisual{ order: 2; }
+  .ctaStack{ width: 260px; height: 180px; }
+  .ctaCard{ width: 200px; height: 140px; }
+
+  /* FOOTER */
+  .footerRight{ text-align:left; }
+  .cert{ width: 260px; }
+
+  /* Sticky bar mobile */
+  .stickyBar{
+    height: clamp(72px, 9vw, 92px);
+    margin-bottom: calc(clamp(72px, 9vw, 92px) * -1);
+  }
+  .stickyBar .container{
+    max-width: var(--container);
+    padding-left: clamp(20px, 5vw, 36px);
+    padding-right: clamp(26px, 6vw, 48px);
+  }
+  .stickyRow{ min-height: clamp(72px, 9vw, 92px); height:auto; }
+  .stickyLangRow,
+  .stickyEmail{ display:none; }
+  .stickyActionRow{ gap: 0; }
+  .stickyCta{ width:auto; padding: 0 14px; height: 38px; font-size: 16px; }
+  .stickyBar .brandLogo{ height: clamp(24px, 5vw, 46px); }
+  .stickyBar .brandText{ font-size: clamp(30px, 5.2vw, 48px); line-height: 1; }
 }
 
-/* very short screens: tighten, keep everything visible */
+/* very short screens: tighten */
 @media (max-width: 1024px) and (max-height: 720px){
-  .heroGrid{
-    padding-top: 16px;
-    padding-bottom: 16px;
-    gap: 14px;
-  }
-  .heroVisual{
-    width: min(clamp(480px, 88vw, 760px), 100%);
-    padding-bottom: clamp(110px, 24vw, 175px);
-  }
+  .heroGrid{ padding-top: 16px; padding-bottom: 16px; gap: 14px; }
+  .heroVisual{ width: min(clamp(480px, 88vw, 760px), 100%); padding-bottom: clamp(110px, 24vw, 175px); }
   .hero .phoneCard{ width: clamp(145px, 36vw, 260px); }
   .hero .storeBadge{ height: clamp(44px, 6.5vw, 64px); }
-  .heroBottom{ height: 36px !important; }
+  .heroBottom{ height: 36px; }
 }
 
-/* =========================
-   STICKY TOP BAR
-   - appears only after scrolling past the hero
-   - JS toggles `.isShown` on `#stickyBar`
-   ========================= */
+/* wide desktop niceties */
+@media (min-width: 1025px){
+  .hero .navRow{
+    --navBleed: clamp(18px, 2.6vw, 50px);
+    width: calc(100% + (var(--navBleed) * 2));
+    margin-left: calc(var(--navBleed) * -1);
+    margin-right: calc(var(--navBleed) * -1);
+  }
+  .hero .navRight{ gap: var(--navGap); }
+  .hero .navActionRow{ gap: var(--navGap); }
 
-   .stickyBar{
-    position: sticky;
-    top: 0;
-    height: 100px;
-    margin-bottom: -100px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.10);
-    z-index: 2500;
-  
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform .20s ease, opacity .20s ease;
-  }
-  .stickyBar.isShown{
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .stickyBar .container{
-    height: 100%;
-    max-width: 1920px;
-    padding-left: clamp(var(--s4), 10vw, 190px);
-    padding-right: clamp(var(--s4), 10vw, 195px);
-  }
-  
   .stickyRow{
-    min-height: 100px;
-    height: 100%;
-    display: flex;
-    align-items: center !important;
-    justify-content: space-between;
-    padding-bottom: 0 !important;
+    --navBleed: clamp(18px, 2.6vw, 50px);
+    width: calc(100% + (var(--navBleed) * 2));
+    margin-left: calc(var(--navBleed) * -1);
+    margin-right: calc(var(--navBleed) * -1);
   }
-  
-  .stickyRight{
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 28px !important;
-    flex-wrap: nowrap !important;
-    height: auto !important;
-    padding: 0 !important;
-    opacity: 1 !important;
-  }
-
-  .stickyActionRow{
-    order: 1;
-    display: flex !important;
-    align-items: center !important;
-    gap: 38px !important;
-    white-space: nowrap !important;
-  }
-
-  .stickyEmail{
-    color: #000;
-    opacity: .95;
-    white-space: nowrap;
-    font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 31px;
-  }
-
-  .stickyLangRow{
-    order: 2;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    white-space: nowrap !important;
-    width: 52px;
-    flex: 0 0 52px;
-  }
-  
-  .stickyCta{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 168px;
-    height: 43px;
-    border-radius: 22px;
-    background: #FFFFFF;
-    border: 1px solid #0053D4;
-    box-shadow: none;
-  
-    font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 31px;
-    color: #0053D4;
-  }
-  
-  /* sticky language dropdown (same markup as hero, different colors) */
-  .stickyBar .stickyLangRow,
-  .stickyBar .langDrop{ position: relative; }
-  
-  .stickyBar .langTrigger{
-    border: 0;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 31px;
-    color: #000;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .stickyBar .langValue{
-    display: inline-block;
-    width: 2ch;
-    text-align: left;
-  }
-
-  @media (min-width: 1025px){
-    .stickyBar{ --navGap: 38px; }
-
-    .stickyRow{
-      --navBleed: clamp(18px, 2.6vw, 50px);
-      width: calc(100% + (var(--navBleed) * 2));
-      margin-left: calc(var(--navBleed) * -1);
-      margin-right: calc(var(--navBleed) * -1);
-    }
-
-    .stickyRight{ gap: var(--navGap) !important; }
-    .stickyActionRow{ gap: var(--navGap) !important; }
-    .stickyBar .langDrop{ width: 100%; flex: 0 0 auto !important; }
-    .stickyEmail{ flex: 0 0 auto; }
-    .stickyCta{ flex: 0 0 auto; }
-  }
-  
-  .stickyBar .globeIcon{
-    width: 16.21px;
-    height: 16.21px;
-    display: inline-block;
-    background: #000;
-    -webkit-mask: url("images/globe.svg") no-repeat center / contain;
-    mask: url("images/globe.svg") no-repeat center / contain;
-  }
-  
-  .stickyBar .langMenu{
-    position: absolute;
-    right: 0;
-    top: calc(100% + 6px);
-    min-width: 170px;
-    display: none;
-    z-index: 2600;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,.10);
-    border-radius: 12px;
-    padding: 6px;
-    box-shadow: 0 10px 22px rgba(0,0,0,.16);
-  }
-  .stickyBar .langDrop.open .langMenu{ display: block; }
-  
-  .stickyBar .langItem{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 8px 10px;
-    border-radius: 10px;
-    color: #000;
-    text-decoration: none;
-    font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-  }
-  .stickyBar .langItem:hover{ background: rgba(0,0,0,.06); }
-  
-  .stickyBar .langCheck{ opacity: 0; color: #0053D4; }
-  .stickyBar .langItem.active .langCheck{ opacity: 1; }
-
-  .stickyBar .stickyCta,
-  .stickyBar .langTrigger,
-  .stickyBar .stickyEmail,
-  .stickyBar .brandBtn{
-    transition: transform .18s ease;
-    will-change: transform;
-  }
-
-  .stickyBar .stickyEmail{ display: inline-block; }
-
-  .stickyBar .stickyCta:hover,
-  .stickyBar .langTrigger:hover,
-  .stickyBar .stickyEmail:hover,
-  .stickyBar .brandBtn:hover{
-    transform: translateY(-2px);
-  }
-  
-  @media (max-width: 1024px){
-    .stickyBar{ height: clamp(72px, 9vw, 92px); }
-    .stickyBar{ margin-bottom: calc(clamp(72px, 9vw, 92px) * -1); }
-    .stickyBar .container{
-      max-width: var(--container) !important;
-      padding-left: clamp(20px, 5vw, 36px) !important;
-      padding-right: clamp(26px, 6vw, 48px) !important;
-    }
-    .stickyRow{
-      min-height: clamp(72px, 9vw, 92px) !important;
-      height: auto !important;
-    }
-    .stickyLangRow,
-    .stickyEmail{ display: none !important; }
-    .stickyActionRow{ gap: 0 !important; }
-    .stickyCta{ width: auto; padding: 0 14px; height: 38px; font-size: 16px; }
-    .stickyBar .brandLogo{ width: auto; height: clamp(24px, 5vw, 46px); }
-    .stickyBar .brandText{ font-size: clamp(30px, 5.2vw, 48px); line-height: 1; }
-  }
+  .stickyRight{ gap: var(--navGap); }
+  .stickyActionRow{ gap: var(--navGap); }
+}
