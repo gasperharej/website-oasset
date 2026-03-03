@@ -8,6 +8,9 @@ mkdir -p docs/images
 
 cp site/web/styles.css docs/styles.css
 cp -r site/web/images/* docs/images/
+cp site/web/sticky-topbar.js docs/sticky-topbar.js
+cp site/web/copy_toast.js docs/copy_toast.js
+cp site/web/seo_links.js docs/seo_links.js
 
 # Keep index.html as-is (you maintain it in docs/)
 # 2) Build client JS -> docs/main.dart.js

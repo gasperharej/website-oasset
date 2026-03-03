@@ -1,8 +1,38 @@
 (function () {
-    // English-only messages for now (keys are future-proof for translations)
+    // Keep toast messages language-aware without depending on i18n.js.
     const MESSAGES = {
-      "toast.email_copied": "Email copied to clipboard!",
+      En: {
+        "toast.email_copied": "Email copied to clipboard!",
+      },
+      Sl: {
+        "toast.email_copied": "E-pošta kopirana v odložišče!",
+      },
     };
+
+    function currentLang() {
+      const htmlLang = (document.documentElement.lang || "").toLowerCase();
+      if (htmlLang.startsWith("sl")) return "Sl";
+
+      const baseEl = document.querySelector("base");
+      let basePath = "";
+      if (baseEl && baseEl.href) {
+        try {
+          const u = new URL(baseEl.href, window.location.origin);
+          basePath = u.pathname || "";
+          if (basePath.length > 1 && basePath.endsWith("/")) {
+            basePath = basePath.slice(0, -1);
+          }
+        } catch (_) {}
+      }
+
+      let path = window.location.pathname || "/";
+      if (basePath && path.startsWith(basePath)) {
+        path = path.slice(basePath.length) || "/";
+      }
+      if (!path.startsWith("/")) path = "/" + path;
+
+      return path === "/sl" || path.startsWith("/sl/") ? "Sl" : "En";
+    }
   
     function ensureToastEl() {
       let toast = document.getElementById("copy-toast");
@@ -36,7 +66,13 @@
       toast.dataset.toastKey = key;
   
       const msg = toast.querySelector(".copyToastMsg");
-      if (msg) msg.textContent = MESSAGES[key] || "Copied to clipboard!";
+      if (msg) {
+        const lang = currentLang();
+        msg.textContent =
+          (MESSAGES[lang] && MESSAGES[lang][key]) ||
+          (MESSAGES.En && MESSAGES.En[key]) ||
+          "Copied to clipboard!";
+      }
   
       toast.classList.add("show");
       clearTimeout(window.__copyToastTimer);

@@ -5,8 +5,30 @@
     if (!landing || !hero || !bar) return;
   
     const setShown = (shown) => bar.classList.toggle('isShown', !!shown);
-    const LANG_KEY = 'oasset.lang';
     const normalizeLang = (lang) => (lang === 'Sl' ? 'Sl' : 'En');
+    const currentLangFromUrlOrHtml = () => {
+      const htmlLang = (document.documentElement.lang || '').toLowerCase();
+      if (htmlLang.startsWith('sl')) return 'Sl';
+
+      const baseEl = document.querySelector('base');
+      let basePath = '';
+      if (baseEl && baseEl.href) {
+        try {
+          const u = new URL(baseEl.href, window.location.origin);
+          basePath = u.pathname || '';
+          if (basePath.length > 1 && basePath.endsWith('/')) {
+            basePath = basePath.slice(0, -1);
+          }
+        } catch (_) {}
+      }
+
+      let path = window.location.pathname || '/';
+      if (basePath && path.startsWith(basePath)) {
+        path = path.slice(basePath.length) || '/';
+      }
+      if (!path.startsWith('/')) path = '/' + path;
+      return path === '/sl' || path.startsWith('/sl/') ? 'Sl' : 'En';
+    };
     const animateLangValue = (el, value) => {
       if (el.textContent === value) return;
       if (el.__langFadeTimer) {
@@ -37,16 +59,11 @@
         });
         drop.classList.remove('open');
       });
-      try {
-        localStorage.setItem(LANG_KEY, value);
-      } catch (_) {}
     };
     window.__setLang = applyLang;
-    try {
-      applyLang(localStorage.getItem(LANG_KEY) || 'En', false);
-    } catch (_) {
-      applyLang('En', false);
-    }
+    applyLang(currentLangFromUrlOrHtml(), false);
+    window.addEventListener('popstate', () => applyLang(currentLangFromUrlOrHtml(), false));
+    window.addEventListener('pageshow', () => applyLang(currentLangFromUrlOrHtml(), false));
   
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(([entry]) => setShown(!entry.isIntersecting), {
