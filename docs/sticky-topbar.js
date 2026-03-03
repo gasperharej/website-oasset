@@ -76,4 +76,23 @@
       landing.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     }
+
+    // In-page section navigation inside the landing scroll container.
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-scroll-target]');
+      if (!link) return;
+
+      const targetId = link.getAttribute('data-scroll-target');
+      if (!targetId) return;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+      const landingRect = landing.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const targetTopInLanding = landing.scrollTop + (targetRect.top - landingRect.top);
+      const stickyOffset = bar ? bar.offsetHeight : 0;
+      const scrollTop = Math.max(0, targetTopInLanding - stickyOffset);
+      landing.scrollTo({ top: scrollTop, behavior: 'smooth' });
+    });
   })();

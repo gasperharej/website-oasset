@@ -1,5 +1,8 @@
 const Map<String, String> kSl = {
   "nav.sign_in": "Prijava",
+  "nav.learning_center": "Učni center",
+  "nav.pricing": "Cenik",
+  "nav.contact_us": "Kontaktirajte nas",
   "hero.title": "Aplikacija za sistematično vzdrževanje",
   "hero.subtitle":
     "Z našo aplikacijo bo vzdrževanje enostavnejše, učinkovitejše in cenejše.",

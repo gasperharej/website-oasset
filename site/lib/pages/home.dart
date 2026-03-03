@@ -201,17 +201,19 @@ class StickyTopBar extends StatelessComponent {
           ]),
           div_(classes: 'stickyRight', children: [
             // Links
-            a_(
-              href: hrefFromRoutePath('/learning'), // change if needed
-              classes: 'stickyLink',
-              children: [t('Learning center')],
-            ),
+            el('a', classes: 'stickyLink', attrs: {
+              'href': '#',
+              'data-scroll-target': 'learning-center',
+            }, children: [
+              tx(ctx.lang, 'nav.learning_center', 'Learning center')
+            ]),
             el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
-            a_(
-              href: hrefFromRoutePath('/pricing'), // change if needed
-              classes: 'stickyLink',
-              children: [t('Pricing')],
-            ),
+            el('a', classes: 'stickyLink', attrs: {
+              'href': '#',
+              'data-scroll-target': 'pricing',
+            }, children: [
+              tx(ctx.lang, 'nav.pricing', 'Pricing')
+            ]),
             el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
           
             // Buttons
@@ -220,11 +222,13 @@ class StickyTopBar extends StatelessComponent {
               classes: 'stickyBtn stickyBtnOutline',
               children: [tx(ctx.lang, 'nav.sign_in', 'Sign In')],
             ),
-            a_(
-              href: hrefFromRoutePath('/contact'), // change if needed
-              classes: 'stickyBtn stickyBtnSolid',
-              children: [t('Contact us')],
-            ),
+            el('a', classes: 'stickyBtn stickyBtnSolid', attrs: {
+              'href': '#',
+              'data-copy': 'info@oasset.app',
+              'data-toast-key': 'toast.email_copied',
+            }, children: [
+              tx(ctx.lang, 'nav.contact_us', 'Contact us')
+            ]),
           
             // Language dropdown (reuse the same langDrop markup)
             div_(classes: 'stickyLang', children: [
@@ -289,17 +293,19 @@ class HeroSection extends StatelessComponent {
           ]),
           div_(classes: 'navRight', children: [
             // Links
-            a_(
-              href: hrefFromRoutePath('/learning'), // change if needed
-              classes: 'navLink',
-              children: [t('Learning center')],
-            ),
+            el('a', classes: 'navLink', attrs: {
+              'href': '#',
+              'data-scroll-target': 'learning-center',
+            }, children: [
+              tx(ctx.lang, 'nav.learning_center', 'Learning center')
+            ]),
             el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
-            a_(
-              href: hrefFromRoutePath('/pricing'), // change if needed
-              classes: 'navLink',
-              children: [t('Pricing')],
-            ),
+            el('a', classes: 'navLink', attrs: {
+              'href': '#',
+              'data-scroll-target': 'pricing',
+            }, children: [
+              tx(ctx.lang, 'nav.pricing', 'Pricing')
+            ]),
             el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
           
             // Buttons
@@ -308,11 +314,13 @@ class HeroSection extends StatelessComponent {
               classes: 'navBtn navBtnOutline',
               children: [tx(ctx.lang, 'nav.sign_in', 'Sign In')],
             ),
-            a_(
-              href: hrefFromRoutePath('/contact'), // change if needed
-              classes: 'navBtn navBtnSolid',
-              children: [t('Contact us')],
-            ),
+            el('a', classes: 'navBtn navBtnSolid', attrs: {
+              'href': '#',
+              'data-copy': 'info@oasset.app',
+              'data-toast-key': 'toast.email_copied',
+            }, children: [
+              tx(ctx.lang, 'nav.contact_us', 'Contact us')
+            ]),
           
             // Language dropdown (your existing block, unchanged)
             div_(classes: 'navLang', children: [
@@ -490,7 +498,7 @@ class LearningCta extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section_(classes: 'cta', children: [
+    return section_(id: 'learning-center', classes: 'cta', children: [
       div_(classes: 'container', children: [
         div_(classes: 'ctaGrid', children: [
           div_(classes: 'ctaVisual', children: [
