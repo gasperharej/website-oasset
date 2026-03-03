@@ -173,10 +173,10 @@
     box-shadow: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     cursor: pointer;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 31px;
     color: #fff;
     width: 100%;
@@ -377,12 +377,78 @@
   }
   
   @media (min-width: 1025px){
-    .hero .navRow{
-      --navBleed: clamp(18px, 2.6vw, 50px);
-      width: calc(100% + (var(--navBleed) * 2));
-      margin-left: calc(var(--navBleed) * -1);
-      margin-right: calc(var(--navBleed) * -1);
-    }
     .hero .navRight{ gap: var(--navGap); }
     .hero .navActionRow{ gap: var(--navGap); }
   }
+
+  /* HERO NAV layout */
+.hero .navRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 24px;
+}
+
+.hero .navRight{
+  display:flex;
+  align-items:center;
+  gap: 20px;
+}
+.hero .navGapDouble{
+  width: 0;
+  flex: 0 0 0;
+  pointer-events: none;
+}
+
+.hero .navLink{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  font-size: 18px;
+  line-height: 1.1;
+  opacity: .95;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.hero .navLink:hover{
+  opacity: 1;
+  transform: translateY(-2px);
+}
+/* custom desktop spacing for nav items */
+
+/* buttons */
+.hero .navBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight:500;
+  font-size: 18px;
+  line-height: 1.1;
+  text-decoration:none;
+  white-space:nowrap;
+  transition: transform .2s ease;
+  box-shadow: none;
+}
+.hero .navBtn:hover{
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+.hero .navBtn:focus-visible{ box-shadow: none; }
+.hero .navBtnOutline{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.75);
+  color: #fff;
+}
+.hero .navBtnSolid{
+  background: #fff;
+  border: 1px solid #fff;
+  color: #0B4BD4;
+}
+
+@media (max-width: 1024px){
+  .hero .navGapDouble,
+  .hero .navLink,
+  .hero .navBtn{ display:none; }
+}

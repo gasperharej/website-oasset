@@ -200,23 +200,39 @@ class StickyTopBar extends StatelessComponent {
             img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
           div_(classes: 'stickyRight', children: [
-            div_(classes: 'stickyActionRow', children: [
-              el('a', classes: 'stickyEmail', attrs: {
-                'href': '#',
-                'data-copy': 'info@oasset.app',
-                'data-toast-key': 'toast.email_copied',
-              }, children: [t('info@oasset.app')]),
-              a_(
-                href: hrefFromRoutePath(Routes.signIn),
-                classes: 'stickyCta',
-                children: [tx(ctx.lang, 'nav.sign_in', 'Sign in')],
-              ),
-            ]),
-            div_(classes: 'stickyLangRow', children: [
+            // Links
+            a_(
+              href: hrefFromRoutePath('/learning'), // change if needed
+              classes: 'stickyLink',
+              children: [t('Learning center')],
+            ),
+            el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
+            a_(
+              href: hrefFromRoutePath('/pricing'), // change if needed
+              classes: 'stickyLink',
+              children: [t('Pricing')],
+            ),
+            el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
+          
+            // Buttons
+            a_(
+              href: hrefFromRoutePath(Routes.signIn),
+              classes: 'stickyBtn stickyBtnOutline',
+              children: [tx(ctx.lang, 'nav.sign_in', 'Sign In')],
+            ),
+            a_(
+              href: hrefFromRoutePath('/contact'), // change if needed
+              classes: 'stickyBtn stickyBtnSolid',
+              children: [t('Contact us')],
+            ),
+          
+            // Language dropdown (reuse the same langDrop markup)
+            div_(classes: 'stickyLang', children: [
               div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
                 el('a', classes: 'langTrigger', attrs: {
                   'href': '#',
-                  'onclick': "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
+                  'onclick':
+                      "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
                 }, children: [
                   el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
                   el('span', classes: 'langValue', children: [t(ctx.lang.label)]),
@@ -272,12 +288,39 @@ class HeroSection extends StatelessComponent {
             img_(src: ImgPath.logoWhite, alt: 'OAsset', classes: 'brandLogo'),
           ]),
           div_(classes: 'navRight', children: [
-            // top-right: language
-            div_(classes: 'navLangRow', children: [
+            // Links
+            a_(
+              href: hrefFromRoutePath('/learning'), // change if needed
+              classes: 'navLink',
+              children: [t('Learning center')],
+            ),
+            el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
+            a_(
+              href: hrefFromRoutePath('/pricing'), // change if needed
+              classes: 'navLink',
+              children: [t('Pricing')],
+            ),
+            el('span', classes: 'navGapDouble', attrs: {'aria-hidden': 'true'}),
+          
+            // Buttons
+            a_(
+              href: hrefFromRoutePath(Routes.signIn),
+              classes: 'navBtn navBtnOutline',
+              children: [tx(ctx.lang, 'nav.sign_in', 'Sign In')],
+            ),
+            a_(
+              href: hrefFromRoutePath('/contact'), // change if needed
+              classes: 'navBtn navBtnSolid',
+              children: [t('Contact us')],
+            ),
+          
+            // Language dropdown (your existing block, unchanged)
+            div_(classes: 'navLang', children: [
               div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [
                 el('a', classes: 'langTrigger', attrs: {
                   'href': '#',
-                  'onclick': "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
+                  'onclick':
+                      "event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');"
                 }, children: [
                   el('span', classes: 'globeIcon', attrs: {'aria-hidden': 'true'}),
                   el('span', classes: 'langValue', children: [t(ctx.lang.label)]),
@@ -307,20 +350,6 @@ class HeroSection extends StatelessComponent {
                       ]),
                 ]),
               ]),
-            ]),
-
-            // bottom-right: email + sign in pill
-            div_(classes: 'navActionRow', children: [
-              el('a', classes: 'navEmail', attrs: {
-                'href': '#',
-                'data-copy': 'info@oasset.app',
-                'data-toast-key': 'toast.email_copied',
-              }, children: [t('info@oasset.app')]),
-              a_(
-                href: hrefFromRoutePath(Routes.signIn),
-                classes: 'signInBtn',
-                children: [tx(ctx.lang, 'nav.sign_in', 'Sign in')],
-              ),
             ]),
           ]),
         ]),

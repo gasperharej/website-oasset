@@ -99,11 +99,11 @@
     margin: 0;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     cursor: pointer;
     text-decoration: none;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 31px;
     color: #000;
     width: 100%;
@@ -176,12 +176,73 @@
   
   /* wide desktop niceties */
   @media (min-width: 1025px){
-    .stickyRow{
-      --navBleed: clamp(18px, 2.6vw, 50px);
-      width: calc(100% + (var(--navBleed) * 2));
-      margin-left: calc(var(--navBleed) * -1);
-      margin-right: calc(var(--navBleed) * -1);
-    }
     .stickyRight{ gap: var(--navGap); }
     .stickyActionRow{ gap: var(--navGap); }
   }
+
+/* STICKY NAV layout */
+.stickyRight{
+  display:flex;
+  align-items:center;
+  gap: 20px;
+}
+.stickyRight .navGapDouble{
+  width: 0;
+  flex: 0 0 0;
+  pointer-events: none;
+}
+
+.stickyLink{
+  color:#000;
+  text-decoration:none;
+  font-weight:500;
+  font-size: 18px;
+  line-height: 1.1;
+  opacity: .85;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.stickyLink:hover{
+  opacity: 1;
+  transform: translateY(-2px);
+}
+/* custom desktop spacing for nav items */
+
+/* sticky buttons */
+.stickyBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight:500;
+  font-size: 18px;
+  line-height: 1.1;
+  text-decoration:none;
+  white-space:nowrap;
+  transition: transform .2s ease;
+  box-shadow: none;
+}
+.stickyBtn:hover{
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+.stickyBtn:focus-visible{ box-shadow: none; }
+.stickyBtnOutline{
+  background: #fff;
+  border: 1px solid #0B4BD4;
+  color: #0B4BD4;
+}
+.stickyBtnSolid{
+  background: #0B4BD4;
+  border: 1px solid #0B4BD4;
+  color: #fff;
+  box-shadow: none;
+}
+
+@media (max-width: 1024px){
+  .stickyRight .navGapDouble,
+  .stickyLink,
+  .stickyBtnOutline,
+  .stickyLang{ display:none; }
+}
