@@ -17,6 +17,11 @@ class App extends StatelessComponent {
             title: 'Home',
             builder: (context, state) => const Home(),
           ),
+          Route(
+            path: '/sl',
+            title: 'Domov',
+            builder: (context, state) => const Home(),
+          ),
         ],
       ),
     ]);

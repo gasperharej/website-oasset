@@ -171,12 +171,6 @@ class StickyTopBar extends StatelessComponent {
         div_(classes: 'stickyRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
             'href': '/',
-            'onclick':
-                "event.preventDefault();"
-                "window.history.scrollRestoration='manual';"
-                "window.scrollTo({top:0,behavior:'instant'});"
-                "if(window.location.pathname!=='/'){window.location.href='/';return;}"
-                "window.location.reload();",
           }, children: [
             img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -200,7 +194,7 @@ class StickyTopBar extends StatelessComponent {
                 ]),
                 el('div', classes: 'langMenu', children: [
                   el('a', classes: 'langItem active', attrs: {
-                    'href': '#',
+                    'href': '/',
                     'data-lang': 'En',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "window.__setLang&&window.__setLang('En');"
@@ -209,7 +203,7 @@ class StickyTopBar extends StatelessComponent {
                     el('span', classes: 'langCheck', children: [t('✓')]),
                   ]),
                   el('a', classes: 'langItem', attrs: {
-                    'href': '#',
+                    'href': '/sl',
                     'data-lang': 'Sl',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "window.__setLang&&window.__setLang('Sl');"
@@ -238,12 +232,6 @@ class HeroSection extends StatelessComponent {
         div_(classes: 'navRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
             'href': '/',
-            'onclick':
-                "event.preventDefault();"
-                "window.history.scrollRestoration='manual';"
-                "window.scrollTo({top:0,behavior:'instant'});"
-                "if(window.location.pathname!=='/'){window.location.href='/';return;}"
-                "window.location.reload();",
           }, children: [
             img_(src: ImgPath.logoWhite, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -261,7 +249,7 @@ class HeroSection extends StatelessComponent {
                 el('div', classes: 'langMenu', children: [
                   // English (default active)
                   el('a', classes: 'langItem active', attrs: {
-                    'href': '#',
+                    'href': '/',
                     'data-lang': 'En',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "window.__setLang&&window.__setLang('En');"
@@ -272,7 +260,7 @@ class HeroSection extends StatelessComponent {
 
                   // Slovenščina
                   el('a', classes: 'langItem', attrs: {
-                    'href': '#',
+                    'href': '/sl',
                     'data-lang': 'Sl',
                     'onclick': "event.preventDefault(); event.stopPropagation();"
                         "window.__setLang&&window.__setLang('Sl');"
@@ -291,7 +279,7 @@ class HeroSection extends StatelessComponent {
                 'data-copy': 'info@oasset.app',
                 'data-toast-key': 'toast.email_copied',
               }, children: [t('info@oasset.app')]),
-              a_(href: '/signin', classes: 'signInBtn', children: [t('Sign in')]),
+              a_(href: '/signin', classes: 'signInBtn', children: [i18n('nav.sign_in', 'Sign in')]),
             ]),
           ]),
         ]),
@@ -299,9 +287,9 @@ class HeroSection extends StatelessComponent {
         // Main hero grid
         div_(classes: 'heroGrid', children: [
           div_(classes: 'heroText', children: [
-            h1_(classes: 'h1', children: [t('Systematic maintenance app')]),
+            h1_(classes: 'h1', children: [i18n('hero.title', 'Systematic maintenance app')]),
             p_(classes: 'sub', children: [
-              t('Utilize our app to make maintenance easier, more efficient and lower its costs')
+              i18n('hero.subtitle', 'Utilize our app to make maintenance easier, more efficient and lower its costs')
             ]),
             div_(classes: 'badges', children: [
               a_(href: 'https://play.google.com/store/', children: [img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')]),
@@ -352,15 +340,19 @@ class FeatureSection extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     final textCol = div_(classes: 'colText', children: [
-      h2_(classes: 'title', children: [t(title)]),
-      ul_(classes: 'bullets', children: [
-        for (final b in bullets)
-          li_(children: [
-            el('span', classes: 'dot'),
-            p_(children: [t(b)]),
+  h2_(classes: 'title', children: [
+      i18n('feature.$id.title', title),
+    ]),
+    ul_(classes: 'bullets', children: [
+      for (var i = 0; i < bullets.length; i++)
+        li_(children: [
+          el('span', classes: 'dot'),
+          p_(children: [
+            i18n('feature.$id.bullet.${i + 1}', bullets[i]),
           ]),
-      ]),
-    ]);
+        ]),
+    ]),
+  ]);
 
     final visualCol = div_(classes: 'colVisual', children: [
       (cardA != null && cardB != null)
@@ -424,12 +416,15 @@ class LearningCta extends StatelessComponent {
             ]),
           ]),
           div_(classes: 'ctaText', children: [
-            h2_(classes: 'title', children: [t('Learn how to use our app')]),
+            h2_(classes: 'title', children: [i18n('cta.title', 'Learn how to use our app')]),
             p_(children: [
-              t('Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.')
+              i18n('cta.body', 'Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.')
             ]),
             div_(style: 'margin-top:16px;', children: [
-              a_(href: '#', classes: 'ctaBtn', children: [t('Go to learning center'), t(' ▶')]),
+              a_(href: '#', classes: 'ctaBtn', children: [
+                i18n('cta.button', 'Go to learning center'),
+                t(' ▶'),
+              ]),
             ]),
           ]),
         ]),
@@ -446,9 +441,10 @@ class FooterSection extends StatelessComponent {
     return footer_(classes: 'footer', children: [
       div_(classes: 'container', children: [
         div_(classes: 'footerRow', children: [
-          div_(classes: 'footerLeft', children: [t('© 2026 OAsset. All rights reserved.')]),
+          div_(classes: 'footerLeft', children: [i18n('footer.copyright', '© 2026 OAsset. All rights reserved.')]),
           div_(classes: 'footerRight', children: [
-            t('by Optimiraj d.o.o.'), el('br'),
+            i18n('footer.by', 'by Optimiraj d.o.o.'),
+            el('br'),
             t('e: info@optimiraj.com'),
             div_(classes: 'badgeColumn', children: [
               div_(classes: 'cert', children: [

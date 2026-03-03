@@ -36,12 +36,20 @@ void main() {
     ],
     head: [
       Component.element(
+        tag: 'base',
+        attributes: {'href': '/website-oasset/'}, // change if you're hosted under a subpath
+      ),
+      Component.element(
         tag: 'script',
         attributes: {'src': 'sticky-topbar.js', 'defer': ''},
       ),
       Component.element(
         tag: 'script',
         attributes: {'src': 'copy_toast.js', 'defer': ''},
+      ),
+      Component.element(
+        tag: 'script',
+        attributes: {'src': 'i18n.js', 'defer': ''},
       ),
     ],
     body: App(),
