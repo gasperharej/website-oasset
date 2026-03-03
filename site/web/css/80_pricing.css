@@ -1,0 +1,306 @@
+/* =========================
+   PRICING
+   Clean, sectioned, no duplicate overrides
+   ========================= */
+
+/* Layout variables for this section only */
+.pricing {
+  --page-pad: clamp(16px, 4vw, 64px);
+  --panel-max-w: 1538px;
+  --panel-pad-y: clamp(36px, 3.5vw, 56px);
+  --panel-pad-x: clamp(36px, 3.5vw, 56px);
+  --panel-radius: clamp(22px, 3vw, 41px);
+  --card-w: 360px;
+  --card-gap: clamp(10px, 1.6vw, 14px);
+
+  background: #eaf2ff;
+  padding: clamp(44px, 5vw, 72px) 0;
+}
+
+/* Container + panel */
+.pricing .container {
+  max-width: 1920px;
+  padding-left: var(--navPadL, var(--page-pad));
+  padding-right: var(--navPadR, var(--page-pad));
+}
+
+.pricingPanel {
+  max-width: min(var(--panel-max-w), 100%);
+  margin-inline: auto;
+  background: #fff;
+  border-radius: var(--panel-radius);
+  padding: var(--panel-pad-y) var(--panel-pad-x);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.pricingHeading {
+  margin: 0;
+  text-align: center;
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 63px;
+  color: #160637;
+}
+
+/* Cards grid */
+.pricingGrid {
+  margin-top: clamp(34px, 4vw, 60px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), var(--card-w)));
+  justify-content: center;
+  gap: var(--card-gap);
+  align-items: stretch;
+}
+
+/* Card base + variants */
+.pricingCard {
+  width: 100%;
+  height: 100%;
+  max-width: var(--card-w);
+  padding: 36px 45px 32px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -1px 3px 10px rgba(0, 0, 0, 0.388235);
+}
+
+.pricingCardPremium {
+  background: #fff;
+  border: 4px solid #0064fe;
+}
+
+.pricingCardEnterprise {
+  background: #276cfe;
+  color: #fff;
+  border: 0;
+}
+
+/* Pricing typography */
+.pricingPlan {
+  margin: 0 0 18px;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 63px;
+  color: #160637;
+}
+
+.pricingCardEnterprise .pricingPlan {
+  color: #fff;
+}
+
+.pricingPriceBlock {
+  margin: 0 0 22px;
+}
+
+.pricingPriceValue {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 63px;
+  color: #160637;
+}
+
+.pricingCardEnterprise .pricingPriceValue {
+  color: #fff;
+}
+
+.pricingPriceUnit {
+  margin-top: 2px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 0.9;
+}
+
+/* Buttons */
+.pricingBtn {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  margin: 6px 0 22px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.pricingBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.pricingBtnOutline {
+  background: #fff;
+  border: 1px solid #0064fe;
+  color: #0064fe;
+}
+
+.pricingBtnSolid {
+  background: #fff;
+  border: 1.5px solid #fff;
+  color: #2a6bff;
+}
+
+/* Includes + checklist */
+.pricingIncludes {
+  margin: 0 0 10px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000;
+}
+
+.pricingCardEnterprise .pricingIncludes {
+  color: #fff;
+}
+
+.pricingList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricingList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.pricingCheck {
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  line-height: 1;
+  color: #4CAF50;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 0;
+  box-shadow: none;
+  border-radius: 999px;
+  box-sizing: border-box;
+}
+
+.pricingItemText {
+  opacity: 0.95;
+}
+
+.pricingCardPremium .pricingItemText {
+  color: rgba(0, 0, 0, 0.78);
+}
+
+.pricingCardEnterprise .pricingItemText {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Footnote */
+.pricingFootnote {
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.pricingCardEnterprise .pricingFootnote {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive (mobile/tablet starts at 1024px) */
+@media (max-width: 1024px) {
+  /* reduce panel padding so card never overflows the viewport */
+  .pricing {
+    padding: 54px 0;
+    --panel-pad-x: 16px;
+    --panel-pad-y: 28px;
+    --panel-radius: 22px;
+    --card-gap: 16px;
+  }
+
+  .pricingPanel {
+    padding: var(--panel-pad-y) var(--panel-pad-x);
+    border-radius: var(--panel-radius);
+  }
+
+  /* stack cards */
+  .pricingGrid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    margin-top: 32px;
+    gap: var(--card-gap);
+    align-items: start;
+  }
+
+  /* keep card look, but make it fit + not “center weird” */
+  .pricingCard {
+    height: auto;
+    padding: 26px 22px 22px;
+    margin: 0 auto;     /* centered as a block */
+    text-align: left;   /* content stays left-aligned */
+  }
+
+  /* scale typography so nothing spills out */
+  .pricingHeading {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .pricingPlan,
+  .pricingPriceValue {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .pricingPriceUnit {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .pricingBtn {
+    min-height: 52px;
+    font-size: 16px;
+    margin: 10px 0 18px;
+  }
+
+  .pricingIncludes {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .pricingList li {
+    font-size: 16px;
+    line-height: 20px;
+    min-width: 0;
+  }
+
+  /* bullet text always wraps inside card */
+  .pricingItemText {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+/* extra-small phones */
+@media (max-width: 420px) {
+  .pricingPanel { --panel-pad-x: 14px; --panel-pad-y: 22px; }
+  .pricingCard { padding: 22px 18px 18px; }
+  .pricingHeading { font-size: 32px; line-height: 40px; }
+  .pricingPlan,
+  .pricingPriceValue { font-size: 32px; line-height: 40px; }
+}

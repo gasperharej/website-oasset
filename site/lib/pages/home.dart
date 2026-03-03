@@ -36,7 +36,9 @@ Component section_({String? id, String? classes, List<Component> children = cons
 Component footer_({String? classes, List<Component> children = const []}) => el('footer', classes: classes, children: children);
 Component h1_({String? classes, List<Component> children = const []}) => el('h1', classes: classes, children: children);
 Component h2_({String? classes, List<Component> children = const []}) => el('h2', classes: classes, children: children);
+Component h3_({String? classes, List<Component> children = const []}) => el('h3', classes: classes, children: children);
 Component p_({String? classes, List<Component> children = const []}) => el('p', classes: classes, children: children);
+Component span_({String? classes, List<Component> children = const []}) => el('span', classes: classes, children: children);
 Component ul_({String? classes, List<Component> children = const []}) => el('ul', classes: classes, children: children);
 Component li_({List<Component> children = const []}) => el('li', children: children);
 Component a_({required String href, String? classes, List<Component> children = const []}) =>
@@ -68,6 +70,7 @@ class ImgPath {
   static const work2 = 'images/work_2.png';
   static const cert1 = 'images/cert_1.png';
   static const cert2 = 'images/cert_2.png';
+  static const tickPricing = 'images/tick_pricing.png';
 }
 
 /* ========= Page ========= */
@@ -171,6 +174,7 @@ class Home extends StatelessComponent {
         ),
 
         LearningCta(ctx: ctx),
+        PricingSection(ctx: ctx),
         FooterSection(ctx: ctx),
       ],
     );
@@ -482,6 +486,96 @@ class LearningCta extends StatelessComponent {
               a_(href: '#', classes: 'ctaBtn', children: [
                 tx(ctx.lang, 'cta.button', 'Go to learning center'),
                 t(' ▶'),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]);
+  }
+}
+
+class PricingSection extends StatelessComponent {
+  final PageCtx ctx;
+  const PricingSection({super.key, required this.ctx});
+
+  Component _checkItem(Component text) {
+    return li_(children: [
+      span_(classes: 'material-symbols-rounded pricingCheck', children: [t('check_circle')]),
+      span_(classes: 'pricingItemText', children: [text]),
+    ]);
+  }
+
+  @override
+  Component build(BuildContext context) {
+    return section_(id: 'pricing', classes: 'pricing', children: [
+      div_(classes: 'container', children: [
+        div_(classes: 'pricingPanel', children: [
+          h2_(classes: 'pricingHeading', children: [
+            tx(ctx.lang, 'pricing.heading', 'Pricing'),
+          ]),
+
+          div_(classes: 'pricingGrid', children: [
+            // Premium (outlined)
+            div_(classes: 'pricingCard pricingCardPremium', children: [
+              h3_(classes: 'pricingPlan', children: [
+                tx(ctx.lang, 'pricing.premium.title', 'Premium'),
+              ]),
+              div_(classes: 'pricingPriceBlock', children: [
+                div_(classes: 'pricingPriceValue', children: [t('€37')]),
+                div_(classes: 'pricingPriceUnit', children: [
+                  tx(ctx.lang, 'pricing.premium.unit', 'per user*/month'),
+                ]),
+              ]),
+
+              a_(
+                href: '#contact', // change if you have a real contact route
+                classes: 'pricingBtn pricingBtnOutline',
+                children: [tx(ctx.lang, 'pricing.contact', 'Contact us')],
+              ),
+
+              div_(classes: 'pricingIncludes', children: [
+                tx(ctx.lang, 'pricing.includes', "What’s included:"),
+              ]),
+              ul_(classes: 'pricingList', children: [
+                _checkItem(tx(ctx.lang, 'pricing.premium.f1', 'Infinite work orders')),
+                _checkItem(tx(ctx.lang, 'pricing.premium.f2', 'Infinite Assets')),
+                _checkItem(tx(ctx.lang, 'pricing.premium.f3', 'Infinite Custom Procedures')),
+              ]),
+
+              div_(classes: 'pricingFootnote', children: [
+                tx(ctx.lang, 'pricing.premium.foot', '*user is individual per person account'),
+              ]),
+            ]),
+
+            // Enterprise (filled)
+            div_(classes: 'pricingCard pricingCardEnterprise', children: [
+              h3_(classes: 'pricingPlan', children: [
+                tx(ctx.lang, 'pricing.enterprise.title', 'Enterprise'),
+              ]),
+              div_(classes: 'pricingPriceBlock', children: [
+                div_(classes: 'pricingPriceValue', children: [
+                  tx(ctx.lang, 'pricing.enterprise.letstalk', "Let’s talk"),
+                ]),
+                div_(classes: 'pricingPriceUnit', children: [
+                  tx(ctx.lang, 'pricing.enterprise.unit', 'Custom pricing'),
+                ]),
+              ]),
+
+              a_(
+                href: '#contact', // change if you have a real contact route
+                classes: 'pricingBtn pricingBtnSolid',
+                children: [tx(ctx.lang, 'pricing.contact', 'Contact us')],
+              ),
+
+              div_(classes: 'pricingIncludes', children: [
+                tx(ctx.lang, 'pricing.enterprise.includes', 'Everything in Premium and:'),
+              ]),
+              ul_(classes: 'pricingList', children: [
+                _checkItem(tx(ctx.lang, 'pricing.enterprise.f1', 'Photo 360 viewer')),
+                _checkItem(tx(ctx.lang, 'pricing.enterprise.f2', 'BIM 3D Viewer')),
+                _checkItem(tx(ctx.lang, 'pricing.enterprise.f3', 'Custom GIS implementation')),
+                _checkItem(tx(ctx.lang, 'pricing.enterprise.f4', 'Custom integrations')),
               ]),
             ]),
           ]),

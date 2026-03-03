@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# 0) Build PRODUCTION CSS (bundle + minify) from split sources
+npx lightningcss --bundle --minify site/web/css/main.css -o site/web/styles.css
+
 # 1) Sync static assets from site/web -> docs (what GitHub Pages serves)
 mkdir -p docs
 rm -rf docs/images

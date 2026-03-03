@@ -1,0 +1,101 @@
+/* HOVER LIFT + STORE BADGES + FOCUS */
+:is(
+  .hero .signInBtn,
+  .ctaBtn,
+  .pillBtn,
+  .hero .langTrigger,
+  .hero .navEmail,
+  .hero .brandBtn,
+  .stickyBar .stickyCta,
+  .stickyBar .langTrigger,
+  .stickyBar .stickyEmail,
+  .stickyBar .brandBtn
+){
+  transition: transform .18s ease;
+  will-change: transform;
+}
+:is(
+  .hero .signInBtn,
+  .ctaBtn,
+  .pillBtn,
+  .hero .langTrigger,
+  .hero .navEmail,
+  .hero .brandBtn,
+  .stickyBar .stickyCta,
+  .stickyBar .langTrigger,
+  .stickyBar .stickyEmail,
+  .stickyBar .brandBtn
+):hover{
+  transform: translateY(-2px);
+}
+
+/* store badges: lift image only (prevents edges) */
+.hero .badges a{
+  display:inline-block;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  line-height:0;
+  text-decoration:none;
+}
+.hero .storeBadge{ transition: transform .18s ease; will-change: transform; }
+.hero .badges a:hover .storeBadge{ transform: translateY(-2px); }
+
+/* keyboard focus */
+:is(
+  .hero .signInBtn,
+  .ctaBtn,
+  .pillBtn,
+  .hero .langTrigger,
+  .hero .navEmail,
+  .hero .brandBtn,
+  .hero .badges a,
+  .stickyBar .stickyCta,
+  .stickyBar .langTrigger,
+  .stickyBar .stickyEmail,
+  .stickyBar .brandBtn
+):focus-visible{
+  outline: 2px solid rgba(255,255,255,.85);
+  outline-offset: 3px;
+}
+
+/* COPY TOAST */
+.copyToast{
+  box-sizing: border-box;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 345px;
+  height: 64px;
+  transform: translate(-50%, -12px);
+  background: #0064FD;
+  border: 1px solid #FFFFFF;
+  border-radius: 16px;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 14px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.copyToast.show{
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.copyToastIcon{ line-height: 1; font-size: 20px; }
+
+@media (max-width: 420px){
+  .copyToast{ width: calc(100vw - 20px); font-size: 16px; }
+}

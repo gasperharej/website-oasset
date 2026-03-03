@@ -1,0 +1,17 @@
+/* MAIN CSS FILE 
+dev:
+npx lightningcss --bundle site/web/css/main.css -o site/web/styles.css
+
+prod:
+npx lightningcss --bundle --minify site/web/css/main.css -o site/web/styles.css
+
+*/
+
+@import url("./00_base.css");
+@import url("./20_hero.css");
+@import url("./30_sections.css");
+@import url("./40_cta.css");
+@import url("./50_footer.css");
+@import url("./60_interactions_toast.css");
+@import url("./70_stickybar.css");
+@import url("./80_pricing.css");

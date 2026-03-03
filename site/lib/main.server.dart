@@ -40,6 +40,14 @@ void main() {
         attributes: {'href': '/website-oasset/'}, // GitHub Pages project-site base path
       ),
       Component.element(
+        tag: 'link',
+        attributes: {
+          'rel': 'stylesheet',
+          'href':
+              'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check_circle'
+        },
+      ),
+      Component.element(
         tag: 'script',
         attributes: {'src': 'sticky-topbar.js', 'defer': ''},
       ),

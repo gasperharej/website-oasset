@@ -1,0 +1,58 @@
+/* Hide template top header/nav (Home/About pills) if present */
+header { display:none !important; }
+
+html, body { height: 100%; }
+body { margin: 0; overflow: hidden; font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial; background:#fff; }
+
+:root{
+  --blue1:#0064FE;
+  --blue2:#6176FF;
+  --title:#160637;
+  --muted: rgba(0,0,0,.65);
+
+  --container: 1180px;
+  --r: 24px;
+
+  --shadowCard: -1px 3px 10px rgba(0,0,0,.22);
+  --shadowHero: 0px 1px 4px 2px rgba(0,0,0,.11);
+
+  --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px; --s10:40px; --s12:48px;
+
+  /* shared nav sizing */
+  --navH: 100px;
+  --navPadL: clamp(var(--s4), 10vw, 190px);
+  --navPadR: clamp(var(--s4), 10vw, 195px);
+  --navGap: 38px;
+}
+
+a{ color:inherit; text-decoration:none; }
+*{ box-sizing:border-box; }
+.container{ max-width: var(--container); margin:0 auto; padding:0 var(--s4); }
+
+/* LANDING SCROLL */
+.landing{
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: none;
+  overscroll-behavior-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* shared section sizing */
+.section,
+.cta,
+.footer{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+}
+
+/* shared grids */
+.sectionGrid,
+.ctaGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s10);
+  align-items:center;
+}

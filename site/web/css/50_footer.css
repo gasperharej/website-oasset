@@ -1,0 +1,23 @@
+/* FOOTER */
+.footer{
+    color:#fff;
+    background: linear-gradient(86.61deg, var(--blue1) 16.2%, var(--blue2) 95.29%);
+    padding: 44px 0 56px;
+  }
+  .footerRow{
+    display:flex;
+    justify-content:space-between;
+    gap: var(--s10);
+    flex-wrap:wrap;
+    align-items:flex-start;
+    width:100%;
+  }
+  .footerLeft{ font-size: 18px; opacity:.95; }
+  .footerRight{ text-align:right; font-size: 18px; opacity:.95; }
+  .badgeColumn{ display:flex; flex-direction:column; gap: 12px; margin-top: 18px; }
+  .cert{ width: 336px; border-radius: 14px; background:#fff; padding: 10px; }
+  
+  @media (max-width: 1024px){
+    .footerRight{ text-align:left; }
+    .cert{ width: 260px; }
+  }
