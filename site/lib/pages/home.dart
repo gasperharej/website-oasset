@@ -48,12 +48,7 @@ Component img_({required String src, required String alt, String? classes, Strin
 
 /* ========= Link helper (base-tag friendly) ========= */
 
-String hrefFromRoutePath(String routePath) {
-  // "/" should navigate to the current <base href="..."> root
-  if (routePath == '/') return './';
-  // "/sl" -> "sl", "/sl/pricing" -> "sl/pricing"
-  return routePath.startsWith('/') ? routePath.substring(1) : routePath;
-}
+String hrefFromRoutePath(String routePath) => routePath;
 
 /* ========= Image paths (put these in web/images/) ========= */
 
