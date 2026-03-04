@@ -15,14 +15,14 @@ class App extends StatelessComponent {
     return Router(
       routes: [
         Route(
-          path: Routes.homeEn,
-          title: 'Home',
-          builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.en, enPath: Routes.homeEn, slPath: Routes.homeSl)),
-        ),
-        Route(
           path: Routes.homeSl,
           title: 'Domov',
           builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.homeEn, slPath: Routes.homeSl)),
+        ),
+        Route(
+          path: Routes.homeEn,
+          title: 'Home',
+          builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.en, enPath: Routes.homeEn, slPath: Routes.homeSl)),
         ),
 
         // Example subpage pair:

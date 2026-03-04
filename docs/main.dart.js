@@ -6166,12 +6166,12 @@ return b instanceof A.a9&&b.a===s.a&&b.b===s.b&&b.d==s.d&&b.e==s.e&&b.f===s.f&&b
 gu(a){var s=this
 return A.fk(s.a,s.b,s.c,s.d,s.e,s.f,s.r,s.w,s.x,s.y)}}
 A.cS.prototype={
-B(a){return A.lp(A.a([A.ip(new A.eD(),"/","Home"),A.ip(new A.eE(),"/sl","Domov")],t.c))}}
+B(a){return A.lp(A.a([A.ip(new A.eD(),"/sl","Domov"),A.ip(new A.eE(),"/","Home")],t.c))}}
 A.eD.prototype={
-$2(a,b){return new A.aX(B.X,null)},
+$2(a,b){return new A.aX(B.Y,null)},
 $S:13}
 A.eE.prototype={
-$2(a,b){return new A.aX(B.Y,null)},
+$2(a,b){return new A.aX(B.X,null)},
 $S:13}
 A.dq.prototype={
 aB(){return"Lang."+this.b}}
