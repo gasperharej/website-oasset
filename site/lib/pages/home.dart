@@ -190,7 +190,7 @@ class StickyTopBar extends StatelessComponent {
       div_(classes: 'container', children: [
         div_(classes: 'stickyRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
-            'href': hrefFromRoutePath(isSl ? ctx.slPath : ctx.enPath),
+            'href': hrefFromRoutePath(isSl ? '${ctx.slPath}/' : ctx.enPath),
           }, children: [
             img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -251,7 +251,7 @@ class StickyTopBar extends StatelessComponent {
                   el('a',
                       classes: isSl ? 'langItem active' : 'langItem',
                       attrs: {
-                        'href': hrefFromRoutePath(ctx.slPath),
+                        'href': hrefFromRoutePath('${ctx.slPath}/'),
                         'data-lang': 'Sl',
                         'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"
                       },
@@ -282,7 +282,7 @@ class HeroSection extends StatelessComponent {
         // Top nav row
         div_(classes: 'navRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
-            'href': hrefFromRoutePath(isSl ? ctx.slPath : ctx.enPath),
+            'href': hrefFromRoutePath(isSl ? '${ctx.slPath}/' : ctx.enPath),
           }, children: [
             img_(src: ImgPath.logoWhite, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -343,7 +343,7 @@ class HeroSection extends StatelessComponent {
                   el('a',
                       classes: isSl ? 'langItem active' : 'langItem',
                       attrs: {
-                        'href': hrefFromRoutePath(ctx.slPath),
+                        'href': hrefFromRoutePath('${ctx.slPath}/'),
                         'data-lang': 'Sl',
                         'onclick': "event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"
                       },

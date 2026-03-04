@@ -34,7 +34,7 @@
     else if (tail.startsWith("/sl/")) tail = tail.slice(3);
 
     if (lang === "sl") {
-      return tail === "/" ? "/sl" : "/sl" + tail;
+      return tail === "/" ? "/sl/" : "/sl" + tail;
     }
     return tail;
   }

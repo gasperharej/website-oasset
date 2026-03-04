@@ -6180,7 +6180,7 @@ A.aX.prototype={
 B(a){var s=null,r=t.N,q=this.c
 return A.k(A.f(["onclick","document.querySelectorAll('.langDrop.open').forEach(function(dd){dd.classList.remove('open');});"],r,r),A.a([new A.dU(q,s),new A.dg(q,s),A.dd(!1,B.S,"images/work_1.png","images/work_2.png",q,"work-orders","Work orders",!0),A.dd(!0,B.N,s,s,q,"asset-management","Asset management",!1),A.dd(!0,B.R,s,s,q,"communication","Communication",!0),A.dd(!0,B.O,s,s,q,"user-management","User management",!1),A.dd(!0,B.P,s,s,q,"bim","BIM integration",!0),new A.dr(q,s),new A.dI(q,s),new A.de(q,s)],t.i),"landing",s,s)}}
 A.dU.prototype={
-B(a8){var s,r,q,p,o,n,m,l,k,j=null,i="stickyBar",h="a",g="stickyLink",f="data-scroll-target",e="nav.learning_center",d="span",c="navGapDouble",b="langItem",a="langItem active",a0=u.d,a1="langItemLabel",a2="langCheck",a3=this.c.a,a4=a3===B.m,a5=a4?"/sl":"/",a6=t.N,a7=t.i
+B(a8){var s,r,q,p,o,n,m,l,k,j=null,i="stickyBar",h="a",g="stickyLink",f="data-scroll-target",e="nav.learning_center",d="span",c="navGapDouble",b="langItem",a="langItem active",a0=u.d,a1="langItemLabel",a2="langCheck",a3=this.c.a,a4=a3===B.m,a5=a4?"/sl/":"/",a6=t.N,a7=t.i
 a5=A.b(h,A.f(["href",a5],a6,a6),A.a([A.aj("OAsset","brandLogo","images/logo_black.svg")],a7),"brand brandBtn",j,j)
 s=A.f(["href","#",f,"learning-center"],a6,a6)
 r=A.u(a3,e,"Learning center")
@@ -6203,9 +6203,9 @@ m=A.b(h,m,A.a([l,A.b(d,j,A.a([new A.j(a4?"Sl":"En",j)],a7),"langValue",j,j)],a7)
 l=a4?b:a
 l=A.b(h,A.f(["href","/","data-lang","En","onclick",a0],a6,a6),A.a([A.b(d,j,A.a([new A.j("English",j)],a7),a1,j,j),A.b(d,j,A.a([new A.j("\u2713",j)],a7),a2,j,j)],a7),l,j,j)
 k=a4?a:b
-return A.k(j,A.a([A.k(j,A.a([A.k(j,A.a([a5,A.k(j,A.a([r,s,p,q,o,a3,A.k(j,A.a([A.k(n,A.a([m,A.b("div",j,A.a([l,A.b(h,A.f(["href","/sl","data-lang","Sl","onclick",a0],a6,a6),A.a([A.b(d,j,A.a([new A.j("Sloven\u0161\u010dina",j)],a7),a1,j,j),A.b(d,j,A.a([new A.j("\u2713",j)],a7),a2,j,j)],a7),k,j,j)],a7),"langMenu",j,j)],a7),"langDrop",j,j)],a7),"stickyLang",j,j)],a7),"stickyRight",j,j)],a7),"stickyRow",j,j)],a7),"container",j,j)],a7),i,i,j)}}
+return A.k(j,A.a([A.k(j,A.a([A.k(j,A.a([a5,A.k(j,A.a([r,s,p,q,o,a3,A.k(j,A.a([A.k(n,A.a([m,A.b("div",j,A.a([l,A.b(h,A.f(["href","/sl/","data-lang","Sl","onclick",a0],a6,a6),A.a([A.b(d,j,A.a([new A.j("Sloven\u0161\u010dina",j)],a7),a1,j,j),A.b(d,j,A.a([new A.j("\u2713",j)],a7),a2,j,j)],a7),k,j,j)],a7),"langMenu",j,j)],a7),"langDrop",j,j)],a7),"stickyLang",j,j)],a7),"stickyRight",j,j)],a7),"stickyRow",j,j)],a7),"container",j,j)],a7),i,i,j)}}
 A.dg.prototype={
-B(a8){var s,r,q,p,o,n,m,l,k,j,i=null,h="a",g="data-scroll-target",f="nav.learning_center",e="span",d="navGapDouble",c="langItem",b="langItem active",a=u.d,a0="langItemLabel",a1="langCheck",a2="storeBadge",a3=this.c.a,a4=a3===B.m,a5=a4?"/sl":"/",a6=t.N,a7=t.i
+B(a8){var s,r,q,p,o,n,m,l,k,j,i=null,h="a",g="data-scroll-target",f="nav.learning_center",e="span",d="navGapDouble",c="langItem",b="langItem active",a=u.d,a0="langItemLabel",a1="langCheck",a2="storeBadge",a3=this.c.a,a4=a3===B.m,a5=a4?"/sl/":"/",a6=t.N,a7=t.i
 a5=A.b(h,A.f(["href",a5],a6,a6),A.a([A.aj("OAsset","brandLogo","images/logo_white.svg")],a7),"brand brandBtn",i,i)
 s=A.f(["href","#",g,"learning-center"],a6,a6)
 r=A.u(a3,f,"Learning center")
@@ -6228,7 +6228,7 @@ l=A.b(h,l,A.a([k,A.b(e,i,A.a([new A.j(a4?"Sl":"En",i)],a7),"langValue",i,i)],a7)
 k=a4?c:b
 k=A.b(h,A.f(["href","/","data-lang","En","onclick",a],a6,a6),A.a([A.b(e,i,A.a([new A.j("English",i)],a7),a0,i,i),A.b(e,i,A.a([new A.j("\u2713",i)],a7),a1,i,i)],a7),k,i,i)
 j=a4?b:c
-j=A.k(i,A.a([a5,A.k(i,A.a([r,s,p,q,o,m,A.k(i,A.a([A.k(n,A.a([l,A.b("div",i,A.a([k,A.b(h,A.f(["href","/sl","data-lang","Sl","onclick",a],a6,a6),A.a([A.b(e,i,A.a([new A.j("Sloven\u0161\u010dina",i)],a7),a0,i,i),A.b(e,i,A.a([new A.j("\u2713",i)],a7),a1,i,i)],a7),j,i,i)],a7),"langMenu",i,i)],a7),"langDrop",i,i)],a7),"navLang",i,i)],a7),"navRight",i,i)],a7),"navRow",i,i)
+j=A.k(i,A.a([a5,A.k(i,A.a([r,s,p,q,o,m,A.k(i,A.a([A.k(n,A.a([l,A.b("div",i,A.a([k,A.b(h,A.f(["href","/sl/","data-lang","Sl","onclick",a],a6,a6),A.a([A.b(e,i,A.a([new A.j("Sloven\u0161\u010dina",i)],a7),a0,i,i),A.b(e,i,A.a([new A.j("\u2713",i)],a7),a1,i,i)],a7),j,i,i)],a7),"langMenu",i,i)],a7),"langDrop",i,i)],a7),"navLang",i,i)],a7),"navRight",i,i)],a7),"navRow",i,i)
 k=A.u(a3,"hero.title","Systematic maintenance app")
 k=A.b("h1",i,A.a([A.b(e,A.f(["data-i18n","hero.title"],a6,a6),A.a([new A.j(k,i)],a7),i,i,i)],a7),"h1",i,i)
 a3=A.u(a3,"hero.subtitle","Utilize our app to make maintenance easier, more efficient and lower its costs")
