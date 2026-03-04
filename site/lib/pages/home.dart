@@ -632,31 +632,59 @@ class FooterSection extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
+    final isSl = ctx.lang == Lang.sl;
+
+    // Update these when you add real pages.
+    final termsHref = hrefFromRoutePath(isSl ? '/sl/terms-of-service' : '/terms-of-service');
+    final privacyHref = hrefFromRoutePath(isSl ? '/sl/privacy-policy' : '/privacy-policy');
+    final legalHref = hrefFromRoutePath(isSl ? '/sl/legal' : '/legal');
+
     return footer_(classes: 'footer', children: [
       div_(classes: 'container', children: [
-        div_(classes: 'footerRow', children: [
-          div_(classes: 'footerLeft', children: [
-            tx(ctx.lang, 'footer.copyright', '© 2026 OAsset. All rights reserved.'),
+        div_(classes: 'footerGrid', children: [
+          // Top-left
+          div_(classes: 'footerCopy', children: [
+            div_(classes: 'footerCopyRow', children: [
+              span_(classes: 'footerCopyIcon', children: [t('©')]),
+              tx(ctx.lang, 'footer.copyright', '2026 OAsset. All rights reserved.'),
+            ]),
           ]),
-          div_(classes: 'footerRight', children: [
+
+          // Top-right
+          div_(classes: 'footerBy', children: [
             tx(ctx.lang, 'footer.by', 'by Optimiraj d.o.o.'),
-            el('br'),
-            t('e: info@optimiraj.com'),
-            div_(classes: 'badgeColumn', children: [
-              div_(classes: 'cert', children: [
-                img_(
-                  src: ImgPath.cert1,
-                  alt: 'Certificate 1',
-                  style: 'width:100%;height:auto;border-radius:10px;display:block;',
-                ),
-              ]),
-              div_(classes: 'cert', children: [
-                img_(
-                  src: ImgPath.cert2,
-                  alt: 'Certificate 2',
-                  style: 'width:100%;height:auto;border-radius:10px;display:block;',
-                ),
-              ]),
+          ]),
+          
+          div_(classes: 'footerEmailWrap', children: [
+            el('a', classes: 'footerEmail', attrs: {
+              'href': '#',
+              'data-copy': 'info@oasset.app',
+              'data-toast-key': 'toast.email_copied',
+            }, children: [
+              t('e: info@oasset.app'),
+            ]),
+          ]),
+
+          // Bottom-left
+          div_(classes: 'footerLinks', children: [
+            a_(href: termsHref, classes: 'footerBtn', children: [
+              tx(ctx.lang, 'footer.terms', 'Terms of service'),
+            ]),
+            a_(href: privacyHref, classes: 'footerBtn', children: [
+              tx(ctx.lang, 'footer.privacy', 'Privacy policy'),
+            ]),
+            a_(href: legalHref, classes: 'footerBtn', children: [
+              tx(ctx.lang, 'footer.legal', 'Legal'),
+            ]),
+          ]),
+
+          // Bottom-right
+          div_(classes: 'footerCerts', children: [
+            div_(classes: 'footerCert', children: [
+              img_(src: ImgPath.cert1, alt: 'ISO certificate'),
+            ]),
+            div_(classes: 'footerCert', children: [
+              img_(src: ImgPath.cert2, alt: 'ISO certificate'),
             ]),
           ]),
         ]),

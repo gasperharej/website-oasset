@@ -19,7 +19,6 @@
 
 /* Container + panel */
 .pricing .container {
-  max-width: 1920px;
   padding-left: var(--navPadL, var(--page-pad));
   padding-right: var(--navPadR, var(--page-pad));
 }
