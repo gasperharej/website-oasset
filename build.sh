@@ -15,10 +15,6 @@ cp site/web/sticky-topbar.js docs/sticky-topbar.js
 cp site/web/copy_toast.js docs/copy_toast.js
 cp site/web/seo_links.js docs/seo_links.js
 
-# Ensure language-prefixed entrypoint exists for static hosts (e.g. /sl/).
-mkdir -p docs/sl
-cp docs/index.html docs/sl/index.html
-
 # Keep index.html as-is (you maintain it in docs/)
 # 2) Build client JS -> docs/main.dart.js
 cd site
