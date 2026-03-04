@@ -88,6 +88,9 @@ const Map<String, String> kSl = {
 
   "footer.copyright": "© 2026 OAsset. Vse pravice pridržane.",
   "footer.by": "izdelal Optimiraj d.o.o.",
+  "footer.terms": "Pogoji uporabe",
+  "footer.privacy": "Politika zasebnosti",
+  "footer.legal": "Pravne informacije",
 
   "toast.email_copied": "E-pošta kopirana v odložišče!",
 };
