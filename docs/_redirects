@@ -1,0 +1,4 @@
+/sl      /index.html  200
+/sl/     /index.html  200
+/sl/*    /index.html  200
+/*       /index.html  200
