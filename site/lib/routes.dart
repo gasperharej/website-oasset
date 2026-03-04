@@ -1,7 +1,6 @@
 class Routes {
   static const homeEn = '/';
-  static const homeSlNoSlash = '/sl';
-  static const homeSl = '/sl/';
+  static const homeSl = '/sl';
   static const signIn = '/signin';
 
   //static const pricingEn = '/pricing';

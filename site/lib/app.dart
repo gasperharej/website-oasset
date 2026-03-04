@@ -15,11 +15,6 @@ class App extends StatelessComponent {
     return Router(
       routes: [
         Route(
-          path: Routes.homeSlNoSlash,
-          title: 'Domov',
-          builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.homeEn, slPath: Routes.homeSl)),
-        ),
-        Route(
           path: Routes.homeSl,
           title: 'Domov',
           builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.homeEn, slPath: Routes.homeSl)),
