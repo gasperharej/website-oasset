@@ -6244,38 +6244,34 @@ l=A.b(h,A.f(["href",a3.b,"data-lang","En","onclick",a0],a7,a7),A.a([A.b(d,j,A.a(
 k=a5?a:b
 return A.i(j,A.a([A.i(j,A.a([A.i(j,A.a([a6,A.i(j,A.a([r,s,p,q,o,a4,A.i(j,A.a([A.i(n,A.a([m,A.b("div",j,A.a([l,A.b(h,A.f(["href",a3.c+"/","data-lang","Sl","onclick",a0],a7,a7),A.a([A.b(d,j,A.a([new A.h("Sloven\u0161\u010dina",j)],a8),a1,j,j),A.b(d,j,A.a([new A.h("\u2713",j)],a8),a2,j,j)],a8),k,j,j)],a8),"langMenu",j,j)],a8),"langDrop",j,j)],a8),"stickyLang",j,j)],a8),"stickyRight",j,j)],a8),"stickyRow",j,j)],a8),"container",j,j)],a8),i,i,j)}}
 A.dj.prototype={
-A(a9){var s,r,q,p,o,n,m,l,k,j,i=null,h="a",g="data-scroll-target",f="nav.learning_center",e="span",d="navGapDouble",c="langItem",b="langItem active",a=u.d,a0="langItemLabel",a1="langCheck",a2="storeBadge",a3=this.c,a4=a3.a,a5=a4===B.h,a6=a5?a3.c+"/":a3.b,a7=t.N,a8=t.i
-a6=A.b(h,A.f(["href",a6],a7,a7),A.a([A.af("OAsset","brandLogo","images/logo_white.svg")],a8),"brand brandBtn",i,i)
-s=A.f(["href","#",g,"learning-center"],a7,a7)
-r=A.r(a4,f,"Learning center")
-r=A.b(h,s,A.a([A.b(e,A.f(["data-i18n",f],a7,a7),A.a([new A.h(r,i)],a8),i,i,i)],a8),"navLink",i,i)
-s=A.b(e,A.f(["aria-hidden","true"],a7,a7),B.d,d,i,i)
-q=A.f(["href","#",g,"pricing"],a7,a7)
-p=A.r(a4,"nav.pricing","Pricing")
-p=A.b(h,q,A.a([A.b(e,A.f(["data-i18n","nav.pricing"],a7,a7),A.a([new A.h(p,i)],a8),i,i,i)],a8),"navLink",i,i)
-q=A.b(e,A.f(["aria-hidden","true"],a7,a7),B.d,d,i,i)
-o=A.r(a4,"nav.sign_in","Sign In")
-o=A.a([A.b(e,A.f(["data-i18n","nav.sign_in"],a7,a7),A.a([new A.h(o,i)],a8),i,i,i)],a8)
-o=A.b(h,A.f(["href","/signin"],a7,a7),o,"navBtn navBtnOutline",i,i)
-n=A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],a7,a7)
-m=A.r(a4,"nav.contact_us","Contact us")
-m=A.b(h,n,A.a([A.b(e,A.f(["data-i18n","nav.contact_us"],a7,a7),A.a([new A.h(m,i)],a8),i,i,i)],a8),"navBtn navBtnSolid",i,i)
-n=A.f(["onclick","event.stopPropagation();"],a7,a7)
-l=A.f(["href","#","onclick",u.o],a7,a7)
-k=A.b(e,A.f(["aria-hidden","true"],a7,a7),B.d,"globeIcon",i,i)
-l=A.b(h,l,A.a([k,A.b(e,i,A.a([new A.h(a5?"Sl":"En",i)],a8),"langValue",i,i)],a8),"langTrigger",i,i)
-k=a5?c:b
-k=A.b(h,A.f(["href",a3.b,"data-lang","En","onclick",a],a7,a7),A.a([A.b(e,i,A.a([new A.h("English",i)],a8),a0,i,i),A.b(e,i,A.a([new A.h("\u2713",i)],a8),a1,i,i)],a8),k,i,i)
-j=a5?b:c
-j=A.i(i,A.a([a6,A.i(i,A.a([r,s,p,q,o,m,A.i(i,A.a([A.i(n,A.a([l,A.b("div",i,A.a([k,A.b(h,A.f(["href",a3.c+"/","data-lang","Sl","onclick",a],a7,a7),A.a([A.b(e,i,A.a([new A.h("Sloven\u0161\u010dina",i)],a8),a0,i,i),A.b(e,i,A.a([new A.h("\u2713",i)],a8),a1,i,i)],a8),j,i,i)],a8),"langMenu",i,i)],a8),"langDrop",i,i)],a8),"navLang",i,i)],a8),"navRight",i,i)],a8),"navRow",i,i)
-a3=A.r(a4,"hero.title","Systematic maintenance app")
-a3=A.b("h1",i,A.a([A.b(e,A.f(["data-i18n","hero.title"],a7,a7),A.a([new A.h(a3,i)],a8),i,i,i)],a8),"h1",i,i)
-a4=A.r(a4,"hero.subtitle","Utilize our app to make maintenance easier, more efficient and lower its costs")
-a4=A.b("p",i,A.a([A.b(e,A.f(["data-i18n","hero.subtitle"],a7,a7),A.a([new A.h(a4,i)],a8),i,i,i)],a8),"sub",i,i)
-k=A.a([A.af("Google Play",a2,"images/play_badge.svg")],a8)
-k=A.b(h,A.f(["href","https://play.google.com/store/"],a7,a7),k,i,i,i)
-l=A.a([A.af("App Store",a2,"images/app_badge.svg")],a8)
-return A.b("section",i,A.a([A.i(i,A.a([j,A.i(i,A.a([A.i(i,A.a([a3,a4,A.i(i,A.a([k,A.b(h,A.f(["href","https://www.apple.com/app-store/"],a7,a7),l,i,i,i)],a8),"badges",i,i)],a8),"heroText",i,i),A.i(i,A.a([A.i(i,A.a([A.af("Hero screenshot","heroShot","images/hero_shot.png"),A.i(i,A.a([A.af("App screen 1",i,"images/hero_phone_1.png")],a8),"phoneCard phoneA",i,i),A.i(i,A.a([A.af("App screen 2",i,"images/hero_phone_2.png")],a8),"phoneCard phoneB",i,i)],a8),"heroVisual",i,i)],a8),"heroVisualWrap",i,i)],a8),"heroGrid",i,i)],a8),"container heroInner",i,i),A.i(i,B.d,"heroBottom",i,i)],a8),"hero",i,i)}}
+A(b0){var s,r,q,p,o,n,m,l,k,j,i=null,h="a",g="data-scroll-target",f="nav.learning_center",e="span",d="navGapDouble",c="langItem",b="langItem active",a=u.d,a0="langItemLabel",a1="langCheck",a2="noopener noreferrer",a3="storeBadge",a4=this.c,a5=a4.a,a6=a5===B.h,a7=a6?a4.c+"/":a4.b,a8=t.N,a9=t.i
+a7=A.b(h,A.f(["href",a7],a8,a8),A.a([A.af("OAsset","brandLogo","images/logo_white.svg")],a9),"brand brandBtn",i,i)
+s=A.f(["href","#",g,"learning-center"],a8,a8)
+r=A.r(a5,f,"Learning center")
+r=A.b(h,s,A.a([A.b(e,A.f(["data-i18n",f],a8,a8),A.a([new A.h(r,i)],a9),i,i,i)],a9),"navLink",i,i)
+s=A.b(e,A.f(["aria-hidden","true"],a8,a8),B.d,d,i,i)
+q=A.f(["href","#",g,"pricing"],a8,a8)
+p=A.r(a5,"nav.pricing","Pricing")
+p=A.b(h,q,A.a([A.b(e,A.f(["data-i18n","nav.pricing"],a8,a8),A.a([new A.h(p,i)],a9),i,i,i)],a9),"navLink",i,i)
+q=A.b(e,A.f(["aria-hidden","true"],a8,a8),B.d,d,i,i)
+o=A.r(a5,"nav.sign_in","Sign In")
+o=A.a([A.b(e,A.f(["data-i18n","nav.sign_in"],a8,a8),A.a([new A.h(o,i)],a9),i,i,i)],a9)
+o=A.b(h,A.f(["href","/signin"],a8,a8),o,"navBtn navBtnOutline",i,i)
+n=A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],a8,a8)
+m=A.r(a5,"nav.contact_us","Contact us")
+m=A.b(h,n,A.a([A.b(e,A.f(["data-i18n","nav.contact_us"],a8,a8),A.a([new A.h(m,i)],a9),i,i,i)],a9),"navBtn navBtnSolid",i,i)
+n=A.f(["onclick","event.stopPropagation();"],a8,a8)
+l=A.f(["href","#","onclick",u.o],a8,a8)
+k=A.b(e,A.f(["aria-hidden","true"],a8,a8),B.d,"globeIcon",i,i)
+l=A.b(h,l,A.a([k,A.b(e,i,A.a([new A.h(a6?"Sl":"En",i)],a9),"langValue",i,i)],a9),"langTrigger",i,i)
+k=a6?c:b
+k=A.b(h,A.f(["href",a4.b,"data-lang","En","onclick",a],a8,a8),A.a([A.b(e,i,A.a([new A.h("English",i)],a9),a0,i,i),A.b(e,i,A.a([new A.h("\u2713",i)],a9),a1,i,i)],a9),k,i,i)
+j=a6?b:c
+j=A.i(i,A.a([a7,A.i(i,A.a([r,s,p,q,o,m,A.i(i,A.a([A.i(n,A.a([l,A.b("div",i,A.a([k,A.b(h,A.f(["href",a4.c+"/","data-lang","Sl","onclick",a],a8,a8),A.a([A.b(e,i,A.a([new A.h("Sloven\u0161\u010dina",i)],a9),a0,i,i),A.b(e,i,A.a([new A.h("\u2713",i)],a9),a1,i,i)],a9),j,i,i)],a9),"langMenu",i,i)],a9),"langDrop",i,i)],a9),"navLang",i,i)],a9),"navRight",i,i)],a9),"navRow",i,i)
+a4=A.r(a5,"hero.title","Systematic maintenance app")
+a4=A.b("h1",i,A.a([A.b(e,A.f(["data-i18n","hero.title"],a8,a8),A.a([new A.h(a4,i)],a9),i,i,i)],a9),"h1",i,i)
+a5=A.r(a5,"hero.subtitle","Utilize our app to make maintenance easier, more efficient and lower its costs")
+return A.b("section",i,A.a([A.i(i,A.a([j,A.i(i,A.a([A.i(i,A.a([a4,A.b("p",i,A.a([A.b(e,A.f(["data-i18n","hero.subtitle"],a8,a8),A.a([new A.h(a5,i)],a9),i,i,i)],a9),"sub",i,i),A.i(i,A.a([A.b(h,A.f(["href","https://play.google.com/store/","target","_blank","rel",a2],a8,a8),A.a([A.af("Google Play",a3,"images/play_badge.svg")],a9),i,i,i),A.b(h,A.f(["href","https://www.apple.com/app-store/","target","_blank","rel",a2],a8,a8),A.a([A.af("App Store",a3,"images/app_badge.svg")],a9),i,i,i)],a9),"badges",i,i)],a9),"heroText",i,i),A.i(i,A.a([A.i(i,A.a([A.af("Hero screenshot","heroShot","images/hero_shot.png"),A.i(i,A.a([A.af("App screen 1",i,"images/hero_phone_1.png")],a9),"phoneCard phoneA",i,i),A.i(i,A.a([A.af("App screen 2",i,"images/hero_phone_2.png")],a9),"phoneCard phoneB",i,i)],a9),"heroVisual",i,i)],a9),"heroVisualWrap",i,i)],a9),"heroGrid",i,i)],a9),"container heroInner",i,i),A.i(i,B.d,"heroBottom",i,i)],a9),"hero",i,i)}}
 A.dg.prototype={
 A(a1){var s,r,q,p,o,n,m,l,k,j,i=this,h=null,g="span",f=i.c.a,e=i.d,d="feature."+e,c=d+".title",b=A.r(f,c,i.e),a=t.N,a0=t.i
 b=A.b("h2",h,A.a([A.b(g,A.f(["data-i18n",c],a,a),A.a([new A.h(b,h)],a0),h,h,h)],a0),"title",h,h)
@@ -6301,13 +6297,13 @@ A.dI.prototype={
 A(a){var s=null
 return A.i(s,A.a([A.i(s,B.d,"placeholder placeA",s,s),A.i(s,B.d,"placeholder placeB",s,s)],t.i),"placeStack",s,s)}}
 A.du.prototype={
-A(a){var s,r=null,q="span",p=t.i,o=A.i(r,A.a([A.i(r,A.a([A.i(r,B.d,"ctaCard c1",r,r),A.i(r,B.d,"ctaCard c2",r,r),A.i(r,B.d,"ctaCard c3",r,r)],p),"ctaStack",r,r)],p),"ctaVisual",r,r),n=this.c.a,m=A.r(n,"cta.title","Learn how to use our app"),l=t.N
-m=A.b("h2",r,A.a([A.b(q,A.f(["data-i18n","cta.title"],l,l),A.a([new A.h(m,r)],p),r,r,r)],p),"title",r,r)
-s=A.r(n,"cta.body","Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.")
-s=A.b("p",r,A.a([A.b(q,A.f(["data-i18n","cta.body"],l,l),A.a([new A.h(s,r)],p),r,r,r)],p),r,r,r)
-n=A.r(n,"cta.button","Go to learning center")
-n=A.a([A.b(q,A.f(["data-i18n","cta.button"],l,l),A.a([new A.h(n,r)],p),r,r,r),new A.h(" \u25b6",r)],p)
-return A.b("section",r,A.a([A.i(r,A.a([A.i(r,A.a([o,A.i(r,A.a([m,s,A.i(r,A.a([A.b("a",A.f(["href","#"],l,l),n,"ctaBtn",r,r)],p),r,r,"margin-top:16px;")],p),"ctaText",r,r)],p),"ctaGrid",r,r)],p),"container",r,r)],p),"cta","learning-center",r)}}
+A(a){var s,r,q=null,p="span",o=t.i,n=A.i(q,A.a([A.i(q,A.a([A.i(q,B.d,"ctaCard c1",q,q),A.i(q,B.d,"ctaCard c2",q,q),A.i(q,B.d,"ctaCard c3",q,q)],o),"ctaStack",q,q)],o),"ctaVisual",q,q),m=this.c.a,l=A.r(m,"cta.title","Learn how to use our app"),k=t.N
+l=A.b("h2",q,A.a([A.b(p,A.f(["data-i18n","cta.title"],k,k),A.a([new A.h(l,q)],o),q,q,q)],o),"title",q,q)
+s=A.r(m,"cta.body","Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.")
+s=A.b("p",q,A.a([A.b(p,A.f(["data-i18n","cta.body"],k,k),A.a([new A.h(s,q)],o),q,q,q)],o),q,q,q)
+r=A.f(["href","https://www.youtube.com/","target","_blank","rel","noopener noreferrer"],k,k)
+m=A.r(m,"cta.button","Go to learning center")
+return A.b("section",q,A.a([A.i(q,A.a([A.i(q,A.a([n,A.i(q,A.a([l,s,A.i(q,A.a([A.b("a",r,A.a([A.b(p,A.f(["data-i18n","cta.button"],k,k),A.a([new A.h(m,q)],o),q,q,q),new A.h(" \u25b6",q)],o),"ctaBtn",q,q)],o),q,q,"margin-top:16px;")],o),"ctaText",q,q)],o),"ctaGrid",q,q)],o),"container",q,q)],o),"cta","learning-center",q)}}
 A.dL.prototype={
 a0(a){var s=null,r=t.i
 return A.b("li",s,A.a([A.b("span",s,A.a([new A.h("check_circle",s)],r),"material-symbols-rounded pricingCheck",s,s),A.b("span",s,A.a([a],r),"pricingItemText",s,s)],r),s,s,s)},

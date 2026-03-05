@@ -371,14 +371,20 @@ class HeroSection extends StatelessComponent {
               ),
             ]),
             div_(classes: 'badges', children: [
-              a_(
-                href: 'https://play.google.com/store/',
-                children: [img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')],
-              ),
-              a_(
-                href: 'https://www.apple.com/app-store/',
-                children: [img_(src: ImgPath.badgeApp, alt: 'App Store', classes: 'storeBadge')],
-              ),
+              el('a', attrs: {
+                'href': 'https://play.google.com/store/',
+                'target': '_blank',
+                'rel': 'noopener noreferrer',
+              }, children: [
+                img_(src: ImgPath.badgePlay, alt: 'Google Play', classes: 'storeBadge')
+              ]),
+              el('a', attrs: {
+                'href': 'https://www.apple.com/app-store/',
+                'target': '_blank',
+                'rel': 'noopener noreferrer',
+              }, children: [
+                img_(src: ImgPath.badgeApp, alt: 'App Store', classes: 'storeBadge')
+              ]),
             ]),
           ]),
 
@@ -515,7 +521,11 @@ class LearningCta extends StatelessComponent {
               ),
             ]),
             div_(style: 'margin-top:16px;', children: [
-              a_(href: '#', classes: 'ctaBtn', children: [
+              el('a', classes: 'ctaBtn', attrs: {
+                'href': 'https://www.youtube.com/',
+                'target': '_blank',
+                'rel': 'noopener noreferrer',
+              }, children: [
                 tx(ctx.lang, 'cta.button', 'Go to learning center'),
                 t(' ▶'),
               ]),
