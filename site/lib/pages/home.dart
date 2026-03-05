@@ -520,14 +520,18 @@ class LearningCta extends StatelessComponent {
                 'Get to know our app in our learning center. It covers everything from getting started to managing work orders and using advanced features.',
               ),
             ]),
-            div_(style: 'margin-top:16px;', children: [
-              el('a', classes: 'ctaBtn', attrs: {
-                'href': 'https://www.youtube.com/',
-                'target': '_blank',
-                'rel': 'noopener noreferrer',
-              }, children: [
-                tx(ctx.lang, 'cta.button', 'Go to learning center'),
-                t(' ▶'),
+            div_(classes: 'ctaBtnWrap', children: [
+               el('a', classes: 'ctaBtn', attrs: {
+                 'href': 'https://www.youtube.com/',
+                 'target': '_blank',
+                 'rel': 'noopener noreferrer',
+               }, children: [
+                span_(classes: 'ctaBtnLabel', children: [
+                  tx(ctx.lang, 'cta.button', 'Go to learning center'),
+                ]),
+                el('span', classes: 'ctaBtnIcon', attrs: {'aria-hidden': 'true'}, children: [
+                  img_(src: 'images/youtube.svg', alt: '', classes: 'ctaBtnIconImg'),
+                ]),
               ]),
             ]),
           ]),

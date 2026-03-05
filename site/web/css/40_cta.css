@@ -1,51 +1,215 @@
-/* CTA */
-.cta{
-    background: linear-gradient(180deg, rgba(212,229,255,.53) 0%, rgba(105,150,252,.53) 69.45%, rgba(97,118,255,.53) 100%);
-    padding: 56px 0;
+/* =========================
+   CTA (Learning center)
+   ========================= */
+
+   .cta{
+    /* Figma background: #D4E5FF @ 0.53 */
+    background: rgba(212, 229, 255, 0.53);
+  
+    /* taller section */
+    padding: clamp(130px, 10vw, 200px) 0;
+  
+    /* override shared section sizing from 00_base.css */
+    min-height: 780px;
+    display: block;
   }
   
-  .ctaBtn{
-    display:inline-flex;
-    align-items:center;
-    gap: 12px;
-    min-height: 52px;
-    padding: 0 16px;
-    border-radius: 16px;
-    background: var(--blue1);
-    color:#fff;
-    font-weight:500;
-    font-size: 18px;
-    line-height: 21px;
-    box-shadow: none;
-    transition: transform .2s ease;
+  .ctaGrid{
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+  }
+  
+  .ctaVisual{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .ctaText{
+    max-width: 560px;
   }
 
+  .ctaText .title{
+    margin: 0 0 22px 0;
+  }
+
+  .ctaText p{
+    margin: 0;
+  }
+
+  .ctaBtnWrap{
+    margin-top: 22px;
+  }
+  
+  /* =========================
+     Button: icon area same height as button, centered
+     ========================= */
+  
+  .ctaBtn{
+    height: 56px;
+  
+    display: inline-flex;
+    align-items: center;
+  
+    padding: 0 12px 0 22px;
+    gap: 16px;
+  
+    border-radius: 18px;
+    background: var(--blue1);
+    color: #fff;
+  
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+  
+    box-shadow: 0 10px 22px rgba(0,0,0,.18);
+    transition: transform .18s ease, box-shadow .18s ease;
+    user-select: none;
+  }
+  
   .ctaBtn:hover{
     transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0,0,0,.22);
   }
   
-  .ctaStack{ position:relative; height: 260px; width: 320px; }
-  .ctaCard{
-    position:absolute;
-    width: 260px;
-    height: 200px;
-    border-radius: var(--r);
-    background:#fff;
-    box-shadow: var(--shadowCard);
+  .ctaBtnLabel{
+    white-space: nowrap;
   }
-  .ctaCard.c1{ left: 0; top: 44px; }
-  .ctaCard.c2{ left: 18px; top: 26px; }
-  .ctaCard.c3{ left: 36px; top: 8px; }
+  
+  /* same height as button */
+  .ctaBtnIcon{
+    margin-left: auto;
+  
+    width: 56px;
+    height: 56px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex: 0 0 auto;
+  }
+  
+  /* the svg itself (kept smaller, centered) */
+  .ctaBtnIconImg{
+    width: 44px;
+    height: 32px;
+    display: block;
+  }
+  
+  /* =========================
+     Cards — DESKTOP (Figma look, responsive)
+     ========================= */
+  @media (min-width: 1025px){
+    .ctaStack{
+      position: relative;
+  
+      /* responsive but preserves Figma proportions */
+      width: clamp(520px, 44vw, 732px);
+      aspect-ratio: 732 / 302;
+      height: auto;
+    }
+  
+    .ctaCard{
+      position: absolute;
+      top: 0;
+      height: 100%;
+  
+      background: #fff;
+  
+      /* scales border + radius with size */
+      border: clamp(2px, 0.35vw, 4px) solid #fff;
+      border-radius: clamp(18px, 1.6vw, 24px);
+  
+      /* Figma shadow */
+      box-shadow: -1px 3px 10px rgba(0, 0, 0, 0.388235);
+    }
+  
+    /* Figma widths/positions as percentages so it scales */
+    .ctaCard.c1{ left: 0%;      width: 42.35%; z-index: 1; }  /* 310/732 */
+    .ctaCard.c2{ left: 25.41%;  width: 41.67%; z-index: 2; }  /* 186/732, 305/732 */
+    .ctaCard.c3{ left: 58.33%;  width: 41.67%; z-index: 3; }  /* 427/732 */
+  }
+  
+  /* =========================
+     Responsive layout + MOBILE cards (old diagonal stack)
+     ========================= */
   
   @media (max-width: 1024px){
-    .ctaGrid{ display:flex; flex-direction:column; }
-    .ctaText{ order: 1; }
-    .ctaVisual{ order: 2; }
-    .ctaBtn{
-      min-height: 48px;
-      font-size: 16px;
-      line-height: 20px;
+    .cta{
+      /* don’t force big min-height on mobile */
+      min-height: 0;
+      padding: 84px 0;
     }
-    .ctaStack{ width: 260px; height: 180px; }
-    .ctaCard{ width: 200px; height: 140px; }
+  
+    .ctaGrid{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+    }
+  
+    .ctaText{
+      order: 1;
+      width: 100%;
+      max-width: none;
+    }
+  
+    .ctaVisual{
+      order: 2;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+    }
+  
+    .ctaBtn{
+      height: 60px;
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .ctaBtnWrap{
+      width: 100%;
+      display: flex;
+      justify-content: stretch;
+    }
+  
+    .ctaBtnIcon{
+      width: 60px;
+      height: 60px;
+    }
+  
+    .ctaBtnIconImg{
+      width: 46px;
+      height: 34px;
+    }
+  
+    /* old diagonal stack */
+    .ctaStack{
+      position: relative;
+  
+      --card-w: clamp(240px, 70vw, 320px);
+      --card-h: clamp(190px, 54vw, 240px);
+      --dx: clamp(16px, 4.5vw, 26px);
+      --dy: clamp(14px, 4vw, 22px);
+  
+      width: calc(var(--card-w) + (2 * var(--dx)));
+      height: calc(var(--card-h) + (2 * var(--dy)));
+    }
+  
+    .ctaCard{
+      position: absolute;
+      width: var(--card-w);
+      height: var(--card-h);
+  
+      border-radius: var(--r);
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 16px 28px rgba(0,0,0,.18);
+    }
+  
+    .ctaCard.c1{ left: 0;                 top: calc(2*var(--dy)); z-index: 1; }
+    .ctaCard.c2{ left: var(--dx);         top: var(--dy);         z-index: 2; }
+    .ctaCard.c3{ left: calc(2*var(--dx)); top: 0;                 z-index: 3; }
   }
+  
