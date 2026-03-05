@@ -34,44 +34,60 @@ class LegalPage extends StatelessComponent {
   function sectionFromPath(path) {
     if (!path) return null;
     if (path.endsWith('/privacy-policy')) return 'privacy';
-    if (path.endsWith('/legal')) return 'legal';
     if (path.endsWith('/terms-of-service')) return 'terms';
     return null;
   }
 
-  function run() {
+  function targetId() {
     var id = (location.hash || '').replace('#', '');
     if (!id) id = sectionFromPath(location.pathname);
+    return id || null;
+  }
+
+  function scrollToSection(id) {
+    if (!id) return;
+    var targetEl = document.getElementById(id);
+    if (!targetEl) return false;
+
+    var scroller = document.querySelector('.legalPage');
+    if (!scroller) {
+      targetEl.scrollIntoView({ block: 'start' });
+      return true;
+    }
+
+    var sticky = document.getElementById('stickyBar');
+    var stickyH = sticky ? sticky.getBoundingClientRect().height : 0;
+    var scrollerRect = scroller.getBoundingClientRect();
+    var targetRect = targetEl.getBoundingClientRect();
+    var targetTopInScroller = scroller.scrollTop + (targetRect.top - scrollerRect.top);
+    var extraGap = 12; // keep heading visually below sticky bar
+    var top = Math.max(0, targetTopInScroller - stickyH - extraGap);
+
+    scroller.scrollTo({ top: top, behavior: 'auto' });
+    return true;
+  }
+
+  function runWithRetries() {
+    var id = targetId();
     if (!id) return;
 
-    var targetEl = document.getElementById(id);
-    if (!targetEl) return;
-
-    // slight delay so layout settles before measuring offsets
-    setTimeout(function() {
-      var scroller = document.querySelector('.legalPage');
-      if (!scroller) {
-        targetEl.scrollIntoView({block:'start'});
-        return;
-      }
-
-      var sticky = document.getElementById('stickyBar');
-      var stickyH = sticky ? sticky.getBoundingClientRect().height : 0;
-      var scrollerRect = scroller.getBoundingClientRect();
-      var targetRect = targetEl.getBoundingClientRect();
-      var targetTopInScroller = scroller.scrollTop + (targetRect.top - scrollerRect.top);
-      var extraGap = 12; // keep heading visually below sticky bar
-      var top = Math.max(0, targetTopInScroller - stickyH - extraGap);
-
-      scroller.scrollTo({ top: top, behavior: 'auto' });
-    }, 40);
+    // Multiple passes because SPA hydration/render can reset scroll position.
+    scrollToSection(id);
+    setTimeout(function () { scrollToSection(id); }, 60);
+    setTimeout(function () { scrollToSection(id); }, 180);
+    setTimeout(function () { scrollToSection(id); }, 420);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', run);
+    document.addEventListener('DOMContentLoaded', runWithRetries);
   } else {
-    run();
+    runWithRetries();
   }
+
+  window.addEventListener('load', runWithRetries);
+  window.addEventListener('pageshow', runWithRetries);
+  window.addEventListener('hashchange', runWithRetries);
+  window.addEventListener('popstate', runWithRetries);
 })();
 """)
         ]),

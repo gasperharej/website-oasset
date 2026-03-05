@@ -6351,25 +6351,25 @@ l=k.a0(A.b(i,A.f(["data-i18n",b4],b8,b8),A.a([new A.h(l,j)],b9),j,j,j))
 b6=A.r(b6,b5,"Custom integrations")
 return A.b("section",j,A.a([A.i(j,A.a([A.i(j,A.a([b7,A.i(j,A.a([n,A.i(j,A.a([m,p,q,r,A.b("ul",j,A.a([s,o,l,k.a0(A.b(i,A.f(["data-i18n",b5],b8,b8),A.a([new A.h(b6,j)],b9),j,j,j))],b9),a3,j,j)],b9),"pricingCard pricingCardEnterprise",j,j)],b9),"pricingGrid",j,j)],b9),"pricingPanel",j,j)],b9),"container",j,j)],b9),"pricing","pricing",j)}}
 A.bO.prototype={
-A(a){var s,r,q,p=null,o="span",n="footer.copyright",m="footerBtn",l="footerCert",k="ISO certificate",j=this.c.a,i=j===B.h,h=i?"/sl/terms-of-service":"/terms-of-service",g=i?"/sl/privacy-policy":"/privacy-policy",f=i?"/sl/legal":"/legal",e=t.i,d=A.b(o,p,A.a([new A.h("\xa9",p)],e),"footerCopyIcon",p,p),c=A.r(j,n,"2026 OAsset. All rights reserved."),b=t.N
-c=A.i(p,A.a([A.i(p,A.a([d,A.b(o,A.f(["data-i18n",n],b,b),A.a([new A.h(c,p)],e),p,p,p)],e),"footerCopyRow",p,p)],e),"footerCopy",p,p)
-d=A.r(j,"footer.by","by Optimiraj d.o.o.")
-d=A.i(p,A.a([A.b(o,A.f(["data-i18n","footer.by"],b,b),A.a([new A.h(d,p)],e),p,p,p)],e),"footerBy",p,p)
-s=A.i(p,A.a([A.b("a",A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],b,b),A.a([new A.h("e: info@oasset.app",p)],e),"footerEmail",p,p)],e),"footerEmailWrap",p,p)
+A(a){var s,r,q,p=null,o="span",n="footer.copyright",m="footerBtn",l="footerCert",k="ISO certificate",j=this.c.a,i=j===B.h?"/sl/legal":"/legal",h=t.i,g=A.b(o,p,A.a([new A.h("\xa9",p)],h),"footerCopyIcon",p,p),f=A.r(j,n,"2026 OAsset. All rights reserved."),e=t.N
+f=A.i(p,A.a([A.i(p,A.a([g,A.b(o,A.f(["data-i18n",n],e,e),A.a([new A.h(f,p)],h),p,p,p)],h),"footerCopyRow",p,p)],h),"footerCopy",p,p)
+g=A.r(j,"footer.by","by Optimiraj d.o.o.")
+g=A.i(p,A.a([A.b(o,A.f(["data-i18n","footer.by"],e,e),A.a([new A.h(g,p)],h),p,p,p)],h),"footerBy",p,p)
+s=A.i(p,A.a([A.b("a",A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],e,e),A.a([new A.h("e: info@oasset.app",p)],h),"footerEmail",p,p)],h),"footerEmailWrap",p,p)
 r=A.r(j,"footer.terms","Terms of service")
-r=A.a([A.b(o,A.f(["data-i18n","footer.terms"],b,b),A.a([new A.h(r,p)],e),p,p,p)],e)
-r=A.b("a",A.f(["href",h],b,b),r,m,p,p)
+r=A.a([A.b(o,A.f(["data-i18n","footer.terms"],e,e),A.a([new A.h(r,p)],h),p,p,p)],h)
+r=A.b("a",A.f(["href",i+"#terms"],e,e),r,m,p,p)
 q=A.r(j,"footer.privacy","Privacy policy")
-q=A.a([A.b(o,A.f(["data-i18n","footer.privacy"],b,b),A.a([new A.h(q,p)],e),p,p,p)],e)
-q=A.b("a",A.f(["href",g],b,b),q,m,p,p)
+q=A.a([A.b(o,A.f(["data-i18n","footer.privacy"],e,e),A.a([new A.h(q,p)],h),p,p,p)],h)
+q=A.b("a",A.f(["href",i+"#privacy"],e,e),q,m,p,p)
 j=A.r(j,"footer.legal","Legal")
-j=A.a([A.b(o,A.f(["data-i18n","footer.legal"],b,b),A.a([new A.h(j,p)],e),p,p,p)],e)
-return A.b("footer",p,A.a([A.i(p,A.a([A.i(p,A.a([c,d,s,A.i(p,A.a([r,q,A.b("a",A.f(["href",f],b,b),j,m,p,p)],e),"footerLinks",p,p),A.i(p,A.a([A.i(p,A.a([A.af(k,p,"images/cert_1.png")],e),l,p,p),A.i(p,A.a([A.af(k,p,"images/cert_2.png")],e),l,p,p)],e),"footerCerts",p,p)],e),"footerGrid",p,p)],e),"container",p,p)],e),"footer",p,p)}}
+j=A.a([A.b(o,A.f(["data-i18n","footer.legal"],e,e),A.a([new A.h(j,p)],h),p,p,p)],h)
+return A.b("footer",p,A.a([A.i(p,A.a([A.i(p,A.a([f,g,s,A.i(p,A.a([r,q,A.b("a",A.f(["href",i+"#legal"],e,e),j,m,p,p)],h),"footerLinks",p,p),A.i(p,A.a([A.i(p,A.a([A.af(k,p,"images/cert_1.png")],h),l,p,p),A.i(p,A.a([A.af(k,p,"images/cert_2.png")],h),l,p,p)],h),"footerCerts",p,p)],h),"footerGrid",p,p)],h),"container",p,p)],h),"footer",p,p)}}
 A.a7.prototype={
 A(a){var s,r,q,p,o,n,m,l=null,k="legalSection",j="legalP",i="section",h=this.c,g=A.n4(h.a),f=t.N
 f=A.f(["onclick",u.n],f,f)
 s=t.i
-r=A.b("script",l,A.a([new A.h("(function () {\n  function sectionFromPath(path) {\n    if (!path) return null;\n    if (path.endsWith('/privacy-policy')) return 'privacy';\n    if (path.endsWith('/legal')) return 'legal';\n    if (path.endsWith('/terms-of-service')) return 'terms';\n    return null;\n  }\n\n  function run() {\n    var id = (location.hash || '').replace('#', '');\n    if (!id) id = sectionFromPath(location.pathname);\n    if (!id) return;\n\n    var targetEl = document.getElementById(id);\n    if (!targetEl) return;\n\n    // slight delay so layout settles before measuring offsets\n    setTimeout(function() {\n      var scroller = document.querySelector('.legalPage');\n      if (!scroller) {\n        targetEl.scrollIntoView({block:'start'});\n        return;\n      }\n\n      var sticky = document.getElementById('stickyBar');\n      var stickyH = sticky ? sticky.getBoundingClientRect().height : 0;\n      var scrollerRect = scroller.getBoundingClientRect();\n      var targetRect = targetEl.getBoundingClientRect();\n      var targetTopInScroller = scroller.scrollTop + (targetRect.top - scrollerRect.top);\n      var extraGap = 12; // keep heading visually below sticky bar\n      var top = Math.max(0, targetTopInScroller - stickyH - extraGap);\n\n      scroller.scrollTo({ top: top, behavior: 'auto' });\n    }, 40);\n  }\n\n  if (document.readyState === 'loading') {\n    document.addEventListener('DOMContentLoaded', run);\n  } else {\n    run();\n  }\n})();\n",l)],s),l,l,l)
+r=A.b("script",l,A.a([new A.h("(function () {\n  function sectionFromPath(path) {\n    if (!path) return null;\n    if (path.endsWith('/privacy-policy')) return 'privacy';\n    if (path.endsWith('/terms-of-service')) return 'terms';\n    return null;\n  }\n\n  function targetId() {\n    var id = (location.hash || '').replace('#', '');\n    if (!id) id = sectionFromPath(location.pathname);\n    return id || null;\n  }\n\n  function scrollToSection(id) {\n    if (!id) return;\n    var targetEl = document.getElementById(id);\n    if (!targetEl) return false;\n\n    var scroller = document.querySelector('.legalPage');\n    if (!scroller) {\n      targetEl.scrollIntoView({ block: 'start' });\n      return true;\n    }\n\n    var sticky = document.getElementById('stickyBar');\n    var stickyH = sticky ? sticky.getBoundingClientRect().height : 0;\n    var scrollerRect = scroller.getBoundingClientRect();\n    var targetRect = targetEl.getBoundingClientRect();\n    var targetTopInScroller = scroller.scrollTop + (targetRect.top - scrollerRect.top);\n    var extraGap = 12; // keep heading visually below sticky bar\n    var top = Math.max(0, targetTopInScroller - stickyH - extraGap);\n\n    scroller.scrollTo({ top: top, behavior: 'auto' });\n    return true;\n  }\n\n  function runWithRetries() {\n    var id = targetId();\n    if (!id) return;\n\n    // Multiple passes because SPA hydration/render can reset scroll position.\n    scrollToSection(id);\n    setTimeout(function () { scrollToSection(id); }, 60);\n    setTimeout(function () { scrollToSection(id); }, 180);\n    setTimeout(function () { scrollToSection(id); }, 420);\n  }\n\n  if (document.readyState === 'loading') {\n    document.addEventListener('DOMContentLoaded', runWithRetries);\n  } else {\n    runWithRetries();\n  }\n\n  window.addEventListener('load', runWithRetries);\n  window.addEventListener('pageshow', runWithRetries);\n  window.addEventListener('hashchange', runWithRetries);\n  window.addEventListener('popstate', runWithRetries);\n})();\n",l)],s),l,l,l)
 q=A.a([A.b("h1",l,A.a([new A.h(g.a,l)],s),"legalH1",l,l)],s)
 for(p=g.d,o=0;o<14;++o)q.push(A.b("p",l,A.a([new A.h(p[o],l)],s),j,l,l))
 q=A.b(i,l,q,k,"terms",l)

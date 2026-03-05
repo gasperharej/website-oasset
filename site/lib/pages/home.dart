@@ -629,10 +629,10 @@ class FooterSection extends StatelessComponent {
   Component build(BuildContext context) {
     final isSl = ctx.lang == Lang.sl;
 
-    // Update these when you add real pages.
-    final termsHref = hrefFromRoutePath(isSl ? '/sl/terms-of-service' : '/terms-of-service');
-    final privacyHref = hrefFromRoutePath(isSl ? '/sl/privacy-policy' : '/privacy-policy');
-    final legalHref = hrefFromRoutePath(isSl ? '/sl/legal' : '/legal');
+    final legalBaseHref = hrefFromRoutePath(isSl ? '/sl/legal' : '/legal');
+    final termsHref = '$legalBaseHref#terms';
+    final privacyHref = '$legalBaseHref#privacy';
+    final legalHref = '$legalBaseHref#legal';
 
     return footer_(classes: 'footer', children: [
       div_(classes: 'container', children: [
