@@ -224,7 +224,7 @@ class StickyTopBar extends StatelessComponent {
             }, children: [
               tx(ctx.lang, 'nav.contact_us', 'Contact us')
             ]),
-          
+
             // Language dropdown (reuse the same langDrop markup)
             div_(classes: 'stickyLang', children: [
               div_(classes: 'langDrop', attrs: {'onclick': 'event.stopPropagation();'}, children: [

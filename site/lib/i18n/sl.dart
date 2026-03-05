@@ -86,7 +86,7 @@ const Map<String, String> kSl = {
   "pricing.enterprise.f3": "Prilagojena implementacija GIS",
   "pricing.enterprise.f4": "Prilagojene integracije",
 
-  "footer.copyright": "© 2026 OAsset. Vse pravice pridržane.",
+  "footer.copyright": "2026 OAsset. Vse pravice pridržane.",
   "footer.by": "izdelal Optimiraj d.o.o.",
   "footer.terms": "Pogoji uporabe",
   "footer.privacy": "Politika zasebnosti",

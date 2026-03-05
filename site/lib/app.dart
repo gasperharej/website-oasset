@@ -4,7 +4,7 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'i18n/lang.dart';
 import 'i18n/page_ctx.dart';
 import 'pages/home.dart';
-// import 'pages/pricing.dart';
+import 'pages/legal_page.dart';
 import 'routes.dart';
 
 class App extends StatelessComponent {
@@ -15,27 +15,48 @@ class App extends StatelessComponent {
     return Router(
       routes: [
         Route(
-          path: Routes.homeSl,
-          title: 'Domov',
-          builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.homeEn, slPath: Routes.homeSl)),
-        ),
-        Route(
           path: Routes.homeEn,
           title: 'Home',
           builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.en, enPath: Routes.homeEn, slPath: Routes.homeSl)),
         ),
+        Route(
+          path: Routes.homeSl,
+          title: 'Domov',
+          builder: (_, __) => Home(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.homeEn, slPath: Routes.homeSl)),
+        ),
 
-        // Example subpage pair:
-        // Route(
-        //   path: Routes.pricingEn,
-        //   title: 'Pricing',
-        //   builder: (_, __) => Pricing(ctx: const PageCtx(lang: Lang.en, enPath: Routes.pricingEn, slPath: Routes.pricingSl)),
-        // ),
-        // Route(
-        //   path: Routes.pricingSl,
-        //   title: 'Cenik',
-        //   builder: (_, __) => Pricing(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.pricingEn, slPath: Routes.pricingSl)),
-        // ),
+        Route(
+          path: Routes.termsEn,
+          title: 'Terms of Service',
+          builder: (_, __) => LegalPage(ctx: const PageCtx(lang: Lang.en, enPath: Routes.termsEn, slPath: Routes.termsSl)),
+        ),
+        Route(
+          path: Routes.termsSl,
+          title: 'Pogoji uporabe',
+          builder: (_, __) => LegalPage(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.termsEn, slPath: Routes.termsSl)),
+        ),
+
+        Route(
+          path: Routes.privacyEn,
+          title: 'Privacy Policy',
+          builder: (_, __) => LegalPage(ctx: const PageCtx(lang: Lang.en, enPath: Routes.privacyEn, slPath: Routes.privacySl)),
+        ),
+        Route(
+          path: Routes.privacySl,
+          title: 'Politika zasebnosti',
+          builder: (_, __) => LegalPage(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.privacyEn, slPath: Routes.privacySl)),
+        ),
+
+        Route(
+          path: Routes.legalEn,
+          title: 'Legal',
+          builder: (_, __) => LegalPage(ctx: const PageCtx(lang: Lang.en, enPath: Routes.legalEn, slPath: Routes.legalSl)),
+        ),
+        Route(
+          path: Routes.legalSl,
+          title: 'Pravno obvestilo',
+          builder: (_, __) => LegalPage(ctx: const PageCtx(lang: Lang.sl, enPath: Routes.legalEn, slPath: Routes.legalSl)),
+        ),
       ],
     );
   }

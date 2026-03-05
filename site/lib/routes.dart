@@ -3,8 +3,12 @@ class Routes {
   static const homeSl = '/sl';
   static const signIn = '/signin';
 
-  //static const pricingEn = '/pricing';
-  //static const pricingSl = '/sl/pricing';
+  static const termsEn = '/terms-of-service';
+  static const termsSl = '/sl/terms-of-service';
 
-  // add more pages here as you grow
+  static const privacyEn = '/privacy-policy';
+  static const privacySl = '/sl/privacy-policy';
+
+  static const legalEn = '/legal';
+  static const legalSl = '/sl/legal';
 }
