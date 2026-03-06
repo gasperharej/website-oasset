@@ -6216,10 +6216,10 @@ aB(){return"Lang."+this.b}}
 A.ai.prototype={}
 A.b_.prototype={
 A(a){var s=null,r=t.N,q=this.c
-return A.i(A.f(["onclick",u.n],r,r),A.a([new A.dX(q,s),new A.dj(q,s),A.dh(!1,B.Y,"images/work_1.png","images/work_2.png",q,"work-orders","Work orders",!0),A.dh(!0,B.N,s,s,q,"asset-management","Asset management",!1),A.dh(!0,B.X,s,s,q,"communication","Communication",!0),A.dh(!0,B.S,s,s,q,"user-management","User management",!1),A.dh(!0,B.T,s,s,q,"bim","BIM integration",!0),new A.du(q,s),new A.dL(q,s),new A.bO(q,s)],t.i),"landing",s)}}
+return A.i(A.f(["onclick",u.n],r,r),A.a([new A.dX(q,s),new A.dj(q,s),A.dh(!1,B.Y,"/images/work_1.png","/images/work_2.png",q,"work-orders","Work orders",!0),A.dh(!0,B.N,s,s,q,"asset-management","Asset management",!1),A.dh(!0,B.X,s,s,q,"communication","Communication",!0),A.dh(!0,B.S,s,s,q,"user-management","User management",!1),A.dh(!0,B.T,s,s,q,"bim","BIM integration",!0),new A.du(q,s),new A.dL(q,s),new A.bO(q,s)],t.i),"landing",s)}}
 A.dX.prototype={
 A(a9){var s,r,q,p,o,n,m,l,k,j=null,i="stickyBar",h="a",g="stickyLink",f="data-scroll-target",e="nav.learning_center",d="span",c="navGapDouble",b="langItem",a="langItem active",a0=u.d,a1="langItemLabel",a2="langCheck",a3=this.c,a4=a3.a,a5=a4===B.h,a6=a5?a3.c+"/":a3.b,a7=t.N,a8=t.i
-a6=A.b(h,A.f(["href",a6],a7,a7),A.a([A.a4("OAsset","brandLogo","images/logo_black.svg")],a8),"brand brandBtn",j,j)
+a6=A.b(h,A.f(["href",a6],a7,a7),A.a([A.a4("OAsset","brandLogo","/images/logo_black.svg")],a8),"brand brandBtn",j,j)
 s=A.f(["href","#",f,"learning-center"],a7,a7)
 r=A.r(a4,e,"Learning center")
 r=A.b(h,s,A.a([A.b(d,A.f(["data-i18n",e],a7,a7),A.a([new A.h(r,j)],a8),j,j,j)],a8),g,j,j)
@@ -6244,7 +6244,7 @@ k=a5?a:b
 return A.i(j,A.a([A.i(j,A.a([A.i(j,A.a([a6,A.i(j,A.a([r,s,p,q,o,a4,A.i(j,A.a([A.i(n,A.a([m,A.b("div",j,A.a([l,A.b(h,A.f(["href",a3.c+"/","data-lang","Sl","onclick",a0],a7,a7),A.a([A.b(d,j,A.a([new A.h("Sloven\u0161\u010dina",j)],a8),a1,j,j),A.b(d,j,A.a([new A.h("\u2713",j)],a8),a2,j,j)],a8),k,j,j)],a8),"langMenu",j,j)],a8),"langDrop",j)],a8),"stickyLang",j)],a8),"stickyRight",j)],a8),"stickyRow",j)],a8),"container",j)],a8),i,i)}}
 A.dj.prototype={
 A(b0){var s,r,q,p,o,n,m,l,k,j,i=null,h="a",g="data-scroll-target",f="nav.learning_center",e="span",d="navGapDouble",c="langItem",b="langItem active",a=u.d,a0="langItemLabel",a1="langCheck",a2="noopener noreferrer",a3="storeBadge",a4=this.c,a5=a4.a,a6=a5===B.h,a7=a6?a4.c+"/":a4.b,a8=t.N,a9=t.i
-a7=A.b(h,A.f(["href",a7],a8,a8),A.a([A.a4("OAsset","brandLogo","images/logo_white.svg")],a9),"brand brandBtn",i,i)
+a7=A.b(h,A.f(["href",a7],a8,a8),A.a([A.a4("OAsset","brandLogo","/images/logo_white.svg")],a9),"brand brandBtn",i,i)
 s=A.f(["href","#",g,"learning-center"],a8,a8)
 r=A.r(a5,f,"Learning center")
 r=A.b(h,s,A.a([A.b(e,A.f(["data-i18n",f],a8,a8),A.a([new A.h(r,i)],a9),i,i,i)],a9),"navLink",i,i)
@@ -6270,7 +6270,7 @@ j=A.i(i,A.a([a7,A.i(i,A.a([r,s,p,q,o,m,A.i(i,A.a([A.i(n,A.a([l,A.b("div",i,A.a([
 a4=A.r(a5,"hero.title","Systematic maintenance app")
 a4=A.b("h1",i,A.a([A.b(e,A.f(["data-i18n","hero.title"],a8,a8),A.a([new A.h(a4,i)],a9),i,i,i)],a9),"h1",i,i)
 a5=A.r(a5,"hero.subtitle","Utilize our app to make maintenance easier, more efficient and lower its costs")
-return A.b("section",i,A.a([A.i(i,A.a([j,A.i(i,A.a([A.i(i,A.a([a4,A.b("p",i,A.a([A.b(e,A.f(["data-i18n","hero.subtitle"],a8,a8),A.a([new A.h(a5,i)],a9),i,i,i)],a9),"sub",i,i),A.i(i,A.a([A.b(h,A.f(["href","https://play.google.com/store/","target","_blank","rel",a2],a8,a8),A.a([A.a4("Google Play",a3,"images/play_badge.svg")],a9),i,i,i),A.b(h,A.f(["href","https://www.apple.com/app-store/","target","_blank","rel",a2],a8,a8),A.a([A.a4("App Store",a3,"images/app_badge.svg")],a9),i,i,i)],a9),"badges",i)],a9),"heroText",i),A.i(i,A.a([A.i(i,A.a([A.a4("Hero screenshot","heroShot","images/hero_shot.png"),A.i(i,A.a([A.a4("App screen 1",i,"images/hero_phone_1.png")],a9),"phoneCard phoneA",i),A.i(i,A.a([A.a4("App screen 2",i,"images/hero_phone_2.png")],a9),"phoneCard phoneB",i)],a9),"heroVisual",i)],a9),"heroVisualWrap",i)],a9),"heroGrid",i)],a9),"container heroInner",i),A.i(i,B.d,"heroBottom",i)],a9),"hero",i,i)}}
+return A.b("section",i,A.a([A.i(i,A.a([j,A.i(i,A.a([A.i(i,A.a([a4,A.b("p",i,A.a([A.b(e,A.f(["data-i18n","hero.subtitle"],a8,a8),A.a([new A.h(a5,i)],a9),i,i,i)],a9),"sub",i,i),A.i(i,A.a([A.b(h,A.f(["href","https://play.google.com/store/","target","_blank","rel",a2],a8,a8),A.a([A.a4("Google Play",a3,"/images/play_badge.svg")],a9),i,i,i),A.b(h,A.f(["href","https://www.apple.com/app-store/","target","_blank","rel",a2],a8,a8),A.a([A.a4("App Store",a3,"/images/app_badge.svg")],a9),i,i,i)],a9),"badges",i)],a9),"heroText",i),A.i(i,A.a([A.i(i,A.a([A.a4("Hero screenshot","heroShot","/images/hero_shot.png"),A.i(i,A.a([A.a4("App screen 1",i,"/images/hero_phone_1.png")],a9),"phoneCard phoneA",i),A.i(i,A.a([A.a4("App screen 2",i,"/images/hero_phone_2.png")],a9),"phoneCard phoneB",i)],a9),"heroVisual",i)],a9),"heroVisualWrap",i)],a9),"heroGrid",i)],a9),"container heroInner",i),A.i(i,B.d,"heroBottom",i)],a9),"hero",i,i)}}
 A.dg.prototype={
 A(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a=this,a0=null,a1="span",a2=a.d
 if(a2==="work-orders")s=a0
@@ -6369,7 +6369,7 @@ q=A.a([A.b(o,A.f(["data-i18n","footer.privacy"],e,e),A.a([new A.h(q,p)],h),p,p,p
 q=A.b("a",A.f(["href",i+"#privacy"],e,e),q,m,p,p)
 j=A.r(j,"footer.legal","Legal")
 j=A.a([A.b(o,A.f(["data-i18n","footer.legal"],e,e),A.a([new A.h(j,p)],h),p,p,p)],h)
-return A.b("footer",p,A.a([A.i(p,A.a([A.i(p,A.a([f,g,s,A.i(p,A.a([r,q,A.b("a",A.f(["href",i+"#legal"],e,e),j,m,p,p)],h),"footerLinks",p),A.i(p,A.a([A.i(p,A.a([A.a4(k,p,"images/cert_1.png")],h),l,p),A.i(p,A.a([A.a4(k,p,"images/cert_2.png")],h),l,p)],h),"footerCerts",p)],h),"footerGrid",p)],h),"container",p)],h),"footer",p,p)}}
+return A.b("footer",p,A.a([A.i(p,A.a([A.i(p,A.a([f,g,s,A.i(p,A.a([r,q,A.b("a",A.f(["href",i+"#legal"],e,e),j,m,p,p)],h),"footerLinks",p),A.i(p,A.a([A.i(p,A.a([A.a4(k,p,"/images/cert_1.png")],h),l,p),A.i(p,A.a([A.a4(k,p,"/images/cert_2.png")],h),l,p)],h),"footerCerts",p)],h),"footerGrid",p)],h),"container",p)],h),"footer",p,p)}}
 A.a8.prototype={
 A(a){var s,r,q,p,o,n,m,l=null,k="legalSection",j="legalP",i="section",h=this.c,g=A.n4(h.a),f=t.N
 f=A.f(["onclick",u.n],f,f)
@@ -6386,7 +6386,7 @@ for(m=g.f,o=0;o<14;++o)n.push(A.b("p",l,A.a([new A.h(m[o],l)],s),j,l,l))
 return A.i(f,A.a([new A.dv(h,l),r,A.i(l,A.a([A.i(l,A.a([q,p,A.b(i,l,n,k,"legal",l)],s),"container legalContent",l)],s),"legalMain",l),new A.bO(h,l)],s),"legalPage",l)}}
 A.dv.prototype={
 A(a0){var s,r,q,p,o,n=null,m="a",l="span",k="langItem",j="langItem active",i=u.d,h="langItemLabel",g="langCheck",f=this.c,e=f.a,d=e===B.h,c=d?f.c:f.b,b=t.N,a=t.i
-c=A.b(m,A.f(["href",c],b,b),A.a([A.a4("OAsset","brandLogo","images/logo_black.svg")],a),"brand brandBtn",n,n)
+c=A.b(m,A.f(["href",c],b,b),A.a([A.a4("OAsset","brandLogo","/images/logo_black.svg")],a),"brand brandBtn",n,n)
 s=A.r(e,"nav.sign_in","Sign In")
 s=A.a([A.b(l,A.f(["data-i18n","nav.sign_in"],b,b),A.a([new A.h(s,n)],a),n,n,n)],a)
 s=A.b(m,A.f(["href","/signin"],b,b),s,"stickyBtn stickyBtnOutline",n,n)

@@ -53,19 +53,19 @@ String hrefFromRoutePath(String routePath) => routePath;
 /* ========= Image paths (put these in web/images/) ========= */
 
 class ImgPath {
-  static const logo = 'images/only_logo.svg';
-  static const logoWhite = 'images/logo_white.svg';
-  static const logoBlack = 'images/logo_black.svg';
-  static const hero = 'images/hero_shot.png';
-  static const badgePlay = 'images/play_badge.svg';
-  static const badgeApp = 'images/app_badge.svg';
-  static const heroPhone1 = 'images/hero_phone_1.png';
-  static const heroPhone2 = 'images/hero_phone_2.png';
-  static const work1 = 'images/work_1.png';
-  static const work2 = 'images/work_2.png';
-  static const cert1 = 'images/cert_1.png';
-  static const cert2 = 'images/cert_2.png';
-  static const tickPricing = 'images/tick_pricing.png';
+  static const logo = '/images/only_logo.svg';
+  static const logoWhite = '/images/logo_white.svg';
+  static const logoBlack = '/images/logo_black.svg';
+  static const hero = '/images/hero_shot.png';
+  static const badgePlay = '/images/play_badge.svg';
+  static const badgeApp = '/images/app_badge.svg';
+  static const heroPhone1 = '/images/hero_phone_1.png';
+  static const heroPhone2 = '/images/hero_phone_2.png';
+  static const work1 = '/images/work_1.png';
+  static const work2 = '/images/work_2.png';
+  static const cert1 = '/images/cert_1.png';
+  static const cert2 = '/images/cert_2.png';
+  static const tickPricing = '/images/tick_pricing.png';
 }
 
 /* ========= Page ========= */
