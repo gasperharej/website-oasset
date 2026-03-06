@@ -6272,23 +6272,33 @@ a4=A.b("h1",i,A.a([A.b(e,A.f(["data-i18n","hero.title"],a8,a8),A.a([new A.h(a4,i
 a5=A.r(a5,"hero.subtitle","Utilize our app to make maintenance easier, more efficient and lower its costs")
 return A.b("section",i,A.a([A.i(i,A.a([j,A.i(i,A.a([A.i(i,A.a([a4,A.b("p",i,A.a([A.b(e,A.f(["data-i18n","hero.subtitle"],a8,a8),A.a([new A.h(a5,i)],a9),i,i,i)],a9),"sub",i,i),A.i(i,A.a([A.b(h,A.f(["href","https://play.google.com/store/","target","_blank","rel",a2],a8,a8),A.a([A.a4("Google Play",a3,"images/play_badge.svg")],a9),i,i,i),A.b(h,A.f(["href","https://www.apple.com/app-store/","target","_blank","rel",a2],a8,a8),A.a([A.a4("App Store",a3,"images/app_badge.svg")],a9),i,i,i)],a9),"badges",i)],a9),"heroText",i),A.i(i,A.a([A.i(i,A.a([A.a4("Hero screenshot","heroShot","images/hero_shot.png"),A.i(i,A.a([A.a4("App screen 1",i,"images/hero_phone_1.png")],a9),"phoneCard phoneA",i),A.i(i,A.a([A.a4("App screen 2",i,"images/hero_phone_2.png")],a9),"phoneCard phoneB",i)],a9),"heroVisual",i)],a9),"heroVisualWrap",i)],a9),"heroGrid",i)],a9),"container heroInner",i),A.i(i,B.d,"heroBottom",i)],a9),"hero",i,i)}}
 A.dg.prototype={
-A(a1){var s,r,q,p,o,n,m,l,k,j,i=this,h=null,g="span",f=i.c.a,e=i.d,d="feature."+e,c=d+".title",b=A.r(f,c,i.e),a=t.N,a0=t.i
-b=A.b("h2",h,A.a([A.b(g,A.f(["data-i18n",c],a,a),A.a([new A.h(b,h)],a0),h,h,h)],a0),"title",h,h)
-c=A.a([],a0)
-for(s=i.w,r=s.length,d+=".bullet.",q=0;q<r;q=o){p=A.b(g,h,B.d,"dot",h,h)
-o=q+1
-n=d+o
-m=A.r(f,n,s[q])
-c.push(A.b("li",h,A.a([p,A.b("p",h,A.a([A.b(g,A.f(["data-i18n",n],a,a),A.a([new A.h(m,h)],a0),h,h,h)],a0),h,h,h)],a0),h,h,h))}l=A.i(h,A.a([b,A.b("ul",h,c,"bullets",h,h)],a0),"colText",h)
-f=i.x
-if(f!=null&&i.y!=null){d=i.y
-d.toString
-d=new A.dH(f,d,h)
-f=d}else f=B.aa
-k=A.i(h,A.a([f],a0),"colVisual",h)
-j=i.f?A.a([k,l],a0):A.a([l,k],a0)
-f=i.r?"section sectionAlt":"section"
-return A.b("section",h,A.a([A.i(h,A.a([A.i(h,j,"sectionGrid",h)],a0),"container",h)],a0),f,e,h)}}
+A(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a=this,a0=null,a1="span",a2=a.d
+if(a2==="work-orders")s=a0
+else{r="feature."+a2+".title"
+q=A.r(a.c.a,r,a.e)
+p=t.N
+o=t.i
+s=A.i(a0,A.a([A.b("h2",a0,A.a([A.b(a1,A.f(["data-i18n",r],p,p),A.a([new A.h(q,a0)],o),a0,a0,a0)],o),"sectionTitle",a0,a0)],o),"sectionHeader",a0)}r=t.i
+q=A.a([],r)
+for(p=a.w,o=p.length,n=a.c.a,m="feature."+a2+".bullet.",l=t.N,k=0;k<o;k=i){j=A.b(a1,a0,B.d,"dot",a0,a0)
+i=k+1
+h=m+i
+g=A.r(n,h,p[k])
+q.push(A.b("li",a0,A.a([j,A.b("p",a0,A.a([A.b(a1,A.f(["data-i18n",h],l,l),A.a([new A.h(g,a0)],r),a0,a0,a0)],r),a0,a0,a0)],r),a0,a0,a0))}f=A.i(a0,A.a([A.b("ul",a0,q,"bullets",a0,a0)],r),"colText",a0)
+q=a.x
+if(q!=null&&a.y!=null){p=a.y
+p.toString
+p=new A.dH(q,p,a0)
+q=p}else q=B.aa
+e=A.i(a0,A.a([q],r),"colVisual",a0)
+q=a.f
+d=q?A.a([e,f],r):A.a([f,e],r)
+c=a.r?"section sectionAlt":"section"
+b=q?"visualLeft":"visualRight"
+q=A.a([],r)
+if(s!=null)q.push(s)
+q.push(A.i(a0,d,"sectionGrid",a0))
+return A.b("section",a0,A.a([A.i(a0,q,"container",a0)],r),c+" "+b,a2,a0)}}
 A.dH.prototype={
 A(a){var s=null,r=t.i
 return A.i(s,A.a([A.i(s,A.a([A.a4("Card A",s,this.c)],r),"phoneCard phoneA",s),A.i(s,A.a([A.a4("Card B",s,this.d)],r),"phoneCard phoneB",s)],r),"cards",s)}}

@@ -1,7 +1,10 @@
-/* SECTIONS */
-.section{ padding: 56px 0; }
-.sectionAlt{ background:#F3F6FF; }
+/* =========================
+   FEATURE SECTIONS (Figma-like)
+   Desktop: title centered, 2 cols
+   Mobile: cards under text + centered
+   ========================= */
 
+/* Keep .title for CTA etc (it was previously defined here) */
 .title{
   margin:0 0 var(--s6);
   font-weight:600;
@@ -9,102 +12,227 @@
   color: var(--title);
 }
 
+/* Override shared 100vh section sizing from 00_base.css */
+.landing .section{
+  min-height: 0;
+  display: block;
+  padding: clamp(92px, 8vw, 132px) 0; /* similar “big section padding” like hero/cta */
+}
+
+.landing .sectionAlt{ background:#fff; }
+/* Title alignment is handled below (depends on left/right bullets) */
+
+/* Grid */
+.sectionGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 76px);
+  align-items:center;
+}
+
+/* Text column sits closer to center, like Figma */
+.colText{
+  max-width: 620px;
+}
+.section.visualRight .colText{ justify-self: end; }   /* text in left column -> align to center */
+.section.visualLeft  .colText{ justify-self: start; } /* text in right column -> align to center */
+
+/* Visual column hugs outer side on desktop */
+.colVisual{ display:flex; }
+.section.visualLeft  .colVisual{ justify-content:flex-start; }
+.section.visualRight .colVisual{ justify-content:flex-end; }
+
+/* Bullets */
 .bullets{
   list-style:none;
   padding:0;
   margin:0;
   display:flex;
   flex-direction:column;
-  gap: 22px;
+  gap: clamp(14px, 1.2vw, 18px);
 }
+
 .bullets li{ display:flex; gap: 12px; align-items:flex-start; }
+
 .dot{
-  width: 10px; height: 10px;
+  width: clamp(7px, .7vw, 9px);
+  height: clamp(7px, .7vw, 9px);
   border-radius: 999px;
-  margin-top: 8px;
+  margin-top: .55em;
   background: #2E63FF;
   flex: 0 0 auto;
 }
+
 .bullets p{
   margin:0;
-  font-size: 20px;
-  line-height: 1.25;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.5;
   color: var(--muted);
 }
 
-/* overlapping screenshot cards (feature sections) */
-.cards{ position:relative; min-height: 480px; }
+/* ===== Visuals (overlap cards) ===== */
+.cards{
+  position:relative;
+  width: clamp(360px, 34vw, 520px);
+  max-width: 100%;
+  aspect-ratio: 520 / 360;
+}
+
 .cards .phoneCard{
   position:absolute;
-  width: 266px;
-  border-radius: var(--r);
+  width: 52%;
+  border-radius: clamp(18px, 1.6vw, 24px);
   background:#fff;
-  border: 4px solid #fff;
+  border: clamp(2px, 0.35vw, 4px) solid #fff;
   box-shadow: var(--shadowCard);
   overflow:hidden;
 }
-.cards .phoneCard img{ width:100%; height:auto; display:block; }
-.cards .phoneA{ left: 0; top: 70px; transform: rotate(-1deg); }
-.cards .phoneB{ left: 190px; top: 0; transform: rotate(1deg); }
 
-/* placeholder stack */
+.cards .phoneCard img{ width:100%; height:auto; display:block; }
+
+.cards .phoneA{ left: 0;   top: 18%; transform: rotate(-1deg); }
+.cards .phoneB{ left: 36%; top: 0;   transform: rotate( 1deg); }
+
+/* ===== Visuals (placeholder stack) ===== */
+.placeStack{
+  position:relative;
+  width: clamp(300px, 28vw, 420px);
+  max-width: 100%;
+  aspect-ratio: 420 / 320;
+}
+
 .placeholder{
-  width: 266px;
-  height: 333px;
-  border-radius: var(--r);
+  position:absolute;
+  width: 56%;
+  aspect-ratio: 4 / 5;
+  border-radius: clamp(18px, 1.6vw, 24px);
   background:#fff;
   border: 2px solid rgba(0,0,0,.06);
   box-shadow: var(--shadowCard);
 }
-.placeStack{ position:relative; min-height: 380px; display:flex; justify-content:flex-end; }
-.placeA{ position:absolute; right: 190px; top: 70px; }
-.placeB{ position:absolute; right: 0; top: 0; }
 
-/* sections responsive */
-@media (max-width: 1100px){
-  .section{ align-items: stretch; }
-  .section .container{ height: 100%; }
+.placeA{ left: 0;   top: 20%; }
+.placeB{ left: 36%; top: 0; }
+
+/* =========================
+   MOBILE (cards under text)
+   ========================= */
+@media (max-width: 1024px){
+  /* Horizontal padding similar to hero’s mobile container feel */
+  .section .container{
+    max-width: var(--container);
+    padding-left: clamp(20px, 5vw, 36px);
+    padding-right: clamp(20px, 5vw, 36px);
+  }
+
+  .landing .section{
+    padding: clamp(64px, 9vw, 88px) 0;
+  }
 
   .sectionGrid{
-    height: 100%;
     display:flex;
     flex-direction:column;
-    gap: 20px;
+    gap: 22px;
+    align-items:stretch;
   }
-  .colText{ order: 1; }
+
+  .colText{
+    order: 1;
+    width:100%;
+    max-width:none;
+    justify-self:auto;
+  }
+
   .colVisual{
     order: 2;
-    margin-top: auto;
-    width: 100%;
-    display:flex;
-    justify-content:center;
+    width:100%;
+    justify-content:center !important; /* center the cards under text (Figma mobile) */
   }
 
-  .cards{
-    width: 320px;
-    max-width: 100%;
-    margin: 0 auto;
-    min-height: 260px;
+  .bullets p{
+    font-size: clamp(13px, 3.8vw, 16px);
+    line-height: 1.45;
   }
-  .cards .phoneCard{ width: 156px; }
-  .cards .phoneA{ left: 50%; top: 40px; transform: translateX(-60%) rotate(-1deg); }
-  .cards .phoneB{ left: 50%; top: 10px; transform: translateX(-5%)  rotate( 1deg); }
+
+  /* Mobile overlap positioning */
+  .cards{
+    width: min(520px, 92vw);
+    aspect-ratio: 520 / 330;
+    margin: 0 auto;
+  }
+
+  .cards .phoneCard{ width: 50%; }
+  .cards .phoneA{ left: 50%; top: 22%; transform: translateX(-70%) rotate(-1deg); }
+  .cards .phoneB{ left: 50%; top: 0;   transform: translateX(-10%) rotate( 1deg); }
 
   .placeStack{
-    width: 320px;
-    max-width: 100%;
+    width: min(420px, 86vw);
+    aspect-ratio: 420 / 280;
     margin: 0 auto;
-    min-height: 220px;
-    justify-content: center;
   }
-  .placeholder{ width: 156px; height: 196px; }
-  .placeA{ left: 50%; right: auto; top: 40px; transform: translateX(-60%); }
-  .placeB{ left: 50%; right: auto; top: 10px; transform: translateX(-5%); }
+
+  .placeholder{
+    width: 50%;
+    border-width: 1px;
+  }
+
+  .placeA{ left: 50%; top: 24%; transform: translateX(-70%); }
+  .placeB{ left: 50%; top: 0;   transform: translateX(-10%); }
 }
 
+/* =========================
+   Title alignment by side
+   ========================= */
+.sectionHeader{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 76px);
+  align-items:end;
+  margin-bottom: clamp(18px, 2.2vw, 30px);
+}
+
+.sectionTitle{
+  margin:0;
+  font-weight:600;
+  font-size: clamp(22px, 2.3vw, 32px);
+  line-height: 1.15;
+  color: var(--title);
+
+  /* Match bullets block width so "middle of bullets" is accurate. */
+  width: 100%;
+  max-width: 620px;
+}
+
+@media (min-width: 1025px){
+  /* Bullets on the LEFT (text column left): center title over bullets midpoint. */
+  .section.visualRight .sectionTitle{
+    grid-column: 1;
+    justify-self: end;
+    text-align: center;
+    transform: none;
+  }
+
+  /* Bullets on the RIGHT (text column right): align title to bullets left edge. */
+  .section.visualLeft .sectionTitle{
+    grid-column: 2;
+    justify-self: start;
+    text-align: left;
+    transform: none;
+  }
+}
+
+/* Mobile: always align title to the left edge. */
 @media (max-width: 1024px){
-  .sectionGrid{ display:flex; flex-direction:column; gap: 20px; }
-  .title{ font-size: 22px; }
-  .bullets p{ font-size: 15px; line-height: 1.2; }
-  .dot{ width: 8px; height: 8px; margin-top: 7px; }
+  .sectionHeader{
+    display:block;
+    margin-bottom: 14px;
+  }
+
+  .sectionTitle{
+    font-size: clamp(20px, 5.6vw, 28px);
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    transform: none;
+  }
 }

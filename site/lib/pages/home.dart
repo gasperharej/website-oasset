@@ -430,12 +430,17 @@ class FeatureSection extends StatelessComponent {
     this.altBackground = false,
   });
 
-  @override
+    @override
   Component build(BuildContext context) {
+    final heading = id == 'work-orders'
+        ? null
+        : div_(classes: 'sectionHeader', children: [
+            h2_(classes: 'sectionTitle', children: [
+              tx(ctx.lang, 'feature.$id.title', title),
+            ]),
+          ]);
+
     final textCol = div_(classes: 'colText', children: [
-      h2_(classes: 'title', children: [
-        tx(ctx.lang, 'feature.$id.title', title),
-      ]),
       ul_(classes: 'bullets', children: [
         for (var i = 0; i < bullets.length; i++)
           li_(children: [
@@ -455,11 +460,15 @@ class FeatureSection extends StatelessComponent {
 
     final cols = visualLeft ? <Component>[visualCol, textCol] : <Component>[textCol, visualCol];
 
+    final base = altBackground ? 'section sectionAlt' : 'section';
+    final side = visualLeft ? 'visualLeft' : 'visualRight';
+    
     return section_(
       id: id,
-      classes: altBackground ? 'section sectionAlt' : 'section',
+      classes: '$base $side',
       children: [
         div_(classes: 'container', children: [
+          if (heading != null) heading,
           div_(classes: 'sectionGrid', children: cols),
         ]),
       ],
