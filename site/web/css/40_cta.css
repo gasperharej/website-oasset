@@ -50,9 +50,10 @@
   
     display: inline-flex;
     align-items: center;
+    justify-content: center;
   
-    padding: 0 12px 0 22px;
-    gap: 16px;
+    padding: 0 20px;
+    gap: 10px;
   
     border-radius: 18px;
     background: var(--blue1);
@@ -74,26 +75,27 @@
   
   .ctaBtnLabel{
     white-space: nowrap;
+    line-height: 1.1;
   }
   
-  /* same height as button */
+  /* icon holder */
   .ctaBtnIcon{
-    margin-left: auto;
-  
-    width: 56px;
-    height: 56px;
+    width: 28px;
+    height: 28px;
   
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
+    box-shadow: none;
   
     flex: 0 0 auto;
   }
   
-  /* the svg itself (kept smaller, centered) */
+  /* play icon */
   .ctaBtnIconImg{
-    width: 44px;
-    height: 32px;
+    width: 100%;
+    height: 100%;
     display: block;
   }
   
@@ -166,6 +168,11 @@
       height: 60px;
       width: 100%;
       border-radius: 20px;
+      justify-content: space-between;
+      /* wider screens get roomier spacing; narrow screens tighten automatically */
+      padding-left: clamp(14px, 3.2vw, 24px);
+      padding-right: clamp(12px, 2.8vw, 20px);
+      gap: clamp(10px, 2.4vw, 18px);
     }
 
     .ctaBtnWrap{
@@ -175,13 +182,13 @@
     }
   
     .ctaBtnIcon{
-      width: 60px;
-      height: 60px;
+      width: clamp(28px, 4.8vw, 38px);
+      height: clamp(28px, 4.8vw, 38px);
     }
-  
-    .ctaBtnIconImg{
-      width: 46px;
-      height: 34px;
+
+    .ctaBtnLabel{
+      flex: 1 1 auto;
+      text-align: left;
     }
   
     /* old diagonal stack */
