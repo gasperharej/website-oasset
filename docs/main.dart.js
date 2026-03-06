@@ -6215,8 +6215,8 @@ A.dt.prototype={
 aB(){return"Lang."+this.b}}
 A.ai.prototype={}
 A.b_.prototype={
-A(a){var s=null,r=t.N,q=this.c
-return A.i(A.f(["onclick",u.n],r,r),A.a([new A.dX(q,s),new A.dj(q,s),A.dh(!1,B.Y,"/images/work_1.png","/images/work_2.png",q,"work-orders","Work orders",!0),A.dh(!0,B.N,s,s,q,"asset-management","Asset management",!1),A.dh(!0,B.X,s,s,q,"communication","Communication",!0),A.dh(!0,B.S,s,s,q,"user-management","User management",!1),A.dh(!0,B.T,s,s,q,"bim","BIM integration",!0),new A.du(q,s),new A.dL(q,s),new A.bO(q,s)],t.i),"landing",s)}}
+A(a){var s=null,r=t.N,q=this.c,p=t.i
+return A.i(A.f(["onclick",u.n],r,r),A.a([new A.dX(q,s),new A.dj(q,s),A.i(s,A.a([A.dh(!1,B.Y,"/images/work_1.png","/images/work_2.png",q,"work-orders","Work orders",!0),A.dh(!0,B.N,s,s,q,"asset-management","Asset management",!1),A.dh(!0,B.X,s,s,q,"communication","Communication",!0),A.dh(!0,B.S,s,s,q,"user-management","User management",!1)],p),"featuresEllipseWrap",s),A.dh(!0,B.T,s,s,q,"bim","BIM integration",!0),new A.du(q,s),new A.dL(q,s),new A.bO(q,s)],p),"landing",s)}}
 A.dX.prototype={
 A(a9){var s,r,q,p,o,n,m,l,k,j=null,i="stickyBar",h="a",g="stickyLink",f="data-scroll-target",e="nav.learning_center",d="span",c="navGapDouble",b="langItem",a="langItem active",a0=u.d,a1="langItemLabel",a2="langCheck",a3=this.c,a4=a3.a,a5=a4===B.h,a6=a5?a3.c+"/":a3.b,a7=t.N,a8=t.i
 a6=A.b(h,A.f(["href",a6,"onclick",u.j],a7,a7),A.a([A.a4("OAsset","brandLogo","/images/logo_black.svg")],a8),"brand brandBtn",j,j)

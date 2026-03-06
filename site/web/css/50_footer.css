@@ -35,8 +35,8 @@
   top: 52%;
   transform: translate(-50%, -50%);
   border-radius: 999px;
-  background: rgba(47, 240, 40, 0.25);
-  filter: blur(50px);
+  background: rgba(47, 240, 40, 0.20);
+  filter: blur(60px);
   pointer-events: none;
 }
 
@@ -231,4 +231,22 @@
 
 @media (max-width: 720px) {
   .footer { --cert-w: 260px; }
+}
+
+.footerCopyRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.footerCopyIcon {
+  width: 30px;
+  height: 32px;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  flex: 0 0 30px;
+  margin-top: 5px;
 }

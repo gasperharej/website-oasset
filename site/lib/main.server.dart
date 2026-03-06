@@ -63,6 +63,10 @@ void main() {
         tag: 'script',
         attributes: {'src': 'seo_links.js', 'defer': ''},
       ),
+      Component.element(
+        tag: 'script',
+        attributes: {'src': 'ellipses.js', 'defer': ''},
+      ),
     ],
     body: App(),
   ));

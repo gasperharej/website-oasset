@@ -146,7 +146,11 @@
   .colVisual{
     order: 2;
     width:100%;
-    justify-content:center !important; /* center the cards under text (Figma mobile) */
+  }
+
+  .section.visualLeft .colVisual,
+  .section.visualRight .colVisual{
+    justify-content: center; /* center the cards under text (Figma mobile) */
   }
 
   .bullets p{
@@ -235,4 +239,81 @@
     text-align: left;
     transform: none;
   }
+}
+
+/* ===== Decorative ellipses positioned by JS (real ellipse) ===== */
+
+.featuresEllipseWrap{
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* keep content above ellipses + let ellipse show through */
+.featuresEllipseWrap > .section,
+.featuresEllipseWrap > .sectionAlt{
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+/* LEFT ellipse */
+.featuresEllipseWrap::before{
+  content:"";
+  position:absolute;
+
+  /* Figma size (responsive) */
+  width:  clamp(720px, 62vw, 1377px);
+  height: clamp(680px, 60vw, 1314px);
+
+  /* CENTER point (set by JS) */
+  left: var(--ellL-cx, 20%);
+  top:  var(--ellL-cy, 50%);
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  background: rgba(88, 116, 255, 0.03);
+  filter: blur(clamp(46px, 5.5vw, 90px));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* RIGHT ellipse (center on the right edge) */
+.featuresEllipseWrap::after{
+  content:"";
+  position:absolute;
+
+  width:  clamp(520px, 42vw, 868px);
+  height: clamp(720px, 56vw, 1155px);
+
+  /* x center = right edge, y center set by JS */
+  left: 100%;
+  top:  var(--ellR-cy, 50%);
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  background: rgba(88, 116, 255, 0.03);
+  filter: blur(clamp(46px, 5.5vw, 90px));
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+@media (max-width: 1024px){
+  .featuresEllipseWrap::before,
+  .featuresEllipseWrap::after{
+    content: none;
+  }
+}
+
+/* Hide ellipses until JS computed positions */
+.featuresEllipseWrap::before,
+.featuresEllipseWrap::after{
+  opacity: 0;
+  transition: opacity 140ms ease;
+}
+
+.featuresEllipseWrap.isEllipsesReady::before,
+.featuresEllipseWrap.isEllipsesReady::after{
+  opacity: 1;
 }
