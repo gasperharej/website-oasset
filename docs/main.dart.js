@@ -2111,7 +2111,7 @@ if(q===46){if(r-1===b)return new A.an(o,a,r)
 s=r
 break}return new A.an("Unexpected character",a,r-1)}if(s-1===b)return new A.an(o,a,s)
 return new A.an("Missing '.' in IPvFuture address",a,s)}if(s===c)return new A.an("Missing address in IPvFuture address, host, cursor",null,null)
-for(;;){if((u.f.charCodeAt(a.charCodeAt(s))&16)!==0){++s
+for(;;){if((u.v.charCodeAt(a.charCodeAt(s))&16)!==0){++s
 if(s<c)continue
 return null}return new A.an("Invalid IPvFuture address character",a,s)}},
 jD(a1,a2,a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a="an address must contain at most 8 parts",a0=new A.h1(a1)
@@ -2199,7 +2199,7 @@ else if(o==="%")A.by(a,s,"ZoneID should not contain % anymore")
 i.a=m+o
 s+=3
 r=s
-q=!0}else if(p<127&&(u.f.charCodeAt(p)&1)!==0){if(q&&65<=p&&90>=p){if(i==null)i=new A.R("")
+q=!0}else if(p<127&&(u.v.charCodeAt(p)&1)!==0){if(q&&65<=p&&90>=p){if(i==null)i=new A.R("")
 if(r<s){i.a+=B.a.m(a,r,s)
 r=s}q=!1}++s}else{l=1
 if((p&64512)===55296&&s+1<c){k=a.charCodeAt(s+1)
@@ -2215,7 +2215,7 @@ r=s}}if(i==null)return B.a.m(a,b,c)
 if(r<c){j=B.a.m(a,r,c)
 i.a+=j}n=i.a
 return n.charCodeAt(0)==0?n:n},
-mh(a,b,c){var s,r,q,p,o,n,m,l,k,j,i,h=u.f
+mh(a,b,c){var s,r,q,p,o,n,m,l,k,j,i,h=u.v
 for(s=b,r=s,q=null,p=!0;s<c;){o=a.charCodeAt(s)
 if(o===37){n=A.iJ(a,s,!0)
 m=n==null
@@ -2253,7 +2253,7 @@ me(a,b,c){var s,r,q
 if(b===c)return""
 if(!A.jW(a.charCodeAt(b)))A.by(a,b,"Scheme not starting with alphabetic character")
 for(s=b,r=!1;s<c;++s){q=a.charCodeAt(s)
-if(!(q<128&&(u.f.charCodeAt(q)&8)!==0))A.by(a,s,"Illegal scheme character")
+if(!(q<128&&(u.v.charCodeAt(q)&8)!==0))A.by(a,s,"Illegal scheme character")
 if(65<=q&&q<=90)r=!0}a=B.a.m(a,b,c)
 return A.m4(r?a.toLowerCase():a)},
 m4(a){if(a==="http")return"http"
@@ -2278,7 +2278,7 @@ q=A.i1(s)
 p=A.i1(r)
 if(q<0||p<0)return"%"
 o=q*16+p
-if(o<127&&(u.f.charCodeAt(o)&1)!==0)return A.b2(c&&65<=o&&90>=o?(o|32)>>>0:o)
+if(o<127&&(u.v.charCodeAt(o)&1)!==0)return A.b2(c&&65<=o&&90>=o?(o|32)>>>0:o)
 if(s>=97||r>=97)return B.a.m(a,b,b+3).toUpperCase()
 return null},
 iI(a){var s,r,q,p,o,n="0123456789ABCDEF"
@@ -2296,7 +2296,7 @@ s[p+2]=n.charCodeAt(o&15)
 p+=3}}return A.jz(s,0,null)},
 cP(a,b,c,d,e,f){var s=A.jY(a,b,c,d,e,f)
 return s==null?B.a.m(a,b,c):s},
-jY(a,b,c,d,e,f){var s,r,q,p,o,n,m,l,k,j=null,i=u.f
+jY(a,b,c,d,e,f){var s,r,q,p,o,n,m,l,k,j=null,i=u.v
 for(s=!e,r=b,q=r,p=j;r<c;){o=a.charCodeAt(r)
 if(o<127&&(i.charCodeAt(o)&d)!==0)++r
 else{n=1
@@ -2341,7 +2341,7 @@ return B.c.aJ(s,"/")},
 jV(a){var s,r,q=a.length
 if(q>=2&&A.jW(a.charCodeAt(0)))for(s=1;s<q;++s){r=a.charCodeAt(s)
 if(r===58)return B.a.m(a,0,s)+"%3A"+B.a.a_(a,s+1)
-if(r>127||(u.f.charCodeAt(r)&8)===0)break}return a},
+if(r>127||(u.v.charCodeAt(r)&8)===0)break}return a},
 m7(){return A.a([],t.s)},
 k_(a){var s,r,q,p,o,n=A.V(t.N,t.a),m=new A.hJ(a,B.m,n)
 for(s=a.length,r=0,q=0,p=-1;r<s;){o=a.charCodeAt(r)
@@ -6219,7 +6219,7 @@ A(a){var s=null,r=t.N,q=this.c
 return A.i(A.f(["onclick",u.n],r,r),A.a([new A.dX(q,s),new A.dj(q,s),A.dh(!1,B.Y,"/images/work_1.png","/images/work_2.png",q,"work-orders","Work orders",!0),A.dh(!0,B.N,s,s,q,"asset-management","Asset management",!1),A.dh(!0,B.X,s,s,q,"communication","Communication",!0),A.dh(!0,B.S,s,s,q,"user-management","User management",!1),A.dh(!0,B.T,s,s,q,"bim","BIM integration",!0),new A.du(q,s),new A.dL(q,s),new A.bO(q,s)],t.i),"landing",s)}}
 A.dX.prototype={
 A(a9){var s,r,q,p,o,n,m,l,k,j=null,i="stickyBar",h="a",g="stickyLink",f="data-scroll-target",e="nav.learning_center",d="span",c="navGapDouble",b="langItem",a="langItem active",a0=u.d,a1="langItemLabel",a2="langCheck",a3=this.c,a4=a3.a,a5=a4===B.h,a6=a5?a3.c+"/":a3.b,a7=t.N,a8=t.i
-a6=A.b(h,A.f(["href",a6],a7,a7),A.a([A.a4("OAsset","brandLogo","/images/logo_black.svg")],a8),"brand brandBtn",j,j)
+a6=A.b(h,A.f(["href",a6,"onclick",u.j],a7,a7),A.a([A.a4("OAsset","brandLogo","/images/logo_black.svg")],a8),"brand brandBtn",j,j)
 s=A.f(["href","#",f,"learning-center"],a7,a7)
 r=A.r(a4,e,"Learning center")
 r=A.b(h,s,A.a([A.b(d,A.f(["data-i18n",e],a7,a7),A.a([new A.h(r,j)],a8),j,j,j)],a8),g,j,j)
@@ -6230,7 +6230,7 @@ p=A.b(h,q,A.a([A.b(d,A.f(["data-i18n","nav.pricing"],a7,a7),A.a([new A.h(p,j)],a
 q=A.b(d,A.f(["aria-hidden","true"],a7,a7),B.d,c,j,j)
 o=A.r(a4,"nav.sign_in","Sign In")
 o=A.a([A.b(d,A.f(["data-i18n","nav.sign_in"],a7,a7),A.a([new A.h(o,j)],a8),j,j,j)],a8)
-o=A.b(h,A.f(["href","/signin"],a7,a7),o,"stickyBtn stickyBtnOutline",j,j)
+o=A.b(h,A.f(["href","https://app.oasset.app"],a7,a7),o,"stickyBtn stickyBtnOutline",j,j)
 n=A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],a7,a7)
 a4=A.r(a4,"nav.contact_us","Contact us")
 a4=A.b(h,n,A.a([A.b(d,A.f(["data-i18n","nav.contact_us"],a7,a7),A.a([new A.h(a4,j)],a8),j,j,j)],a8),"stickyBtn stickyBtnSolid",j,j)
@@ -6244,7 +6244,7 @@ k=a5?a:b
 return A.i(j,A.a([A.i(j,A.a([A.i(j,A.a([a6,A.i(j,A.a([r,s,p,q,o,a4,A.i(j,A.a([A.i(n,A.a([m,A.b("div",j,A.a([l,A.b(h,A.f(["href",a3.c+"/","data-lang","Sl","onclick",a0],a7,a7),A.a([A.b(d,j,A.a([new A.h("Sloven\u0161\u010dina",j)],a8),a1,j,j),A.b(d,j,A.a([new A.h("\u2713",j)],a8),a2,j,j)],a8),k,j,j)],a8),"langMenu",j,j)],a8),"langDrop",j)],a8),"stickyLang",j)],a8),"stickyRight",j)],a8),"stickyRow",j)],a8),"container",j)],a8),i,i)}}
 A.dj.prototype={
 A(b0){var s,r,q,p,o,n,m,l,k,j,i=null,h="a",g="data-scroll-target",f="nav.learning_center",e="span",d="navGapDouble",c="langItem",b="langItem active",a=u.d,a0="langItemLabel",a1="langCheck",a2="noopener noreferrer",a3="storeBadge",a4=this.c,a5=a4.a,a6=a5===B.h,a7=a6?a4.c+"/":a4.b,a8=t.N,a9=t.i
-a7=A.b(h,A.f(["href",a7],a8,a8),A.a([A.a4("OAsset","brandLogo","/images/logo_white.svg")],a9),"brand brandBtn",i,i)
+a7=A.b(h,A.f(["href",a7,"onclick",u.j],a8,a8),A.a([A.a4("OAsset","brandLogo","/images/logo_white.svg")],a9),"brand brandBtn",i,i)
 s=A.f(["href","#",g,"learning-center"],a8,a8)
 r=A.r(a5,f,"Learning center")
 r=A.b(h,s,A.a([A.b(e,A.f(["data-i18n",f],a8,a8),A.a([new A.h(r,i)],a9),i,i,i)],a9),"navLink",i,i)
@@ -6255,7 +6255,7 @@ p=A.b(h,q,A.a([A.b(e,A.f(["data-i18n","nav.pricing"],a8,a8),A.a([new A.h(p,i)],a
 q=A.b(e,A.f(["aria-hidden","true"],a8,a8),B.d,d,i,i)
 o=A.r(a5,"nav.sign_in","Sign In")
 o=A.a([A.b(e,A.f(["data-i18n","nav.sign_in"],a8,a8),A.a([new A.h(o,i)],a9),i,i,i)],a9)
-o=A.b(h,A.f(["href","/signin"],a8,a8),o,"navBtn navBtnOutline",i,i)
+o=A.b(h,A.f(["href","https://app.oasset.app"],a8,a8),o,"navBtn navBtnOutline",i,i)
 n=A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],a8,a8)
 m=A.r(a5,"nav.contact_us","Contact us")
 m=A.b(h,n,A.a([A.b(e,A.f(["data-i18n","nav.contact_us"],a8,a8),A.a([new A.h(m,i)],a9),i,i,i)],a9),"navBtn navBtnSolid",i,i)
@@ -6385,11 +6385,11 @@ n=A.a([A.b("h2",l,A.a([new A.h(g.c,l)],s),"legalH2",l,l)],s)
 for(m=g.f,o=0;o<14;++o)n.push(A.b("p",l,A.a([new A.h(m[o],l)],s),j,l,l))
 return A.i(f,A.a([new A.dv(h,l),r,A.i(l,A.a([A.i(l,A.a([q,p,A.b(i,l,n,k,"legal",l)],s),"container legalContent",l)],s),"legalMain",l),new A.bO(h,l)],s),"legalPage",l)}}
 A.dv.prototype={
-A(a0){var s,r,q,p,o,n=null,m="a",l="span",k="langItem",j="langItem active",i=u.d,h="langItemLabel",g="langCheck",f=this.c,e=f.a,d=e===B.h,c=d?f.c:f.b,b=t.N,a=t.i
+A(a0){var s,r,q,p,o,n=null,m="a",l="span",k="langItem",j="langItem active",i=u.d,h="langItemLabel",g="langCheck",f=this.c,e=f.a,d=e===B.h,c=d?"/sl/":"/",b=t.N,a=t.i
 c=A.b(m,A.f(["href",c],b,b),A.a([A.a4("OAsset","brandLogo","/images/logo_black.svg")],a),"brand brandBtn",n,n)
 s=A.r(e,"nav.sign_in","Sign In")
 s=A.a([A.b(l,A.f(["data-i18n","nav.sign_in"],b,b),A.a([new A.h(s,n)],a),n,n,n)],a)
-s=A.b(m,A.f(["href","/signin"],b,b),s,"stickyBtn stickyBtnOutline",n,n)
+s=A.b(m,A.f(["href","https://app.oasset.app"],b,b),s,"stickyBtn stickyBtnOutline",n,n)
 r=A.f(["href","#","data-copy","info@oasset.app","data-toast-key","toast.email_copied"],b,b)
 e=A.r(e,"nav.contact_us","Contact us")
 e=A.b(m,r,A.a([A.b(l,A.f(["data-i18n","nav.contact_us"],b,b),A.a([new A.h(e,n)],a),n,n,n)],a),"stickyBtn stickyBtnSolid",n,n)
@@ -6563,7 +6563,7 @@ s(A.eu,A.dK)})()
 var v={G:typeof self!="undefined"?self:globalThis,typeUniverse:{eC:new Map(),tR:{},eT:{},tPV:{},sEA:[]},mangledGlobalNames:{d:"int",B:"double",ks:"num",j:"String",bd:"bool",E:"Null",n:"List",p:"Object",O:"Map",w:"JSObject"},mangledNames:{},types:["~()","a8(D,Z)","~(k)","E(p,au)","~(~())","E(@)","~(w)","b_(D,Z)","C/(j?)","~(d)","@()","N<C>(C)","bd(w)","E()","E(C)","~(p?,p?)","0&(j,d?)","~(d,d,d)","@(@)","j()","~(@,@)","j(W<j,j>)","@(@,j)","E(~())","+(w,w)()","d(am,am)","W<j,j>(j,j)","k?(k?)","aF(d,k?)","~(j,~(w))","E(~)","v(D)","j?(j?,b4)","0&(D,Z)","C/(D,C,cc,cd{extra:p?,redirectHistory:n<C>?})","j(c1)","d(k,k)","j?/(j?)","E(D,Z)","~(p?{url:j?})","~(d,@)","C(~)","bd(dQ)","N<~>(dQ)","p?(p?)","@(j)","d(@,@)","~(@)","bd(p?)","n<j>()","n<j>(j,n<j>)","O<j,j>(O<j,j>,j)","E(@,au)"],interceptorsByTag:null,leafTags:null,arrayRti:Symbol("$ti"),rttc:{"2;":(a,b)=>c=>c instanceof A.er&&a.b(c.a)&&b.b(c.b)}}
 A.m0(v.typeUniverse,JSON.parse('{"dJ":"aK","b6":"aK","aI":"aK","nW":"bp","dq":{"y":[]},"bS":{"E":[],"y":[]},"bV":{"w":[]},"aK":{"w":[]},"x":{"n":["1"],"l":["1"],"w":[],"e":["1"]},"dp":{"cf":[]},"fo":{"x":["1"],"n":["1"],"l":["1"],"w":[],"e":["1"]},"bT":{"B":[]},"bR":{"B":[],"d":[],"y":[]},"dr":{"B":[],"y":[]},"aH":{"j":[],"y":[]},"aP":{"e":["2"]},"aV":{"aP":["1","2"],"e":["2"],"e.E":"2"},"co":{"aV":["1","2"],"aP":["1","2"],"l":["2"],"e":["2"],"e.E":"2"},"cn":{"u":["2"],"n":["2"],"aP":["1","2"],"l":["2"],"e":["2"]},"aW":{"cn":["1","2"],"u":["2"],"n":["2"],"aP":["1","2"],"l":["2"],"e":["2"],"u.E":"2","e.E":"2"},"aJ":{"z":[]},"d5":{"u":["d"],"n":["d"],"l":["d"],"e":["d"],"u.E":"d"},"l":{"e":["1"]},"Q":{"l":["1"],"e":["1"]},"cj":{"Q":["1"],"l":["1"],"e":["1"],"e.E":"1","Q.E":"1"},"aa":{"e":["2"],"e.E":"2"},"aY":{"aa":["1","2"],"l":["2"],"e":["2"],"e.E":"2"},"ar":{"Q":["2"],"l":["2"],"e":["2"],"e.E":"2","Q.E":"2"},"cm":{"e":["1"],"e.E":"1"},"at":{"e":["1"],"e.E":"1"},"bj":{"at":["1"],"l":["1"],"e":["1"],"e.E":"1"},"aZ":{"l":["1"],"e":["1"],"e.E":"1"},"bt":{"u":["1"],"n":["1"],"l":["1"],"e":["1"]},"b3":{"Q":["1"],"l":["1"],"e":["1"],"e.E":"1","Q.E":"1"},"bL":{"aO":["1","2"],"O":["1","2"]},"bK":{"O":["1","2"]},"a5":{"bK":["1","2"],"O":["1","2"]},"ct":{"e":["1"],"e.E":"1"},"c7":{"av":[],"z":[]},"ds":{"z":[]},"e1":{"z":[]},"cE":{"au":[]},"dR":{"z":[]},"ap":{"b1":["1","2"],"O":["1","2"]},"a9":{"l":["1"],"e":["1"],"e.E":"1"},"b0":{"l":["1"],"e":["1"],"e.E":"1"},"aq":{"l":["W<1,2>"],"e":["W<1,2>"],"e.E":"W<1,2>"},"cu":{"dN":[],"c1":[]},"e6":{"e":["dN"],"e.E":"dN"},"dY":{"c1":[]},"bp":{"w":[],"ij":[],"y":[]},"c4":{"w":[]},"dy":{"ik":[],"w":[],"y":[]},"bq":{"U":["1"],"w":[]},"c3":{"u":["B"],"n":["B"],"U":["B"],"l":["B"],"w":[],"e":["B"]},"X":{"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"]},"dz":{"fb":[],"u":["B"],"n":["B"],"U":["B"],"l":["B"],"w":[],"e":["B"],"y":[],"u.E":"B"},"dA":{"fc":[],"u":["B"],"n":["B"],"U":["B"],"l":["B"],"w":[],"e":["B"],"y":[],"u.E":"B"},"dB":{"X":[],"fj":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"dC":{"X":[],"fk":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"dD":{"X":[],"fl":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"dE":{"X":[],"fX":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"dF":{"X":[],"fY":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"c5":{"X":[],"fZ":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"c6":{"X":[],"h_":[],"u":["d"],"n":["d"],"U":["d"],"l":["d"],"w":[],"e":["d"],"y":[],"u.E":"d"},"ez":{"jA":[]},"ej":{"z":[]},"cH":{"av":[],"z":[]},"L":{"z":[]},"bb":{"e":["1"],"e.E":"1"},"c8":{"z":[]},"cF":{"ed":["1"]},"F":{"N":["1"]},"b8":{"b1":["1","2"],"O":["1","2"]},"cs":{"b8":["1","2"],"b1":["1","2"],"O":["1","2"]},"cr":{"l":["1"],"e":["1"],"e.E":"1"},"b9":{"b5":["1"],"l":["1"],"e":["1"]},"ae":{"b5":["1"],"l":["1"],"e":["1"]},"u":{"n":["1"],"l":["1"],"e":["1"]},"b1":{"O":["1","2"]},"c0":{"O":["1","2"]},"aO":{"O":["1","2"]},"b5":{"l":["1"],"e":["1"]},"cD":{"b5":["1"],"l":["1"],"e":["1"]},"n":{"l":["1"],"e":["1"]},"dN":{"c1":[]},"cY":{"z":[]},"av":{"z":[]},"ah":{"z":[]},"c9":{"z":[]},"dk":{"z":[]},"ck":{"z":[]},"e0":{"z":[]},"bs":{"z":[]},"d8":{"z":[]},"dG":{"z":[]},"ch":{"z":[]},"ex":{"au":[]},"cO":{"e3":[]},"ev":{"e3":[]},"ee":{"e3":[]},"db":{"as":[],"ao":[],"jv":[]},"a7":{"as":[],"ao":[]},"dO":{"as":[],"ao":[]},"d2":{"H":[],"v":[]},"di":{"H":[],"v":[]},"bH":{"v":[]},"ea":{"Y":[],"k":[],"D":[]},"eE":{"H":[],"v":[]},"eC":{"H":[],"v":[]},"aj":{"N":["1"]},"k2":{"aG":[],"a6":[],"v":[]},"k":{"D":[]},"bQ":{"k":[],"D":[]},"bJ":{"k":[],"D":[]},"a6":{"v":[]},"da":{"Y":[],"k":[],"D":[]},"h":{"v":[]},"e_":{"Y":[],"k":[],"D":[]},"bP":{"v":[]},"el":{"Y":[],"k":[],"D":[]},"cA":{"v":[]},"cB":{"Y":[],"k":[],"D":[]},"aG":{"v":[]},"bX":{"k":[],"D":[]},"c2":{"k":[],"D":[]},"bo":{"Y":[],"k":[],"D":[]},"bY":{"Y":[],"k":[],"D":[]},"dU":{"v":[]},"dV":{"k":[],"D":[]},"H":{"v":[]},"dW":{"k":[],"D":[]},"cC":{"z":[]},"bn":{"z":[]},"de":{"H":[],"v":[]},"dm":{"aG":[],"v":[]},"dl":{"aG":[],"v":[]},"dP":{"cb":[]},"ce":{"v":[]},"br":{"dK":["ce"]},"cW":{"H":[],"v":[]},"b_":{"H":[],"v":[]},"dX":{"H":[],"v":[]},"dj":{"H":[],"v":[]},"dg":{"H":[],"v":[]},"dH":{"H":[],"v":[]},"dI":{"H":[],"v":[]},"du":{"H":[],"v":[]},"dL":{"H":[],"v":[]},"bO":{"H":[],"v":[]},"a8":{"H":[],"v":[]},"dv":{"H":[],"v":[]},"fl":{"n":["d"],"l":["d"],"e":["d"]},"h_":{"n":["d"],"l":["d"],"e":["d"]},"fZ":{"n":["d"],"l":["d"],"e":["d"]},"fj":{"n":["d"],"l":["d"],"e":["d"]},"fX":{"n":["d"],"l":["d"],"e":["d"]},"fk":{"n":["d"],"l":["d"],"e":["d"]},"fY":{"n":["d"],"l":["d"],"e":["d"]},"fb":{"n":["B"],"l":["B"],"e":["B"]},"fc":{"n":["B"],"l":["B"],"e":["B"]}}'))
 A.m_(v.typeUniverse,JSON.parse('{"e5":1,"dT":1,"dd":1,"bN":1,"e2":1,"bt":1,"cQ":2,"dx":1,"bZ":1,"bq":1,"cG":1,"c8":2,"ew":1,"eA":2,"c0":2,"cD":1,"cN":2,"d6":2,"d9":2,"dZ":1,"ci":1,"ek":1}'))
-var u={f:"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\u03f6\x00\u0404\u03f4 \u03f4\u03f6\u01f6\u01f6\u03f6\u03fc\u01f4\u03ff\u03ff\u0584\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u05d4\u01f4\x00\u01f4\x00\u0504\u05c4\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u0400\x00\u0400\u0200\u03f7\u0200\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u0200\u0200\u0200\u03f7\x00",c:"Error handler must accept one Object or one Object and a StackTrace as arguments, and return a value of the returned future's type",n:"document.querySelectorAll('.langDrop.open').forEach(function(dd){dd.classList.remove('open');});",o:"event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');",d:"event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"}
+var u={v:"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\u03f6\x00\u0404\u03f4 \u03f4\u03f6\u01f6\u01f6\u03f6\u03fc\u01f4\u03ff\u03ff\u0584\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u05d4\u01f4\x00\u01f4\x00\u0504\u05c4\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u0400\x00\u0400\u0200\u03f7\u0200\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u03ff\u0200\u0200\u0200\u03f7\x00",c:"Error handler must accept one Object or one Object and a StackTrace as arguments, and return a value of the returned future's type",n:"document.querySelectorAll('.langDrop.open').forEach(function(dd){dd.classList.remove('open');});",o:"event.preventDefault(); event.stopPropagation(); this.closest('.langDrop').classList.toggle('open');",j:"event.preventDefault(); var scroller=document.querySelector('.landing'); if(scroller){scroller.scrollTo({top: 0, behavior: 'smooth'});} else {window.scrollTo({top: 0, behavior: 'smooth'});}",d:"event.stopPropagation(); this.closest('.langDrop').classList.remove('open');"}
 var t=(function rtii(){var s=A.cT
 return{U:s("bH"),e:s("am"),dI:s("ij"),fd:s("ik"),dW:s("v"),w:s("a5<j,j>"),J:s("a6"),Q:s("l<@>"),h:s("k"),C:s("z"),M:s("df"),h4:s("fb"),gN:s("fc"),fU:s("bP"),b8:s("nU"),_:s("N<@>"),b3:s("ao"),p:s("aG"),r:s("bQ"),dQ:s("fj"),an:s("fk"),gj:s("fl"),hf:s("e<@>"),cq:s("x<am>"),i:s("x<v>"),k:s("x<k>"),O:s("x<w>"),f:s("x<p>"),c:s("x<cb>"),G:s("x<dQ>"),E:s("x<b4>"),bv:s("x<C>"),s:s("x<j>"),b:s("x<@>"),t:s("x<d>"),gz:s("x<L?>"),bT:s("x<~()>"),T:s("bS"),m:s("w"),g:s("aI"),aU:s("U<@>"),et:s("nV"),a:s("n<j>"),j:s("n<@>"),fK:s("W<j,j>"),eO:s("O<@,@>"),l:s("as"),eB:s("X"),P:s("E"),K:s("p"),L:s("nY"),bQ:s("+()"),F:s("dN"),bo:s("jv"),R:s("Y"),ba:s("dQ"),Z:s("C"),gm:s("au"),q:s("H"),N:s("j"),o:s("aj<C>"),he:s("aj<~>"),x:s("h"),dm:s("y"),u:s("jA"),eK:s("av"),h7:s("fX"),ai:s("fY"),go:s("fZ"),gc:s("h_"),ak:s("b6"),Y:s("aO<j,j>"),v:s("e3"),eI:s("F<@>"),hg:s("cs<p?,p?>"),D:s("cA"),d:s("bb<w>"),fi:s("k2"),y:s("bd"),V:s("B"),z:s("@"),A:s("@(p)"),W:s("@(p,au)"),S:s("d"),b4:s("k?"),eH:s("N<E>?"),bX:s("w?"),X:s("p?"),B:s("j?"),fQ:s("bd?"),I:s("B?"),h6:s("d?"),cg:s("ks?"),n:s("ks"),H:s("~"),ge:s("~()"),aC:s("~(w)")}})();(function constants(){var s=hunkHelpers.makeConstList
 B.K=J.dn.prototype

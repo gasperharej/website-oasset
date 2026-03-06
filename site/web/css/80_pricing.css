@@ -224,6 +224,12 @@
 
 /* Responsive (mobile/tablet starts at 1024px) */
 @media (max-width: 1024px) {
+  .pricing .container {
+    max-width: var(--container);
+    padding-left: clamp(20px, 5vw, 36px);
+    padding-right: clamp(20px, 5vw, 36px);
+  }
+
   /* reduce panel padding so card never overflows the viewport */
   .pricing {
     padding: 54px 0;

@@ -41,6 +41,10 @@ void main() {
       ),
       Component.element(
         tag: 'link',
+        attributes: {'rel': 'icon', 'type': 'image/svg+xml', 'href': 'images/only_logo.svg'},
+      ),
+      Component.element(
+        tag: 'link',
         attributes: {
           'rel': 'stylesheet',
           'href':

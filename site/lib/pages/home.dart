@@ -191,6 +191,8 @@ class StickyTopBar extends StatelessComponent {
         div_(classes: 'stickyRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
             'href': hrefFromRoutePath(isSl ? '${ctx.slPath}/' : ctx.enPath),
+            'onclick':
+                "event.preventDefault(); var scroller=document.querySelector('.landing'); if(scroller){scroller.scrollTo({top: 0, behavior: 'smooth'});} else {window.scrollTo({top: 0, behavior: 'smooth'});}",
           }, children: [
             img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
@@ -283,6 +285,8 @@ class HeroSection extends StatelessComponent {
         div_(classes: 'navRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
             'href': hrefFromRoutePath(isSl ? '${ctx.slPath}/' : ctx.enPath),
+            'onclick':
+                "event.preventDefault(); var scroller=document.querySelector('.landing'); if(scroller){scroller.scrollTo({top: 0, behavior: 'smooth'});} else {window.scrollTo({top: 0, behavior: 'smooth'});}",
           }, children: [
             img_(src: ImgPath.logoWhite, alt: 'OAsset', classes: 'brandLogo'),
           ]),

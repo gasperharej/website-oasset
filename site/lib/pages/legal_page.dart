@@ -134,7 +134,7 @@ class LegalStickyBar extends StatelessComponent {
       div_(classes: 'container', children: [
         div_(classes: 'stickyRow', children: [
           el('a', classes: 'brand brandBtn', attrs: {
-            'href': hrefFromRoutePath(isSl ? ctx.slPath : ctx.enPath),
+            'href': hrefFromRoutePath(isSl ? '${Routes.homeSl}/' : Routes.homeEn),
           }, children: [
             img_(src: ImgPath.logoBlack, alt: 'OAsset', classes: 'brandLogo'),
           ]),
